@@ -1,0 +1,96 @@
+.inst-box{
+	font-size: 25px;
+	font-family: georgia;
+background-color: white;
+    width: 50%;
+   
+ background-color: #ffffff;
+position: absolute;
+  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-top:10px solid teal;
+    padding: 40px;
+ top: 10px;
+    margin: 10%;
+    overflow: scroll;
+    text-align: justify-all;
+}
+
+.top{
+	position: absolute;
+	top: 15px;
+    left: 40px;
+    font-size: 25px;
+    font-family: georgia;
+    border: none;
+    outline: none;
+    max-width: 100%;
+}
+.icon{
+	position: absolute;
+	top: 20px;
+    left: 150px;
+}
+.icon1{
+	position: absolute;
+	top: 10px;
+	left: 9em;
+	
+	}
+	.doc{
+position: absolute;
+	top: 10px;
+	left: 8em;
+	font-family: georgia;
+	font-size: 25px;
+font-color: white;	
+}
+.icon2{
+position: absolute;
+	top: 10px;
+	right: 5em;
+}
+.icon3{
+position: absolute;
+	top: 10px;
+	right: 9em;
+}
+
+
+.icon{
+	top: 11px;
+	left: 5em;
+}
+.nav-link{
+	font-family: georgia;
+font-size: 20px;
+top:5px;
+color: white;
+
+
+
+}
+.nav-link:hover{
+	background-color: black;
+}
+
+.nav {
+   display: inline;
+   margin-right: 20px;
+   
+   }
+p5{
+	font-family: georgia;
+	font-size: 25px;
+}
+td, th{
+	font-family: arial;
+	font-size: 11px;
+}
+
+
+
+
+
+
+

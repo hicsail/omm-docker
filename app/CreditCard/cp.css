@@ -1,0 +1,93 @@
+
+
+.page1 {
+  display: flex;
+
+  
+  background: white;
+  margin: 20px 0;
+  padding: 10px;
+ max-width:1000px;
+  margin: auto;
+  height: 100%;
+  border: 2px grey solid;
+
+  
+}
+.page2 {
+  display: flex;
+ 
+  background: white;
+  margin: 20px 0;
+  padding: 10px;
+  max-width:1000px;
+   margin: auto;
+  height: 100%;
+  border: 2px grey solid;
+  margin-top: 3px;
+}
+.page3 {
+  display: flex;
+  
+  
+  background: white;
+  margin: 20px 0;
+  padding: 10px;
+  max-width:1000px;
+   margin: auto;
+  height: 100%;
+  border: 2px grey solid;
+    margin-top: 3px;
+}
+.content{
+  font-size:30.1px;
+color:#DC143C;
+font-weight:normal;
+font-style:normal;
+text-decoration: none;
+text-align: justify;
+}
+.sp1{
+    font-size:14px;
+  color:black;
+  font-weight:normal;
+    float:left;
+    position: relative;
+    width: 30%;
+    padding-bottom : 30%;
+  font-family:Arial,serif;
+  font-style:normal;
+  text-decoration:none;
+  position:absolute;
+    position: relative;
+     width:50%;
+  text-align:right;
+  float:left;
+  padding:0 1em;
+}
+.sp2{
+   width:50%;
+  text-align:right;
+  float:left;
+  padding:0 1em;
+}
+.flex-box {
+  display: flex;
+  flex-wrap: nowrap;
+  
+  border-color: blue;
+}
+
+.flex-box > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+
+
+
+
