@@ -5,12 +5,14 @@
 - Start Docker LAMP
 
 ```
-docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql mattrayner/lamp:latest
+docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql --restart=unless-stopped mattrayner/lamp:latest
 ```
 
 The command leverages mattrayner/lamp image to start a container running the LAMP stack. It expects a folder "app" at the directory where the command was run, where php code is stored.
 
 The container will start a mysql database, create a mysql folder at the directory where the command is run and mount that folder to var/lib/mysql inside the runnign container.
+
+--restart=unless-stopped flag will automatically restart the container if it crashes, is stopped, or if the host machine reboots, ensuring that the application is always running unless it is explicitly stopped.
 
 ## Copy data from XAMPP
 
