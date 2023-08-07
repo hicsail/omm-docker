@@ -57,7 +57,7 @@ Examiner_ID<br>
     <option value="1">1</option>
     <option value="2">2</option>
   </select>
-<br>
+<br><br>
 Form_ID<br>
 <select name="form" required>
     <option value="A">A</option>
