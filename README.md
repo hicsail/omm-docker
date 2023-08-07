@@ -10,10 +10,15 @@ docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql --
 
 The command leverages mattrayner/lamp image to start a container running the LAMP stack. It expects a folder "app" at the directory where the command was run, where php code is stored.
 
-The container will start a mysql database, create a mysql folder at the directory where the command is run and mount that folder to var/lib/mysql inside the runnign container.
+The container will start a mysql database server, create a mysql folder at the directory where the command is run and mount that folder to var/lib/mysql inside the runnign container.
 
 --restart=unless-stopped flag will automatically restart the container if it crashes, is stopped, or if the host machine reboots, ensuring that the application is always running unless it is explicitly stopped.
 
+- Create database
+The app requires the database CreditCard to be created in order to function properly. Create it with 
+```
+docker exec CONTAINER_ID  mysql -uroot -e "create database CreditCard"
+```
 ## Copy data from XAMPP
 
 The app requires its mysql database to have certain tables and relations already defined in order to function properly. Therefore, it was necessay to export mysql database from this [xampp folder](https://github.com/hicsail/omm-php). This may be a one-time step only since data is persisted in the docker container ran above.

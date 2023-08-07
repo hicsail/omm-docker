@@ -11,7 +11,6 @@ $subid = $row[0];
             $confidence = $_POST['confident'];
             $sql = mysqli_query($con,"INSERT into confidence1 VALUES ('$subid', '$confidence');");
             echo'<script>alert("Your confidence value is updated");</script>';
-
         }
     }
  ?>

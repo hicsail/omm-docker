@@ -11,9 +11,8 @@ if (isset($_POST['Enter'])) {
   $subid = $_POST['subid'];
   $session= $_POST['session'];
   $form= $_POST['form'];
-  $date= $_POST['date'];
 
-  $add_user = mysqli_query($con, "INSERT INTO registration VALUES ('$userid','$subid','$session','$form','$date',now())") or die("error" . mysqli_error($con));
+  $add_user = mysqli_query($con, "INSERT INTO registration VALUES ('$userid','$subid','$session','$form',now(),now())") or die("error" . mysqli_error($con));
 
 ?>
     <p style='padding: 20px; color: black;'> Registration Successful. Please <a href="instruction_page.php"> Click Here </a> to start the task.
@@ -54,13 +53,16 @@ Examiner_ID<br>
   Subject_ID<br>
   <input type="text" name="subid" required><br>
   Session<br>
-  <input type="text" name="session" required>
+  <select name="session" required>
+    <option value="1">1</option>
+    <option value="2">2</option>
+  </select>
 <br>
 Form_ID<br>
-<input type="text" name="form" required><br>
-Date<br>
-<input type="text" name="date" placeholder="MM/DD/YYYY" required><br>
-
+<select name="form" required>
+    <option value="A">A</option>
+    <option value="B">B</option>
+  </select><br><br>
 <center><input type="submit"  name="Enter" value="Enter" style="color: white;"></center></input></form>
 
 </BODY>
