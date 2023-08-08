@@ -115,7 +115,7 @@ else
   <div class="thecard" id ="3" onclick="newFunction(this)">
     <div class="front">
     <span> 
-    <img src="Capture2.png" id="img"></span>
+    <img src="Capture2.PNG" id="img"></span>
     </div>  
 
 
@@ -144,7 +144,7 @@ else
   <div class="maincontainer">
     <div class="thecard" id ="5" onclick="newFunction(this)">
       <div class="front">
-        <img src="Capture3.png" id="img">
+        <img src="Capture3.PNG" id="img">
       </div>
  
 
