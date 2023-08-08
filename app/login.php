@@ -128,7 +128,7 @@ else
   <div class="maincontainer">
     <div class="thecard" id ="4" onclick="newFunction(this)">
       <div class="front">
-        <img src="Cashback.png" id="img">
+        <img src="CashBack.png" id="img">
       </div>
      
  
