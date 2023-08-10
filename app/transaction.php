@@ -439,7 +439,7 @@ View</a>
   float: right; border-right: 2px solid grey; height: 25px; ">&nbsp Download &nbsp</a>
 
 <hr><span onclick="saveResponse(this) ; return false;">August</span> 
-<a href="" id="al26" onclick="saveResponse(this);" style="  color: crimson;
+<a href="" id="al26" onclick="saveResponse(this); return false;" style="  color: crimson;
   float: right;"> &nbsp
 View</a>
 

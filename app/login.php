@@ -66,7 +66,7 @@ else
    <h3 onclick="newFunction(this)" style="color:Black; font-family: georgia;">Welcome</h3>
 
     
-    <input type="password" style = "font-family: georgia;" placeholder="User Name" name="username" required>
+    <input type="text" style = "font-family: georgia;" placeholder="User Name" name="username" required  autocomplete="off">
 
     <input type="password" style = "font-family: georgia;" placeholder="Password" name="psw" required>
 <input type = "submit" onclick="newFunction(this)" value = "Login" name = "submit" id = "bt1">
