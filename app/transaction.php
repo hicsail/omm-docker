@@ -269,7 +269,7 @@
             a= "Youtube-icon";
           }
           //alert(a);
-          // saveTime(getTime(t),a);
+          saveTime(getTime(t),a);
           if(b!="100" && b!="al1")
           {
             await showAlert("This is incorrect. Please select another option.");
