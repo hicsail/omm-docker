@@ -2,6 +2,7 @@
 <?php
  session_start();
  include 'connect.php';
+ include 'getFormId.php';
  $sql = mysqli_query($con,"SELECT subid FROM registration ORDER BY datetime DESC LIMIT 1;");
 $row = mysqli_fetch_row($sql);
 $subid = $row[0]; 
@@ -67,7 +68,7 @@ $subid = $row[0];
 <br><br><br>
 </center>
  <h3><b><center>
-      On the next page, please login with username <span style="color: blue;">pat</span> and password <span style="color: blue;">admin123</span>. <br><br><br>If needed, you can click on “forgot username/password”.<br><br><br> 
+      On the next page, please login with username <span style="color: blue;"> <?php echo ($formid === "B") ? "eli" : "pat"; ?></span> and password <span style="color: blue;">admin123</span>. <br><br><br>If needed, you can click on “forgot username/password”.<br><br><br> 
 
    After you login, please download the <span style="text-decoration: underline; color: blue;">August 2018</span> statement.<br><br><br>
    Once I click on "Start Activity”, please complete this task as quickly and accurately as you can.<br><br><br>

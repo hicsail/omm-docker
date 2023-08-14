@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+ include 'connect.php'; 
+ include 'getFormId.php';
+ ?>
 <html>
 <head>
   <title>Online Bank System</title>
@@ -443,7 +447,7 @@ View</a>
   float: right;"> &nbsp
 View</a>
 
-<a id= "100" href="BankStatement.pdf" download="BankStatement.pdf" onclick="NextButton(this),saveResponse(this);" style=" color: crimson;
+<a id= "100" href= <?php echo ($formid === "B") ? "BankStatementEli.pdf" : "BankStatementPat.pdf"; ?>   download="BankStatement.pdf" onclick="NextButton(this),saveResponse(this);" style=" color: crimson;
   float: right; border-right: 2px solid grey; height: 25px; ">&nbsp Download &nbsp</a>
   <hr>
   <span onclick="saveResponse(this) ; return false;">July</span>

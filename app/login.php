@@ -15,13 +15,14 @@
 
 
 <?php
+include 'connect.php'; 
+include 'getFormId.php';
 if(isset($_POST['submit'])){
 
 $user = $_POST["username"];
 $pass = $_POST["psw"];
-
-if ($user == "pat" and $pass == "admin123")
-{
+$correct_username = $formid === "B" ? "eli" : "pat";
+ if ($user == $correct_username and $pass == "admin123"){
   header("Location: summary_page.php");
 
   
