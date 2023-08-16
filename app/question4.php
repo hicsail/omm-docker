@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+ include 'connect.php'; 
+ include 'getFormId.php';
+ ?>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -25,7 +29,10 @@
 <div class="jumbotron">
 <div class="container-fluid">
 	<div class="inst-box">
-		<p5><b><center><h2 style = "font-family: georgia;">In the current statement, what amount did Pat receive as the cashback amount in the 5% Bonus Categories?</h2></center></b></p5>
+		<p5><b><center><h2 style = "font-family: georgia;">
+    <?php echo ($formid === "B") ? "In the current statement, what is the annual percentage rate for cash advances?" :
+       "In the current statement, what amount did Pat receive as the cashback amount in the 5% Bonus Categories?"; ?>
+  </h2></center></b></p5>
 
 </p5><br>
 
@@ -36,6 +43,6 @@
 <hr>
 <br>
 <center>
-  <a href="PatMiller4.php" class="button"  style="color:white"><span> Next </span></button></center></a>
+  <a href=<?php echo ($formid === "B") ? "EliWinter4.php" : "PatMiller4.php"; ?>  class="button"  style="color:white"><span> Next </span></button></center></a>
 </body>
 </html>

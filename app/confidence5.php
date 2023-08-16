@@ -2,6 +2,7 @@
 <?php
  session_start();
  include 'connect.php';
+ include 'getFormId.php';
  $sql = mysqli_query($con,"SELECT subid FROM registration ORDER BY datetime DESC LIMIT 1;");
 $row = mysqli_fetch_row($sql);
 $subid = $row[0]; 
@@ -81,6 +82,6 @@ Once you are ready, the credit card statement will once again be displayed. <br>
 <br>
 <br>
 <center>
-<a href="PatMillerErr.php" class="button"  style="color:white"><span> Start Activity </span></button></center></a>
+<a href= <?php echo ($formid === "B") ? "EliWinterErr.php" : "PatMillerErr.php"; ?>  class="button"  style="color:white"><span> Start Activity </span></button></center></a>
 </body>
 </html>

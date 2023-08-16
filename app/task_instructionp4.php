@@ -3,6 +3,7 @@
 <?php
  session_start();
  include 'connect.php'; 
+ include 'getFormId.php';
  ?>
 <html>
 <head>
@@ -30,7 +31,7 @@
     <h4><center><b>
 This part of the task is focused on the <b><span style="color: blue;">Account Activity</span></b>. Please follow along carefully:<br><br><br>
 
-<b><span style="color: #8A2908;">This is Pat Miller’s credit card statement. <br><br><br>Pat is 64 years old and lives in NYC. <br><br><br>During this statement period, Pat did not travel outside New York City and incurred regular everyday expenses.</span><br><br><br></b>
+<b><span style="color: #8A2908;">This is <?php echo ($formid === "B") ? "Eli Winters'" : "Pat Miller’s"; ?>   credit card statement. <br><br><br><?php echo ($formid === "B") ? "Eli'" : "Pat"; ?>   is 64 years old and lives in NYC. <br><br><br>During this statement period, Pat did not travel outside New York City and incurred regular everyday expenses.</span><br><br><br></b>
  
 I would like you to imagine that this is a real-life credit card statement and review it carefully, as if it were yours.<br><br><br>
 

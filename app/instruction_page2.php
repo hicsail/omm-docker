@@ -4,7 +4,6 @@
  session_start();
  include 'connect.php'; 
  include 'getFormId.php';
-
  ?>
 <html>
 <head>

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+ include 'connect.php'; 
+ include 'getFormId.php';
+ ?>
 <html>
 <head>
 	
@@ -37,6 +41,6 @@
 <hr>
 <br>
 <center>
-  <a href="PatMiller2.php" class="button"  style="color:white"><span> Next </span></button></center></a>
+  <a href= <?php echo ($formid === "B") ? "EliWinter2.php" : "PatMiller2.php"; ?>   class="button"  style="color:white"><span> Next </span></button></center></a>
 </body>
 </html>
