@@ -40,7 +40,6 @@
 <div class="jumbotron">
 <div class="container-fluid">
 	<div class="inst-box">
-    <h3>{formid}</h3>
 		<h3><b><center><br>
       For this task, you have to login to a pretend credit card account and download a statement. <br><br><br>Specific instructions will be given in the next page.<br><br><br> 
 If you make an error, an <span onclick="erroralert(this)"; style ="color:blue">error</span> message will ask you to try another option.<br><br><br>
