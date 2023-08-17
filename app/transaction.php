@@ -18,29 +18,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>   
+ <script src="./popup.js"></script>
+
+
 <body onload="startTimer(this)">
      
 <div class="container-fluid">
  <p id="errMsg"></p>
-    
-<script>
-       var t = 0, b=0;
-        var i;
-        var clicks = 0;
 
-    async function showAlert (message){
-      console.log('called showAlert');
-      
-      const myPopup = new Popup({
-        id: "my-popup",
-        title: message,
-        content: `
-        An example popup.
-        Supports multiple lines.`,
-    });
-    myPopup.show();
-  }
+<script >
+       var t = 0, b=0;
+       var i;
+       var clicks = 0;
+
         function NextButton(e)
         {
           var Mydiv = document.getElementById("2000");
@@ -50,41 +41,11 @@
           button.setAttribute("onclick" ,"window.location.href='confidence2.php'" ) ;
           Mydiv.appendChild(button);
         }
+
         function HelpAlert(e)
         {         
           showAlert("Please download the statement for August 2018");
         }
-
-        function startTimer(e){
-            var a = e.innerHTML;
-            //alert(a);
-            i = window.setInterval(()=>{
-                t++;
-                showTime(getTime(t));
-            },1000) 
-            e.setAttribute("onclick","saveResponse(this) ; return false;");
-             //b+=1;
-            saveTime(getTime(t),a);
-//alert("You have chosen the home tab");
-        
-        }
-
-        function stopTimer(e){
-            window.clearInterval(i);
-            var a = e.innerHTML;
-            //alert(a);
-            e.setAttribute("onclick","startTimer(this)");
-    
-          //alert(a);
-          b+=1;
-         
-          saveTime(getTime(t),a,b);
-          
-            }
-  
-
-
-
 
         async function saveResponse(e){
           //"setColor(e);
@@ -280,6 +241,35 @@
           }
         }
 
+        function startTimer(e){
+            var a = e.innerHTML;
+            //alert(a);
+            i = window.setInterval(()=>{
+                t++;
+                showTime(getTime(t));
+            },1000) 
+            e.setAttribute("onclick","saveResponse(this) ; return false;");
+             //b+=1;
+            saveTime(getTime(t),a);
+//alert("You have chosen the home tab");
+        
+        }
+
+        function stopTimer(e){
+            window.clearInterval(i);
+            var a = e.innerHTML;
+            //alert(a);
+            e.setAttribute("onclick","startTimer(this)");
+    
+          //alert(a);
+          b+=1;
+         
+          saveTime(getTime(t),a,b);
+          
+            }
+  
+
+
         function showTime(time) {
             document.getElementById("time").innerHTML= time;
         }
@@ -338,7 +328,7 @@
         <a class="nav-link"  href="#" onclick="saveResponse(this) ; return false;" style="color: white">Logout</a>
       </li>
       <li class="nav_item">
-        <button value="help" id="al1" style = "background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black; border: 2px solid black; position:absolute; right:30px;" onclick="await HelpAlert(this),saveResponse(this) ; ">Help</button>
+        <button value="help" id="al1" style = "background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black; border: 2px solid black; position:absolute; right:30px;" onclick="HelpAlert(this),saveResponse(this) ; ">Help</button>
       </li>
     </ul>
      

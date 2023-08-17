@@ -18,7 +18,6 @@
   <link rel="stylesheet" type="text/css" href="flip.css">
 </head>
 
-<button value="help" style = "background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black; border: solid black; position:absolute; right:10px;" onclick="HelpAlert(this)">Help</button>
 <body>
   <br>
   <br>

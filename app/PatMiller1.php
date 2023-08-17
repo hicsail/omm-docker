@@ -40,6 +40,9 @@ div.cls_024{font-family:Times,serif;font-size:10.6px;color:rgb(0,0,0);font-weigh
 -->
 </style>
 <script type="text/javascript" src="428c9294-002d-11ea-9d71-0cc47a792c0a_id_428c9294-002d-11ea-9d71-0cc47a792c0a_files/wz_jsgraphics.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>   
+<script src="./popup.js"></script>
+
 </head>
 <body onload = "toggleZoomScreen()">
 	<script>
@@ -51,7 +54,8 @@ div.cls_024{font-family:Times,serif;font-size:10.6px;color:rgb(0,0,0);font-weigh
 
         function HelpAlert(e)
         {
-          alert("In the current statement, when is the Minimum Payment due?");
+          document.body.style.zoom = "100%";
+          showAlert("In the current statement, when is the Minimum Payment due?", ()=>{document.body.style.zoom = "240%";});
         }
 
 	function setColor(e) {
@@ -149,7 +153,7 @@ div.cls_024{font-family:Times,serif;font-size:10.6px;color:rgb(0,0,0);font-weigh
 
         function getTime(m){
             let hh = "" + Math.floor(m/3600);
-            m=m%3600;
+            m=m% ;
             let mm = "" + Math.floor(m/60);
             m=m%60;
             let ss = "" + m;
@@ -181,7 +185,7 @@ div.cls_024{font-family:Times,serif;font-size:10.6px;color:rgb(0,0,0);font-weigh
 
     </script>
 
-<button value="help" style = "background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black;border: 2px solid black; position:fixed; right:10px;" onclick="HelpAlert(this),stopTimer(this)">Help</button>
+
 <div style="position:absolute;left:50%;margin-left:-306px;top:0px;width:612px;height:792px;border-style:outset;overflow:hidden" data-count="0">
 <div style="position:absolute;left:0px;top:0px">
 <img src="BG/background1.jpg" width=612 height=792></div>
@@ -637,6 +641,7 @@ div.cls_024{font-family:Times,serif;font-size:10.6px;color:rgb(0,0,0);font-weigh
 <div style="position:absolute;left:551.22px;top:618.20px" class="cls_022"><span class="cls_022">$49.51</span></div></div>
 <div style="position:absolute;left:283.63px;top:767.25px" class="cls_006"><span class="cls_006"  onclick = "stopTimer(this),setColor(event)"; data-count="1">Page 3 of 3</span></div>
 </div>
+<button value="help" style = "background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black;border: 2px solid black; position:fixed; right:10px;" onclick="HelpAlert(this),stopTimer(this)">Help</button>
 <BUTTON onclick = "window.location.href='question2.php'" style="position: fixed;right:10px; bottom: 20px;" >Next</BUTTON>
 </body>
 </html>
