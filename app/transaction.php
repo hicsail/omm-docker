@@ -271,7 +271,8 @@
 
 
         function showTime(time) {
-            document.getElementById("time").innerHTML= time;
+          //TODO remove if not needed
+            // document.getElementById("time").innerHTML= time;
         }
 
         function getTime(m){

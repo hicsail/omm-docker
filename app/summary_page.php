@@ -12,6 +12,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>   
+ <script src="./popup.js"></script>
 
 <body onload="startTimer(this)">
 <div class="container-fluid">
@@ -28,7 +30,7 @@
 
         function HelpAlert(e)
         {
-          alert("Please download the statement for August 2018");
+          showAlert("Please download the statement for August 2018");
         }
 
         function startTimer(e){
@@ -41,7 +43,7 @@
             e.setAttribute("onclick","stopTimer(this)");
              //b+=1;
             saveTime(getTime(t),a);
-alert("You have chosen the home tab");
+            showAlert("You have chosen the home tab");
         
         }
 
@@ -103,7 +105,7 @@ alert("You have chosen the home tab");
           //alert(a);
           saveTime(getTime(t),a);
           if(b != "al1"){
-          alert("This is incorrect. Please select another option.");}
+            showAlert("This is incorrect. Please select another option.");}
         }
 
         function showTime(time) {

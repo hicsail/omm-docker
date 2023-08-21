@@ -12,6 +12,8 @@
  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 <link rel="stylesheet" type="text/css" href="footer.css">
 <link rel="stylesheet" type="text/css" href="login.css">
+<script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>   
+ <script src="./popup.js"></script>
 
 
 <?php
@@ -263,6 +265,7 @@ if($(window).scrollTop()>250){
             return  hh.padStart(2,"0") + ":" + mm.padStart(2,"0") + ":" + ss.padStart(2,"0");
         }
            var b = 0;
+
 function newFunction(e){
   var a = e.innerHTML;
   var b = e.id;
@@ -314,12 +317,12 @@ function newFunction(e){
   saveTime(getTime(t),a,clicks);
   if(b!="1000" && b!="bt1")
   {
-  alert("This is incorrect. Please select another option.");
+    showAlert("This is incorrect. Please select another option.");
   }
 }
     function validate()
     {
-      alert("Incorrect Password");
+      showAlert("Incorrect Password");
     }
 
 

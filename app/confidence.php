@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <?php
  session_start();
  include 'connect.php';
@@ -11,7 +12,7 @@ $subid = $row[0];
         {
             $confidence = $_POST['confident'];
             $sql = mysqli_query($con,"INSERT into confidence1 VALUES ('$subid', '$confidence');");
-            // echo'<script>alert("Your confidence value is updated");</script>';
+            echo'<script>alert("Your confidence value is updated");</script>';
         }
     }
  ?>
@@ -25,10 +26,11 @@ $subid = $row[0];
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="header.css">
   <link rel="stylesheet" type="text/css" href="flip.css">
-</head>
 
+</head>
 <body>
   <br>
   <br>

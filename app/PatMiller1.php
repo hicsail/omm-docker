@@ -153,7 +153,7 @@ div.cls_024{font-family:Times,serif;font-size:10.6px;color:rgb(0,0,0);font-weigh
 
         function getTime(m){
             let hh = "" + Math.floor(m/3600);
-            m=m% ;
+            m=m%3600;
             let mm = "" + Math.floor(m/60);
             m=m%60;
             let ss = "" + m;

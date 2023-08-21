@@ -28,7 +28,6 @@
       alert("This is incorrect. Please select another option.");
     }
   </script>
-	<button value="help" style = "background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black;border: 2px solid black; position:absolute; right:10px;" onclick="HelpAlert(this)">Help</button>
   <!--<bgsound src="C:\xampp\htdocs\Omm codes\file_example_MP3_700KB.mp3" loop="true" autostart="true">
   </bgsound>
 </audio>-->
