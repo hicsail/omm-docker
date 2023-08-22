@@ -39,7 +39,6 @@ span.cls_024{font-family:Times,serif;font-size:10.6px;color:rgb(0,0,0);font-weig
 div.cls_024{font-family:Times,serif;font-size:10.6px;color:rgb(0,0,0);font-weight:bold;font-style:italic;text-decoration: none}
 -->
 </style>
-<script type="text/javascript" src="428c9294-002d-11ea-9d71-0cc47a792c0a_id_428c9294-002d-11ea-9d71-0cc47a792c0a_files/wz_jsgraphics.js"></script>
 </head>
 <body onload="toggleZoomScreen()">
 	<script>
@@ -77,7 +76,7 @@ function HelpAlert(e)
         function startTimer(e){
             i = window.setInterval(()=>{
                 t++;
-                showTime(getTime(t));P
+                showTime(getTime(t));
             },1000) 
             //e.setAttribute("onclick","stopTimer(this),setColor(event)");
 
@@ -143,7 +142,8 @@ function HelpAlert(e)
 
 
         function showTime(time) {
-                document.getElementById("time").innerHTML= time;
+            /* delete if not needed */
+                /* document.getElementById("time").innerHTML= time; */
         }
 
         function getTime(m){
@@ -162,9 +162,13 @@ function HelpAlert(e)
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status != 200) {
-                        document.getElementById("errMsg").innerHTML = "Exception while saving data : " + this.responseText;
+                        console.log('Exception while saving data');
+
+                        /* document.getElementById("errMsg").innerHTML = "Exception while saving data : " + this.responseText; */
                     } else {
-                        document.getElementById("errMsg").innerHTML = "";
+                        /* document.getElementById("errMsg").innerHTML = ""; */
+                        console.log('no error while saving data');
+
                     }
                 };
                 xmlhttp.open("POST", "send_task2", true);
@@ -181,9 +185,12 @@ function HelpAlert(e)
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status != 200) {
-                        document.getElementById("errMsg").innerHTML = "Exception while saving data : " + this.responseText;
+                        console.log('Exception while saving data');
+
+                        /* document.getElementById("errMsg").innerHTML = "Exception while saving data : " + this.responseText; */
                     } else {
-                        document.getElementById("errMsg").innerHTML = "";
+                        console.log('no error while saving data');
+                        /* document.getElementById("errMsg").innerHTML = ""; */
                     }
                 };
                 xmlhttp.open("POST", "send_task2.php", true);

@@ -15,7 +15,9 @@ async function showAlert(message, callback = null) {
         font-size: 30px;
     }`,
     hideCallback: () => {
-      callback();
+      if (callback) {
+        callback();
+      }
     },
   });
   popup.show();
