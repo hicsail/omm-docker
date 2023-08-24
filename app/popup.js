@@ -1,5 +1,4 @@
 async function showAlert(message, callback = null) {
-  console.log("called showAlert");
   const popup = new Popup({
     id: "my-popup",
     title: message,
