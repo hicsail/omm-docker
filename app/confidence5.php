@@ -40,7 +40,7 @@ include 'getFormId.php';
   <br>
   <br>
   <center>
-    <a href=<?php echo ($formid === "B") ? "EliWinterErr.php" : "PatMillerErr.php"; ?> class="button" style="color:white"><span> Start Activity </span></button>
+    <a href=<?php echo ($formid === "B") ? "EliWinterErr.php" : "PatMillerErr.php"; ?> class="button" style="color:white"><span>Start Activity </span></button>
   </center></a>
 </body>
 
