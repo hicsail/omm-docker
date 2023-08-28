@@ -74,13 +74,13 @@ function setQuestionText() {
 
   //set next button destination
   var link = document.querySelector(".button");
-  const dest = link.href.split(".");
+  const dest = link.href.split(".php");
   //replace last character of page name with question number
   //for eg. in ques 4, PatMiller1.php will be turned into PatMiller4.php by replacing 1
   //with the 4 in question4
 
   const linkWithCorrectQueNumber =
-    dest[0].slice(0, -1) + getQuestionId().slice(-1) + "." + dest[1];
+    dest[0].slice(0, -1) + getQuestionId().slice(-1) + ".php";
   link.href = linkWithCorrectQueNumber;
 }
 
