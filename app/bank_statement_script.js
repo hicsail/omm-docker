@@ -1,7 +1,6 @@
 const bankStatementQuestionAnswers = {
   question1: {
     question: "In the current statement, when is the Minimum Payment due?",
-
     answer: "10/09/2018",
     nextPage: "question2.php",
     answerTag: "1", //elements with correct answers are tagged with unique ids
@@ -53,7 +52,7 @@ const bankStatementQuestionAnswers = {
   },
 };
 
-//script to add answer attempt to db
+//script that adds answer attempt to db
 var inputFile = "bank_statement_question_input.php";
 
 function getQuestionId() {
@@ -68,10 +67,22 @@ function getQuestionId() {
   return questionId;
 }
 
-console.log(
-  "next page",
-  bankStatementQuestionAnswers[getQuestionId()].nextPage
-);
+function setQuestionText() {
+  var questionElement = document.getElementById("questionText");
+  questionElement.textContent =
+    bankStatementQuestionAnswers[getQuestionId()].question;
+
+  //set next button destination
+  var link = document.querySelector(".button");
+  const dest = link.href.split(".");
+  //replace last character of page name with question number
+  //for eg. in ques 4, PatMiller1.php will be turned into PatMiller4.php by replacing 1
+  //with the 4 in question4
+
+  const linkWithCorrectQueNumber =
+    dest[0].slice(0, -1) + getQuestionId().slice(-1) + "." + dest[1];
+  link.href = linkWithCorrectQueNumber;
+}
 
 function goToNextPage() {
   window.location.href = bankStatementQuestionAnswers[getQuestionId()].nextPage;
