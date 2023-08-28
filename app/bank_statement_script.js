@@ -1,40 +1,53 @@
 const bankStatementQuestionAnswers = {
   question1: {
+    question: "In the current statement, when is the Minimum Payment due?",
+
     answer: "10/09/2018",
     nextPage: "question2.php",
     answerTag: "1", //elements with correct answers are tagged with unique ids
   },
   question2: {
+    question:
+      "In the current statement, what is the available Cash Advance Line?",
     answer: "$900",
     nextPage: "question3.php",
     answerTag: "2",
   },
   question3: {
+    question:
+      "In the current statement, what is the Annual Percentage Rate for purchases?",
     answer: "16.99%",
     nextPage: "question4.php",
     answerTag: "3",
   },
   question4: {
+    question:
+      "In the current statement, what amount did Pat receive as the cashback amount in the 5% Bonus Categories?",
     answer: "$17.61",
     nextPage: "question5.php",
     answerTag: "4",
   },
   question5: {
+    question: "In the current statement, what is the Total Credit Line?",
     answer: "$4,500",
     nextPage: "question6.php",
     answerTag: "5",
   },
   question6: {
+    question:
+      "In the current statement, what is the maximum percentage amount of the Penalty APR?",
     answer: "29.99%",
     nextPage: "question7.php",
     answerTag: "6",
   },
   question7: {
+    question: "What is the opening date of the current statement?",
     answer: "08/16/2018",
     nextPage: "confidence4.php",
     answerTag: "7",
   },
   PatMillerErr: {
+    question: "Click on suspicious/strange transactions",
     answer: "08/16/2018",
     nextPage: "fetch.php",
   },
@@ -71,21 +84,14 @@ function toggleZoomScreen() {
 
 function helpAlert(e) {
   document.body.style.zoom = "100%";
-  showAlert(
-    "In the current statement, when is the Minimum Payment due?",
-    () => {
-      document.body.style.zoom = "240%";
-    }
-  );
+  showAlert(bankStatementQuestionAnswers[getQuestionId()].question, () => {
+    document.body.style.zoom = "240%";
+  });
 }
 
 function setColor(e) {
   var target = e.target;
   target.style.color = "#FF00FF";
-  //var count = +target.dataset.count;
-
-  //target.style.color = count === 0 ? "#000000 " : "#FF00FF";
-  //target.dataset.count = count === 0 ? 1 : 0;
 }
 
 function setClr(e) {
@@ -113,7 +119,6 @@ function startTimer(e) {
     t++;
     showTime(getTime(t));
   }, 1000);
-  // e.setAttribute("onclick","stopTimer(this),setColor(event)");
 }
 
 function stopTimer(e) {
