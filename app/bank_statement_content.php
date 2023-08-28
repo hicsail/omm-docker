@@ -240,7 +240,7 @@
             <div style="position:absolute;left:164.08px;top:359.87px" class="cls_002"><span class="cls_002">OLLIE DINER L-09118 NY</span></div>
             <div style="position:absolute;left:462.95px;top:359.87px" class="cls_002"><span class="cls_002">28.88</span></div>
         </div>
-        <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+        <div id="500" onclick="stopTimer(this),setColor(event)" ; data-count="0">
             <div style="position:absolute;left:32.53px;top:371.37px" class="cls_002"><span class="cls_002">Aug 6</span></div>
             <div style="position:absolute;left:112.80px;top:371.37px" class="cls_002"><span class="cls_002">Aug 6</span></div>
             <div style="position:absolute;left:164.08px;top:371.37px" class="cls_002"><span class="cls_002">HAMPTON INN DC LONDON UK</span></div>
@@ -313,13 +313,13 @@
             <div style="position:absolute;left:164.08px;top:513.92px" class="cls_002"><span class="cls_002">BURGER KING #5463 NY</span></div>
             <div style="position:absolute;left:462.95px;top:513.92px" class="cls_002"><span class="cls_002">13.93</span></div>
         </div>
-        <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+        <div id="600" onclick="stopTimer(this),setColor(event)" ; data-count="0">
             <div style="position:absolute;left:32.53px;top:525.42px" class="cls_002"><span class="cls_002">Aug 15</span></div>
             <div style="position:absolute;left:112.80px;top:525.42px" class="cls_002"><span class="cls_002">Aug 15</span></div>
             <div style="position:absolute;left:164.08px;top:525.42px" class="cls_002"><span class="cls_002">COMCAST CABLE NYC 700-334-0900 NY</span></div>
             <div style="position:absolute;left:462.95px;top:525.42px" class="cls_002"><span class="cls_002">1486.07</span></div>
         </div>
-        <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+        <div id="700" onclick="stopTimer(this),setColor(event)" ; data-count="0">
             <div style="position:absolute;left:32.53px;top:536.92px" class="cls_002"><span class="cls_002">Aug 18</span></div>
             <div style="position:absolute;left:112.80px;top:536.92px" class="cls_002"><span class="cls_002">Aug 18</span></div>
             <div style="position:absolute;left:164.08px;top:536.92px" class="cls_002"><span class="cls_002">UBER TAXI TRIP #2220648 WASHINGTON DC</span></div>
@@ -397,7 +397,7 @@
             <div style="position:absolute;left:164.08px;top:676.22px" class="cls_002"><span class="cls_002">STARBUCKS CAFE #1233 NYC NY</span></div>
             <div style="position:absolute;left:462.95px;top:676.22px" class="cls_002"><span class="cls_002">5.97</span></div>
         </div>
-        <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+        <div id="900" onclick="stopTimer(this),setColor(event)" ; data-count="0">
             <div style="position:absolute;left:32.53px;top:687.72px" class="cls_002"><span class="cls_002">Aug 23</span></div>
             <div style="position:absolute;left:112.80px;top:687.72px" class="cls_002"><span class="cls_002">Aug 23</span></div>
             <div style="position:absolute;left:164.08px;top:687.72px" class="cls_002"><span class="cls_002">MAGNOLIA RESTAURANT NY</span></div>
@@ -456,7 +456,7 @@
             <div style="position:absolute;left:164.08px;top:159.80px" class="cls_002"><span class="cls_002">BLOOMINGDALES 314202 3278763 NY</span></div>
             <div style="position:absolute;left:462.95px;top:159.80px" class="cls_002"><span class="cls_002">120.68</span></div>
         </div>
-        <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+        <div id="800" onclick="stopTimer(this),setColor(event)" ; data-count="0">
             <div style="position:absolute;left:32.53px;top:173.55px" class="cls_002"><span class="cls_002">Sep 1</span></div>
             <div style="position:absolute;left:112.80px;top:173.55px" class="cls_002"><span class="cls_002">Sep 1</span></div>
             <div style="position:absolute;left:164.08px;top:173.55px" class="cls_002"><span class="cls_002">MOTTS HAIRCUTS 9507030021 BROOKLYN NY</span></div>

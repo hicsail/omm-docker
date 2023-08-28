@@ -16,5 +16,4 @@ $clicks =$_POST["clicks"];
 $sql = mysqli_query($con,"SELECT subid FROM registration ORDER BY datetime DESC LIMIT 1;");
 $row = mysqli_fetch_row($sql);
 $subid = $row[0];
- $t = mysqli_query($con, "INSERT INTO transaction_task VALUES('$subid','$clicks','$time','$r','$answer')");
-?>
+$t = mysqli_query($con, "INSERT INTO transaction_task VALUES('$subid','$clicks','$time','$r','$answer')");

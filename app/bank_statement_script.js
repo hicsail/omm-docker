@@ -34,14 +34,14 @@ const bankStatementQuestionAnswers = {
     nextPage: "confidence4.php",
     answerTag: "7",
   },
-  Err: {
+  PatMillerErr: {
     answer: "08/16/2018",
     nextPage: "fetch.php",
   },
 };
 
 //script to add answer attempt to db
-const inputFile = "bank_statement_question_input.php";
+var inputFile = "bank_statement_question_input.php";
 
 function getQuestionId() {
   // Get the script element that includes this script
@@ -117,12 +117,13 @@ function startTimer(e) {
 }
 
 function stopTimer(e) {
-  var id = e.id;
+  var elementId = e.id;
 
   var user_answer;
   //user clicked on the correct element
-  if (id == bankStatementQuestionAnswers[getQuestionId()].answerTag) {
+  if (elementId == bankStatementQuestionAnswers[getQuestionId()].answerTag) {
     user_answer = bankStatementQuestionAnswers[getQuestionId()].answer;
+    //user clicked on something else
   } else {
     var a = e.innerHTML;
     a = a.trim();
@@ -132,9 +133,17 @@ function stopTimer(e) {
     a = a.replace(/(\r\n|\n|\r)/gi, " ");
     user_answer = a;
   }
-  saveTime(getTime(t), user_answer, getQuestionId());
+  var question_number = getQuestionId();
+  if (getQuestionId() == "PatMillerErr") {
+    // in PatMillerErr, send_task2.php is called with requires id of the clicked element.
+    //here, it question_number var is forced to store value of element id to prevent creating a new handler function
+    question_number = elementId;
+    //TODO refactor and merge bank_statement_input.php with send_task2.php to prevent this hacky workaround
+  }
+  saveTime(getTime(t), user_answer, question_number);
 }
 
+//TODO remove
 function showTime(time) {
   /* document.getElementById("time").innerHTML= time; */
 }
@@ -160,6 +169,7 @@ function saveTime(time, user_answer, question_number) {
     "  question_number: ",
     question_number
   );
+
   const correct_answer = bankStatementQuestionAnswers[getQuestionId()].answer;
 
   clicks++;
@@ -168,29 +178,47 @@ function saveTime(time, user_answer, question_number) {
     xmlhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status != 200) {
         console.log("Exception while saving data");
-
-        /* document.getElementById("errMsg").innerHTML = "Exception while saving data : " + this.responseText; */
       } else {
-        /* document.getElementById("errMsg").innerHTML = ""; */
         console.log("no error while saving data");
       }
     };
-    xmlhttp.open("POST", inputFile, true);
-    xmlhttp.setRequestHeader(
-      "Content-type",
-      "application/x-www-form-urlencoded"
-    );
-    xmlhttp.send(
-      "time=" +
-        time +
-        "&user_answer=" +
-        user_answer +
-        "&correct_answer=" +
-        correct_answer +
-        "&clicks=" +
-        clicks +
-        "&question_number=" +
-        question_number
-    );
+    if (getQuestionId() == "PatMillerErr") {
+      xmlhttp.open("POST", "send_task2.php", true);
+      xmlhttp.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+      // in PatMillerErr.php, question_number var is forced to store value of element id
+      //to prevent creating a new handler function
+      const user_answer_id = question_number;
+      xmlhttp.send(
+        "time=" +
+          time +
+          "&a=" +
+          user_answer +
+          "&b=" +
+          user_answer_id +
+          "&clicks=" +
+          clicks
+      );
+    } else {
+      xmlhttp.open("POST", inputFile, true);
+      xmlhttp.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+      xmlhttp.send(
+        "time=" +
+          time +
+          "&user_answer=" +
+          user_answer +
+          "&correct_answer=" +
+          correct_answer +
+          "&clicks=" +
+          clicks +
+          "&question_number=" +
+          question_number
+      );
+    }
   }
 }
