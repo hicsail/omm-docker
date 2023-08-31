@@ -255,7 +255,7 @@ CREATE TABLE `question3` (
 
 LOCK TABLES `question3` WRITE;
 /*!40000 ALTER TABLE `question3` DISABLE KEYS */;
-INSERT INTO `question3` VALUES ('Test',1,'00:00:03','Help',0,1),('Test',2,'00:00:10','Aug 5 Aug 6 FIVESTAR COFFEE STORE 073959 NYC NY 4.13',0,1),('Test',3,'00:00:17','Total Interest for this Period 49.51',0,1),('Test',4,'00:00:18','Total Interest for this Period 49.51',0,1),('Test',5,'00:00:19','Total Fees Charged in 2019 $30.00',0,1);
+INSERT INTO `question3` VALUES ('Test',1,'00:00:03','Help',0,1),('Test',2,'00:00:10','Aug 5 Aug 6 FIVESTAR COFFEE STORE 073959 New York City NY 4.13',0,1),('Test',3,'00:00:17','Total Interest for this Period 49.51',0,1),('Test',4,'00:00:18','Total Interest for this Period 49.51',0,1),('Test',5,'00:00:19','Total Fees Charged in 2019 $30.00',0,1);
 /*!40000 ALTER TABLE `question3` ENABLE KEYS */;
 UNLOCK TABLES;
 

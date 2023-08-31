@@ -1,135 +1,134 @@
 <!DOCTYPE html>
 <?php
- session_start();
- include 'connect.php'; 
- ?>
+session_start();
+include 'connect.php';
+?>
 <html>
+
 <head>
 	<title>Bank statement</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="pdf.css">
+	<link rel="stylesheet" type="text/css" href="pdf.css">
 
- 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
- <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<link rel="stylesheet" type="text/css" href="change.css">
 
 </head>
 <style type="text/css">
-
-td.selected {
-  background-color: red;
-}
-
+	td.selected {
+		background-color: red;
+	}
 </style>
 
 <body>
 
 	<div class="col-sm-3 col-md-6 col-lg-4" id="pdf">
-<div class="container-fluid">
-	
-
-    
-    <p id = "errMsg"></p>
-    <script type="text/javascript">
-        var t = 0;
-        var i;
-
-      
-        function OMMTimer(e){
-            i = window.setInterval(()=>{
-                t++;
-                showTime(getTime(t));
-            },1000) 
-            e.setAttribute("onclick","startTimer(this)");
-           
-        }
-
-        function startTimer(e){
-            i = window.setInterval(()=>{
-                t++;
-                showTime(getTime(t));
-            },1000) 
-            e.setAttribute("onclick","stopTimer(this)");
-
-        
-        }
-
-        function stopTimer(e){
-            window.clearInterval(i);
-            e.setAttribute("onclick","startTimer(this)");
-          var a = e.innerHTML;
-          //alert(a);
-            saveTime(getTime(t),a);
-        }
-
-        function showTime(time) {
-                document.getElementById("time").innerHTML= time;
-        }
-
-        function getTime(m){
-            let hh = "" + Math.floor(m/3600);
-            m=m%3600;
-            let mm = "" + Math.floor(m/60);
-            m=m%60;
-            let ss = "" + m;
-
-            return  hh.padStart(2,"0") + ":" + mm.padStart(2,"0") + ":" + ss.padStart(2,"0");
-        }
-
-        function saveTime(time,ans) {
-          
-            if(t>0){
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status != 200) {
-                        document.getElementById("errMsg").innerHTML = "Exception while saving data : " + this.responseText;
-                    } else {
-                        document.getElementById("errMsg").innerHTML = "";
-                    }
-                };
-                xmlhttp.open("POST", "question4_send.php", true);
-                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xmlhttp.send("time=" + time + "&ans=" + ans );
-          
-            }
-        }
-     
-
-
-    </script>
-
-
-
-</div>
-</div>
-</div>
-
-	
-<div class="col-sm-3 col-md-6 col-lg-4">
 		<div class="container-fluid">
 
-	<div class="page1" onclick="setColor(event)" ; data-count="0"/>
-	<div id="click1" onclick="OMMTimer(this)"> OMM VISA</div>
-	
-		<pre><span class="sp1" onclick="stopTimer(this)">
+
+
+			<p id="errMsg"></p>
+			<script type="text/javascript">
+				var t = 0;
+				var i;
+
+
+				function OMMTimer(e) {
+					i = window.setInterval(() => {
+						t++;
+						showTime(getTime(t));
+					}, 1000)
+					e.setAttribute("onclick", "startTimer(this)");
+
+				}
+
+				function startTimer(e) {
+					i = window.setInterval(() => {
+						t++;
+						showTime(getTime(t));
+					}, 1000)
+					e.setAttribute("onclick", "stopTimer(this)");
+
+
+				}
+
+				function stopTimer(e) {
+					window.clearInterval(i);
+					e.setAttribute("onclick", "startTimer(this)");
+					var a = e.innerHTML;
+					//alert(a);
+					saveTime(getTime(t), a);
+				}
+
+				function showTime(time) {
+					document.getElementById("time").innerHTML = time;
+				}
+
+				function getTime(m) {
+					let hh = "" + Math.floor(m / 3600);
+					m = m % 3600;
+					let mm = "" + Math.floor(m / 60);
+					m = m % 60;
+					let ss = "" + m;
+
+					return hh.padStart(2, "0") + ":" + mm.padStart(2, "0") + ":" + ss.padStart(2, "0");
+				}
+
+				function saveTime(time, ans) {
+
+					if (t > 0) {
+						var xmlhttp = new XMLHttpRequest();
+						xmlhttp.onreadystatechange = function() {
+							if (this.readyState == 4 && this.status != 200) {
+								document.getElementById("errMsg").innerHTML = "Exception while saving data : " + this.responseText;
+							} else {
+								document.getElementById("errMsg").innerHTML = "";
+							}
+						};
+						xmlhttp.open("POST", "question4_send.php", true);
+						xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						xmlhttp.send("time=" + time + "&ans=" + ans);
+
+					}
+				}
+			</script>
+
+
+
+		</div>
+	</div>
+	</div>
+
+
+	<div class="col-sm-3 col-md-6 col-lg-4">
+		<div class="container-fluid">
+
+			<div class="page1" onclick="setColor(event)" ; data-count="0" />
+			<div id="click1" onclick="OMMTimer(this)"> OMM VISA</div>
+
+			<pre><span class="sp1" onclick="stopTimer(this)">
 									              Pat Miller
    			                         Account Number Ending in 9012</span>
 		<span class="sp2"> <div  id = "sep1" onclick = "stopTimer(this)">				       Payment Due Date:<b><i>10/09/2018</i></b></div><div  id = "sep3" onclick = "stopTimer(this)">          		               New Balance: <b><i>		$3,421.10</i></b> </div><div  id = "sep5" onclick = "stopTimer(this)">				       Minimum Payment:<b><i>	     $83.71 </i></b></div></span><span class="sp3"><div id = "sep8" onclick = "stopTimer(this)"><b>  $______________________________</b>Amount Enclosed</div><b>  Make your check payable to:OMM Visa Services</b><br></span></pre>
-	<pre><span class="sp4"><div  id = "sep10" onclick = "stopTimer(this)">CARDMEMBER SERVICE
+			<pre><span class="sp4"><div  id = "sep10" onclick = "stopTimer(this)">CARDMEMBER SERVICE
 PO BOX 17395
 WILMINGTON, DE  19850-7395</div>
-</pre></span><pre><span class="sp5" onclick="stopTimer(this)">
+</pre></span>
+			<pre><span class="sp5" onclick="stopTimer(this)">
 
 		      5000 18026    25822539104745
-</span></pre><hr style="border-top: dashed 2px; color:black; margin-top:6.8em;"/>	
-<div class="p1">
-	<div  id = "sep11" onclick = "stopTimer(this)">00558 BEX Z 08109 D<br>
-PAT MILLER<br>
-35-11 BROADWAY<br>
-QUEENS, NY  11105</div><pre><br><span class="sp6"><b> <div  id = "sep15" onclick = "stopTimer(this)">	ACCOUNT SUMMARY 					PAYMENT INFORMATION</div></b></span>
+</span></pre>
+			<hr style="border-top: dashed 2px; color:black; margin-top:6.8em;" />
+			<div class="p1">
+				<div id="sep11" onclick="stopTimer(this)">00558 BEX Z 08109 D<br>
+					PAT MILLER<br>
+					35-11 BROADWAY<br>
+					QUEENS, NY 11105</div>
+				<pre><br><span class="sp6"><b> <div  id = "sep15" onclick = "stopTimer(this)">	ACCOUNT SUMMARY 					PAYMENT INFORMATION</div></b></span>
 </div>
 <pre><div class="p2"><span id=1 onclick="stopTimer(this)">Previous Balance                           		   $1,086.15</span>
 <span id="2" onclick="stopTimer(this)">Payment, Credits		                             -$544.10</span>
@@ -146,8 +145,8 @@ Closing Date       	              08/16/2018-09/15/2018</span><br>
 
 </div>
 </pre>
-<pre>
-	
+				<pre>
+
 <pre><div class="p3" id="click2"> <span id="11" onclick="stopTimer(this)">New Balance					           			    $3,421.26</span>
 <span id="12" onclick="stopTimer(this)"> Payment Due Date				                                  10/09/2018</span>
 <span id="13" onclick="stopTimer(this)"> Minimum Payment Due          		                        	 $83.72</span>
@@ -181,28 +180,28 @@ Minimum Payment</th>
 		<th onclick="stopTimer(this)">3 years</th><th onclick="stopTimer(this)">$4,390.41</th>
 	</tr>
 </table>
-</div></pre><span class="sp8" onclick="stopTimer(this)"><b>CASHBACK REWARDS<b> 
-</b></span>
-<pre><div class="p4"><span id="16" onclick="stopTimer(this)">Opening Balance						  $0.00</span>
+</div></pre><span class="sp8" onclick="stopTimer(this)"><b>CASHBACK REWARDS<b>
+						</b></span>
+				<pre><div class="p4"><span id="16" onclick="stopTimer(this)">Opening Balance						  $0.00</span>
 <span id="17" onclick="stopTimer(this)">5% Bonus Categories			                $17.61</span>
 <span id="18" onclick="stopTimer(this)">All Other Purchases			                $24.78</span>
 <hr style="border-top: solid 1.5px; color:black;top:5em;"/><span id=19 onclick="stopTimer(this)">Cashback Bonus Balance		 	        $42.38</span>
 
 </div></pre>
-<pre><div class="p5" onclick="stopTimer(this)">Customer Service    1-800-657-6754		TTY HearingImpaired    1-844-567-3454         International Calls   1-755-456-3415
+				<pre><div class="p5" onclick="stopTimer(this)">Customer Service    1-800-657-6754		TTY HearingImpaired    1-844-567-3454         International Calls   1-755-456-3415
 
 						       <b>Manage your account online:   www.omm.com/creditcards</b> </div></pre>
-<div class="p6" onclick="stopTimer(this)">Page 1 of 3</div>
-</div>
-</div><br>
-<div class="page2"onclick="setColor(event)" ; data-count="0"/>
+				<div class="p6" onclick="stopTimer(this)">Page 1 of 3</div>
+			</div>
+		</div><br>
+		<div class="page2" onclick="setColor(event)" ; data-count="0" />
 		OMM VISA
-	
+
 		<pre><span class="sp1">
 			<span id= "a1" onclick="stopTimer(this)">							     Pat Miller
    			                        Account Number Ending in 9012</span><br>
 			</span></pre>
-			<pre><div class="p7" onclick="stopTimer(this)"><b>     ACCOUNT ACTIVITY</b></div>
+		<pre><div class="p7" onclick="stopTimer(this)"><b>     ACCOUNT ACTIVITY</b></div>
 			<pre><div class="p8" onclick="stopTimer(this)"><table class="t1" style="width:100% ">
   <tr class="tr">Payments and Credits<hr style="border-top: solid 1.5px; color:black;top:5em;"/>
     <td onclick="stopTimer(this),setColor(event)" ; data-count="0"/><i>Trans Date</td>
@@ -220,7 +219,7 @@ Minimum Payment</th>
 <tr>
 <td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 14</td>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 14</td>	
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>NYC GROCERY BROADWAY NY</td>	
+	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>New York City GROCERY BROADWAY NY</td>	
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>-14.96</td>	
 </tr>
 <tr>
@@ -236,7 +235,7 @@ Minimum Payment</th>
 </tr>
 </table>
 </div></pre>
-<pre><div class="p9" id="counter"><table class="t1" style="width:100% " onclick="count()">
+		<pre><div class="p9" id="counter"><table class="t1" style="width:100% " onclick="count()">
   <tr class="tr">Purchases<hr style="border-top: solid 1.5px; color:black;top:5em;"/><td><i>Trans Date</td>
     <td><i>Post Date</td>
     <td onclick="stopTimer(this),setColor(event)" ; data-count="0"/><i>&nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Transaction Description</td>
@@ -286,7 +285,7 @@ Minimum Payment</th>
 <tr>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 05</td>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 06</td>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>FIVESTAR COFFEE STORE 073959 NYC NY</td>
+	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>FIVESTAR COFFEE STORE 073959 New York City NY</td>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>4.13</td>
 </tr>
 <tr>
@@ -304,7 +303,7 @@ Minimum Payment</th>
 <tr>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 07</td>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 07</td>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>WHOLEFOODS NYC 700-334-0900 NY</td>
+	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>WHOLEFOODS New York City 700-334-0900 NY</td>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>60.69</td>
 </tr>
 <tr>
@@ -372,7 +371,7 @@ Minimum Payment</th>
 <tr>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 15</td>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 15</td>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>COMCAST CABLE NYC 700-334-0900 NY</td>
+	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>COMCAST CABLE New York City 700-334-0900 NY</td>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>1486.07	</td>
 </tr>
 <tr>
@@ -427,7 +426,7 @@ Minimum Payment</th>
 <tr>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 22</td>
 <td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 24</td>
-<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>MIKES BAGELS NYC NEW YORK NY</td>
+<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>MIKES BAGELS New York City NEW YORK NY</td>
 <td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>15.86</td>
 </tr>
 <tr>
@@ -452,7 +451,7 @@ Minimum Payment</th>
 <tr>
 	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 23</td>
 <td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Aug 23</td>
-<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>STARBUCKS CAFE #1233 NYC NY</td>
+<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>STARBUCKS CAFE #1233 New York City NY</td>
 <td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>5.97</td>
 </tr>
 <tr>
@@ -469,25 +468,44 @@ Minimum Payment</th>
 </tr>
 </table>
   </div>
-</div></pre></i><div class="p10">Page 2 of 3</div>
+</div></pre></i>
+		<div class="p10">Page 2 of 3</div>
 
-</div>
-</div>
-</i>
-</i>
-</i>
-</td>
-</i>
-</td>
-</tr></table></div></pre></tr></table></i></td></i></td></i></i></i></tr></table></div></pre></pre></div></b></span></div></pre></pre></pre></div></pre></div></div></div>
-<div class="page3" onclick="stopTimer(this),setColor(event)" ; data-count="0"/>
-		OMM VISA
-	
-		<pre><span class="sp1" onclick="stopTimer(this),setColor(event)" ; data-count="0"/>
+	</div>
+	</div>
+	</i>
+	</i>
+	</i>
+	</td>
+	</i>
+	</td>
+	</tr>
+	</table>
+	</div>
+	</pre>
+	</tr>
+	</table></i></td></i></td></i></i></i></tr>
+	</table>
+	</div>
+	</pre>
+	</pre>
+	</div></b></span></div>
+	</pre>
+	</pre>
+	</pre>
+	</div>
+	</pre>
+	</div>
+	</div>
+	</div>
+	<div class="page3" onclick="stopTimer(this),setColor(event)" ; data-count="0" />
+	OMM VISA
+
+	<pre><span class="sp1" onclick="stopTimer(this),setColor(event)" ; data-count="0"/>
 			<span id= "a1" onclick="stopTimer(this),setColor(event)" ; data-count="0"/>							     Pat Miller
    			                        Account Number Ending in 9012</span><br>
 			</span></pre>
-			<pre><div class="p7" onclick="stopTimer(this),setColor(event)" ; data-count="0"/><b>     ACCOUNT ACTIVITY CONTINUED</b></div>
+	<pre><div class="p7" onclick="stopTimer(this),setColor(event)" ; data-count="0"/><b>     ACCOUNT ACTIVITY CONTINUED</b></div>
 			<pre><div class="p8" onclick="stopTimer(this),setColor(event)" ; data-count="0"/><table class="t1" style="width:100%">
  <tr><td onclick="stopTimer(this),setColor(event)" ; data-count="0"/><i>Trans Date</td>
     <td onclick="stopTimer(this),setColor(event)" ; data-count="0"/><i>Post Date</td>
@@ -575,8 +593,10 @@ Minimum Payment</th>
 </table>
 
 </table>
-</i></td></i></td></i></td></tr></table></div></pre></pre>
-pre><pre><div class="p12"><table class="t1" style="width:100% ">
+</i></td></i></td></i></td></tr></table></div></pre>
+	</pre>
+	pre>
+	<pre><div class="p12"><table class="t1" style="width:100% ">
   <tr class="tr"><div id= "c1" onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Payments and Credits</div><hr style="border-top: solid 1.5px; color:black;top:5em;"/>
 <table class="t1">
 	<tr class="tr">
@@ -584,10 +604,17 @@ pre><pre><div class="p12"><table class="t1" style="width:100% ">
 </tr>
 </table>
 </i>
-</b></pre></td></tr></table></tr></table></div></pre></b></td>
-<br>
+</b></pre>
+	</td>
+	</tr>
+	</table>
+	</tr>
+	</table>
+	</div>
+	</pre></b></td>
+	<br>
 
-<pre><div class="p13"><table style="width:100% " class="t1"><tr class="r1"><td class="r2" onclick="stopTimer(this),setColor(event)" ; data-count="0"/><center><b>2019 Total Fee and Interest Charges</center></td></tr>
+	<pre><div class="p13"><table style="width:100% " class="t1"><tr class="r1"><td class="r2" onclick="stopTimer(this),setColor(event)" ; data-count="0"/><center><b>2019 Total Fee and Interest Charges</center></td></tr>
 	<table style="width:100% ">
 		<tr class="r1">
 			<td class="r2" onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Total Fees Charged in 2019</td>
@@ -603,37 +630,46 @@ pre><pre><div class="p12"><table class="t1" style="width:100% ">
 </table>
 </div>
 </pre>
-<div class="col-sm-3 col-md-6 col-lg-4">
-	<div class="p14"><table class="t1" style="width:100% "><thead><tr class="r1"><td onclick="stopTimer(this),setColor(event)" ; data-count="0"/><b>Interest Charges</td></tr></thead>
-	<table style="width:100% "><tbody>
-		<tr>
-			<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Balance Type</td>
-			<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Annual <br>Percentage<br> Rate (APR)</td>
-			<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Balance <br>Subject to<br> Interest Rate</td>
-			<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Interest <br>Charge</td>
-</tr>
-<tr>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Purchases</td>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>16.99%</td>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>$3,421.26</td>
-	<td>$49.51</td>
-</tr>
-<tr>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Cash Advances</td>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>24.99%</td>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>$0.00</td>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>$0.00</td>
-</tr>
-<tr>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>Balance Transfers</td>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>-</td><td>-</td>
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/>-</td>
-</tr>
-</tbody>
-</table>
-<table class="t1">
-	<tr class="tr">
-	<td onclick="stopTimer(this),setColor(event)" ; data-count="0"/><pre>  <b><i>  					           Total Interest	       $49.51</td>
+	<div class="col-sm-3 col-md-6 col-lg-4">
+		<div class="p14">
+			<table class="t1" style="width:100% ">
+				<thead>
+					<tr class="r1">
+						<td onclick="stopTimer(this),setColor(event)" ; data-count="0" /><b>Interest Charges</td>
+					</tr>
+				</thead>
+				<table style="width:100% ">
+					<tbody>
+						<tr>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />Balance Type</td>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />Annual <br>Percentage<br> Rate (APR)</td>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />Balance <br>Subject to<br> Interest Rate</td>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />Interest <br>Charge</td>
+						</tr>
+						<tr>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />Purchases</td>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />16.99%</td>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />$3,421.26</td>
+							<td>$49.51</td>
+						</tr>
+						<tr>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />Cash Advances</td>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />24.99%</td>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />$0.00</td>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />$0.00</td>
+						</tr>
+						<tr>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />Balance Transfers</td>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />-</td>
+							<td>-</td>
+							<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />-</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="t1">
+					<tr class="tr">
+						<td onclick="stopTimer(this),setColor(event)" ; data-count="0" />
+						<pre>  <b><i>  					           Total Interest	       $49.51</td>
 
 	
 </tr>
@@ -644,65 +680,76 @@ pre><pre><div class="p12"><table class="t1" style="width:100% ">
 </table>
 </i>
 </b>
-</pre></td>
-<div class="p15" onclick="setColor(event)" ; data-count="0"/>Page 3 of 3</div>
-</div>
-</div>
-</div>
-</div>
-</div></tr>
-</table></b></tr></thead></table></div></div></b></center></tr></table></div>
-</pre></tr></table></i></i></i></i></i></tr></table></div></pre></pre></div>
+</pre>
+						</td>
+						<div class="p15" onclick="setColor(event)" ; data-count="0" />Page 3 of 3
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</tr>
+	</table></b></tr>
+	</thead>
+	</table>
+	</div>
+	</div></b></center>
+	</tr>
+	</table>
+	</div>
+	</pre>
+	</tr>
+	</table></i></i></i></i></i></tr>
+	</table>
+	</div>
+	</pre>
+	</pre>
+	</div>
 
-<br>
-<br>
-<br>
-<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 
 
-</table>
+	</table>
 
-</b></td></tr></thead></table></div>
+	</b></td>
+	</tr>
+	</thead>
+	</table>
+	</div>
 
 
 
-<script>
- function setColor(e) {
-  var target = e.target,
-      count = +target.dataset.count;
-  
-   target.style.color = count === 0 ? "#bb0000 " : "#000000";
-   target.dataset.count = count === 0 ? 1 : 0;
+	<script>
+		function setColor(e) {
+			var target = e.target,
+				count = +target.dataset.count;
 
-}
+			target.style.color = count === 0 ? "#bb0000 " : "#000000";
+			target.dataset.count = count === 0 ? 1 : 0;
 
-</script>
-<script>
-	var click1 = document.querySelector('#click1'),
-click2 = document.querySelector('#click2');
+		}
+	</script>
+	<script>
+		var click1 = document.querySelector('#click1'),
+			click2 = document.querySelector('#click2');
 
-function Color() {
-  this.style.color = 'green';
-  
-}
+		function Color() {
+			this.style.color = 'green';
 
-function restore() {
-  click1.style.color = '#bb0000';
+		}
 
-}
+		function restore() {
+			click1.style.color = '#bb0000';
 
-click1.addEventListener('click', Color);
-click2.addEventListener('click', restore);
-</script>
+		}
+
+		click1.addEventListener('click', Color);
+		click2.addEventListener('click', restore);
+	</script>
 
 </html>
-
-
-
-
-
-
-
-
-

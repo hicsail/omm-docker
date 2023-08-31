@@ -166,7 +166,7 @@
         <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
             <div style="position:absolute;left:32.53px;top:177.80px" class="cls_002"><span class="cls_002">Aug 14</span></div>
             <div style="position:absolute;left:112.80px;top:177.80px" class="cls_002"><span class="cls_002">Aug 14</span></div>
-            <div style="position:absolute;left:164.08px;top:177.80px" class="cls_002"><span class="cls_002">NYC GROCERY BROADWAY NY</span></div>
+            <div style="position:absolute;left:164.08px;top:177.80px" class="cls_002"><span class="cls_002">New York City GROCERY BROADWAY NY</span></div>
             <div style="position:absolute;left:462.95px;top:177.80px" class="cls_002"><span class="cls_002">-14.96</span></div>
         </div>
         <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
@@ -231,7 +231,7 @@
         <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
             <div style="position:absolute;left:32.53px;top:348.35px" class="cls_002"><span class="cls_002">Aug 5</span></div>
             <div style="position:absolute;left:112.80px;top:348.35px" class="cls_002"><span class="cls_002">Aug 6</span></div>
-            <div style="position:absolute;left:164.08px;top:348.35px" class="cls_002"><span class="cls_002">FIVESTAR COFFEE STORE 073959 NYC NY</span></div>
+            <div style="position:absolute;left:164.08px;top:348.35px" class="cls_002"><span class="cls_002">FIVESTAR COFFEE STORE 073959 New York City NY</span></div>
             <div style="position:absolute;left:462.95px;top:348.35px" class="cls_002"><span class="cls_002">4.13</span></div>
         </div>
         <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
@@ -249,7 +249,7 @@
         <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
             <div style="position:absolute;left:32.53px;top:382.87px" class="cls_002"><span class="cls_002">Aug 7</span></div>
             <div style="position:absolute;left:112.80px;top:382.87px" class="cls_002"><span class="cls_002">Aug 7</span></div>
-            <div style="position:absolute;left:164.08px;top:382.87px" class="cls_002"><span class="cls_002">WHOLEFOODS NYC 700-334-0900 NY</span></div>
+            <div style="position:absolute;left:164.08px;top:382.87px" class="cls_002"><span class="cls_002">WHOLEFOODS New York City 700-334-0900 NY</span></div>
             <div style="position:absolute;left:462.95px;top:382.87px" class="cls_002"><span class="cls_002">60.69</span></div>
         </div>
         <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
@@ -316,7 +316,7 @@
         <div id="600" onclick="stopTimer(this),setColor(event)" ; data-count="0">
             <div style="position:absolute;left:32.53px;top:525.42px" class="cls_002"><span class="cls_002">Aug 15</span></div>
             <div style="position:absolute;left:112.80px;top:525.42px" class="cls_002"><span class="cls_002">Aug 15</span></div>
-            <div style="position:absolute;left:164.08px;top:525.42px" class="cls_002"><span class="cls_002">COMCAST CABLE NYC 700-334-0900 NY</span></div>
+            <div style="position:absolute;left:164.08px;top:525.42px" class="cls_002"><span class="cls_002">COMCAST CABLE New York City 700-334-0900 NY</span></div>
             <div style="position:absolute;left:462.95px;top:525.42px" class="cls_002"><span class="cls_002">1486.07</span></div>
         </div>
         <div id="700" onclick="stopTimer(this),setColor(event)" ; data-count="0">
@@ -370,7 +370,7 @@
         <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
             <div style="position:absolute;left:32.53px;top:628.95px" class="cls_002"><span class="cls_002">Aug 22</span></div>
             <div style="position:absolute;left:112.80px;top:628.95px" class="cls_002"><span class="cls_002">Aug 24</span></div>
-            <div style="position:absolute;left:164.08px;top:628.95px" class="cls_002"><span class="cls_002">MIKES BAGELS NYC NEW YORK NY</span></div>
+            <div style="position:absolute;left:164.08px;top:628.95px" class="cls_002"><span class="cls_002">MIKES BAGELS New York City NEW YORK NY</span></div>
             <div style="position:absolute;left:462.95px;top:628.95px" class="cls_002"><span class="cls_002">15.86</span></div>
         </div>
         <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
@@ -394,7 +394,7 @@
         <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
             <div style="position:absolute;left:32.53px;top:676.22px" class="cls_002"><span class="cls_002">Aug 23</span></div>
             <div style="position:absolute;left:112.80px;top:676.22px" class="cls_002"><span class="cls_002">Aug 23</span></div>
-            <div style="position:absolute;left:164.08px;top:676.22px" class="cls_002"><span class="cls_002">STARBUCKS CAFE #1233 NYC NY</span></div>
+            <div style="position:absolute;left:164.08px;top:676.22px" class="cls_002"><span class="cls_002">STARBUCKS CAFE #1233 New York City NY</span></div>
             <div style="position:absolute;left:462.95px;top:676.22px" class="cls_002"><span class="cls_002">5.97</span></div>
         </div>
         <div id="900" onclick="stopTimer(this),setColor(event)" ; data-count="0">

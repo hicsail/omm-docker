@@ -1,188 +1,188 @@
 <!DOCTYPE html>
 <?php
- session_start();
- include 'connect.php'; 
- ?>
+session_start();
+include 'connect.php';
+?>
 <html>
+
 <head>
 	<title>Bank statement</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="change_pdf.css">
+	<link rel="stylesheet" type="text/css" href="change_pdf.css">
 
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
- <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
 
 </head>
 <style type="text/css">
+	td.selected {
+		background-color: red;
+	}
 
-td.selected {
-  background-color: red;
-}
-.choose:not(.table-header) {
-  background-color: #bb0000;
-}
-
+	.choose:not(.table-header) {
+		background-color: #bb0000;
+	}
 </style>
 
 <body>
 
 	<div class="col-sm-3 col-md-6 col-lg-4" id="pdf">
-<div class="container-fluid">
-	
-
-    
-    <p id = "errMsg"></p>
-    
-<script>
-        var t = 0;
-        var i;
-
-     
-
-        function startTimer(e){
-            var a = e.innerHTML;
-            //alert(a);
-            i = window.setInterval(()=>{
-                t++;
-                showTime(getTime(t));
-            },1000) 
-            e.setAttribute("onclick","stopTimer(this)");
-            saveTime(getTime(t),a);
-
-        
-        }
-
-        function stopTimer(e){
-            window.clearInterval(i);
-            var a = e.innerHTML;
-            //alert(a);
-            e.setAttribute("onclick","startTimer(this)");
-    
-          //alert(a);
-          
-         
-          saveTime(getTime(t),a);
-          
-            }
-	
-
-        function saveResponse(e){
-        	var a = e.innerHTML;
-
-        	saveTime(getTime(t),a);
-        }
-
-
-        function saveError(e){
-        	var a = e.innerHTML;
-        	var b = e.id;
-
-        	saveEtime(getTime(t),a,b);
-        }
-
-        function showTime(time) {
-                document.getElementById("time").innerHTML= time;
-        }
-
-        function getTime(m){
-            let hh = "" + Math.floor(m/3600);
-            m=m%3600;
-            let mm = "" + Math.floor(m/60);
-            m=m%60;
-            let ss = "" + m;
-
-            return  hh.padStart(2,"0") + ":" + mm.padStart(2,"0") + ":" + ss.padStart(2,"0");
-        }
-
-
-
-        function saveTime(time,a) {
-
-          
-            if(t>0){
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status != 200) {
-                        document.getElementById("errMsg").innerHTML = "Exception while saving data : " + this.responseText;
-                    } else {
-                        document.getElementById("errMsg").innerHTML = "";
-                    }
-                };
-                xmlhttp.open("POST", "send_task2.php", true);
-                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xmlhttp.send("time=" + time + "&a=" +a);
-          
-            }
-        }
-
-        function saveEtime(time,a,b) {
-
-          
-            if(t>0){
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status != 200) {
-                        document.getElementById("errMsg").innerHTML = "Exception while saving data : " + this.responseText;
-                    } else {
-                        document.getElementById("errMsg").innerHTML = "";
-                    }
-                };
-                xmlhttp.open("POST", "send_task2.php", true);
-                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xmlhttp.send("time=" + time + "&a=" +a +"&b=" +b);
-          
-            }
-        }
-     
-     
-
-
-    </script>
-
-
-
-</div>
-</div>
-</div>
-
-	
-<div class="col-sm-3 col-md-6 col-lg-4">
 		<div class="container-fluid">
 
-	<div class="page1">
-	<div id="click1" onclick="startTimer(this)"> OMM VISA</div>
-	
-		<pre><span class="sp1" style="color: grey; font-size: 12px;" onclick="saveResponse(this), setColor(event)"; data-count="0"/>
+
+
+			<p id="errMsg"></p>
+
+			<script>
+				var t = 0;
+				var i;
+
+
+
+				function startTimer(e) {
+					var a = e.innerHTML;
+					//alert(a);
+					i = window.setInterval(() => {
+						t++;
+						showTime(getTime(t));
+					}, 1000)
+					e.setAttribute("onclick", "stopTimer(this)");
+					saveTime(getTime(t), a);
+
+
+				}
+
+				function stopTimer(e) {
+					window.clearInterval(i);
+					var a = e.innerHTML;
+					//alert(a);
+					e.setAttribute("onclick", "startTimer(this)");
+
+					//alert(a);
+
+
+					saveTime(getTime(t), a);
+
+				}
+
+
+				function saveResponse(e) {
+					var a = e.innerHTML;
+
+					saveTime(getTime(t), a);
+				}
+
+
+				function saveError(e) {
+					var a = e.innerHTML;
+					var b = e.id;
+
+					saveEtime(getTime(t), a, b);
+				}
+
+				function showTime(time) {
+					document.getElementById("time").innerHTML = time;
+				}
+
+				function getTime(m) {
+					let hh = "" + Math.floor(m / 3600);
+					m = m % 3600;
+					let mm = "" + Math.floor(m / 60);
+					m = m % 60;
+					let ss = "" + m;
+
+					return hh.padStart(2, "0") + ":" + mm.padStart(2, "0") + ":" + ss.padStart(2, "0");
+				}
+
+
+
+				function saveTime(time, a) {
+
+
+					if (t > 0) {
+						var xmlhttp = new XMLHttpRequest();
+						xmlhttp.onreadystatechange = function() {
+							if (this.readyState == 4 && this.status != 200) {
+								document.getElementById("errMsg").innerHTML = "Exception while saving data : " + this.responseText;
+							} else {
+								document.getElementById("errMsg").innerHTML = "";
+							}
+						};
+						xmlhttp.open("POST", "send_task2.php", true);
+						xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						xmlhttp.send("time=" + time + "&a=" + a);
+
+					}
+				}
+
+				function saveEtime(time, a, b) {
+
+
+					if (t > 0) {
+						var xmlhttp = new XMLHttpRequest();
+						xmlhttp.onreadystatechange = function() {
+							if (this.readyState == 4 && this.status != 200) {
+								document.getElementById("errMsg").innerHTML = "Exception while saving data : " + this.responseText;
+							} else {
+								document.getElementById("errMsg").innerHTML = "";
+							}
+						};
+						xmlhttp.open("POST", "send_task2.php", true);
+						xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						xmlhttp.send("time=" + time + "&a=" + a + "&b=" + b);
+
+					}
+				}
+			</script>
+
+
+
+		</div>
+	</div>
+	</div>
+
+
+	<div class="col-sm-3 col-md-6 col-lg-4">
+		<div class="container-fluid">
+
+			<div class="page1">
+				<div id="click1" onclick="startTimer(this)"> OMM VISA</div>
+
+				<pre><span class="sp1" style="color: grey; font-size: 12px;" onclick="saveResponse(this), setColor(event)"; data-count="0"/>
 									             		      Pat Miller
    			                         		 Account Number Ending in 9012</span><span class="sp2" style=" border-radius: 15px;background: lightgrey;
    width: 220px; height: 65px;" > <div  id = "sep1" onclick = "saveResponse(this), setColor(event)"; data-count="0"/>    Payment Due Date:<b>      10/09/2018</b></div><div  id = "sep3" onclick = "saveResponse(this), setColor(event)"; data-count="0"/>    New Balance: <b>		   $3,421.10</b> </div><div  id = "sep5" onclick = "saveResponse(this), setColor(event)"; data-count="0"/>    Minimum Payment:<b>	     	$83.71 </b></div></span></span><span class="sp3"><div id = "sep8" onclick = "saveResponse(this), setColor(event)"; data-count="0"/><b>  
 		
 					$______________________________</b>Amount Enclosed</div><b onclick = "saveResponse(this), setColor(event)"; data-count="0"/>  				        Make your check payable to:       OMM Visa Services.</b><br></span></pre>
-	<pre><span class="sp4"><div  id = "sep10" onclick = "saveResponse(this), setColor(event)"; data-count="0"/>
+				<pre><span class="sp4"><div  id = "sep10" onclick = "saveResponse(this), setColor(event)"; data-count="0"/>
 
 
      			  
      			  CARDMEMBER SERVICE
 		          PO BOX 17395
 		          WILMINGTON, DE  19850-7395</div></span></pre>
-</pre></span><pre><span class="sp5" onclick="saveResponse(this), setColor(event)"; data-count="0"/>
+				</pre></span>
+				<pre><span class="sp5" onclick="saveResponse(this), setColor(event)"; data-count="0"/>
 
 		     
 
 
 				   5000   18026      25822539104745
-</span></pre><hr style="border-top: dashed 2px; color:grey; margin-top:11.5em;"/>	
-<div class="p1">
-	<div  id = "sep11" onclick = "saveResponse(this), setColor(event)"; data-count="0"/>
+</span></pre>
+				<hr style="border-top: dashed 2px; color:grey; margin-top:11.5em;" />
+				<div class="p1">
+					<div id="sep11" onclick="saveResponse(this), setColor(event)" ; data-count="0" />
 
-	00558 BEX Z 08109 D<br>
-PAT MILLER<br>
-35-11 BROADWAY<br>
-QUEENS, NY  11105</div><pre><br><span class="sp6" style="font-family: calibri; font-size: 16px"><strong> <div  id = "sep15">
+					00558 BEX Z 08109 D<br>
+					PAT MILLER<br>
+					35-11 BROADWAY<br>
+					QUEENS, NY 11105
+				</div>
+				<pre><br><span class="sp6" style="font-family: calibri; font-size: 16px"><strong> <div  id = "sep15">
 
 
 
@@ -213,8 +213,8 @@ Closing Date       	              	         08/16/2018-09/15/2018</span><br>
 
 </div>
 </pre>
-<pre>
-	
+				<pre>
+
 <pre><div class="p3" id="click2" style="font-family: times; font-size: 12px"> <span id="11" onclick="saveResponse(this), setColor(event)"; data-count="0"/>New Balance					           			             		$3,421.26</span>
 <span id="12" onclick="saveResponse(this), setColor(event)"; data-count="0"/> Payment Due Date				                                        	      10/09/2018</span>
 <span id="13" onclick="saveResponse(this), setColor(event)"; data-count="0"/> Minimum Payment Due          		                        	       		     $83.72</span>
@@ -256,34 +256,35 @@ of</th>
 	3 years</th><th onclick="saveResponse(this), setColor(event)"; data-count="0"/>
 $4,390.41</th>
 	</tr>
-</table></div></pre><span class="sp8" style="font-family: times" onclick="saveResponse(this), setColor(event)"; data-count="0"/><b>
+</table></div></pre><span class="sp8" style="font-family: times" onclick="saveResponse(this), setColor(event)" ; data-count="0" /><b>
 
-CASHBACK REWARDS<b> 
-</b></span>
-<pre><div class="p4"><span id="16" onclick="saveResponse(this), setColor(event)"; data-count="0"/>Opening Balance						  $0.00</span>
+					CASHBACK REWARDS<b>
+					</b></span>
+					<pre><div class="p4"><span id="16" onclick="saveResponse(this), setColor(event)"; data-count="0"/>Opening Balance						  $0.00</span>
 <span id="17" onclick="saveResponse(this), setColor(event)"; data-count="0"/>5% Bonus Categories			                $17.61</span>
 <span id="18" onclick="saveResponse(this), setColor(event)"; data-count="0"/>All Other Purchases			                $24.78</span>
 <hr style="border-top: solid 1px; color:black;top:5em;"/><span id=19 onclick="saveResponse(this), setColor(event)"; data-count="0"/>Cashback Bonus Balance		 	        $42.38</span>
 
 </div></pre>
-<pre><div class="p5" onclick="saveResponse(this), setColor(event)"; data-count="0"/>Customer Service             1-800-657-6754		                   TTY HearingImpaired        1-844-567-3454                                    		International Calls              1-755-456-3415
+					<pre><div class="p5" onclick="saveResponse(this), setColor(event)"; data-count="0"/>Customer Service             1-800-657-6754		                   TTY HearingImpaired        1-844-567-3454                                    		International Calls              1-755-456-3415
 
 						       <b style="font-size: 12px;">         				Manage your account online:   www.omm.com/creditcards</b> </div></pre>
-<div class="p6"  style="color: grey;" onclick="saveResponse(this), setColor(event)"; data-count="0"/>
+					<div class="p6" style="color: grey;" onclick="saveResponse(this), setColor(event)" ; data-count="0" />
 
 
-Page 1 of 3</div>
-</div>
-</div><br></b>
+					Page 1 of 3
+			</div>
+		</div>
+	</div><br></b>
 
-<div class="page2">
+	<div class="page2">
 		OMM VISA
-	
+
 		<pre><span class="sp1">
 			<span id= "a1" style="color: grey; font-size: 12px;" onclick="saveResponse(this), setColor(event)"; data-count="0"/>							     		      Pat Miller
    			                        		  Account Number Ending in 9012</span><br>
 			</span></pre>
-			<pre><div class="p7" style="font-size: 14px; font-family: times;" onclick="saveResponse(this), setColor(event)"; data-count="0"/><b>     ACCOUNT ACTIVITY</b></div>
+		<pre><div class="p7" style="font-size: 14px; font-family: times;" onclick="saveResponse(this), setColor(event)"; data-count="0"/><b>     ACCOUNT ACTIVITY</b></div>
 			<pre><div class="p8"><table class="t1" id="my-table" style="width:100% ">
   <tr class="table-header">Payments and Credits<hr style="border-top: solid 1px; color:black;top:5em;width: 100%; border-collapse: collapse;"/>
     <td><i>Trans 
@@ -302,7 +303,7 @@ Date</td><td ><i>&nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &n
 <tr onclick="saveResponse(this)">
 <td>Aug 14</td>
 	<td>Aug 14</td>	
-	<td>NYC GROCERY BROADWAY NY</td>	
+	<td>New York City GROCERY BROADWAY NY</td>	
 	<td>-14.96</td>	
 </tr>
 <tr onclick="saveResponse(this)">
@@ -317,10 +318,15 @@ Date</td><td ><i>&nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &n
 	<td> <b><i>  					     												Total Payments and Credits	            		 -544.25</td></i></b>
 </tr>
 </table>
-</div></pre></td></table></i></td></i></td></i></td></i></td></i></td></tr></table>
-<div class="p9" id="counter"><table class="t1" style="width:100% "   id="tab">
+</div></pre>
+		</td>
+		</table></i></td></i></td></i></td></i></td></i></td>
+		</tr>
+		</table>
+		<div class="p9" id="counter">
+			<table class="t1" style="width:100% " id="tab">
 
-	<pre>
+				<pre>
 
 		  <tr class="tr">Purchases<hr style="border-top: solid 1px; color:black;top:5em;"/>
 	<tr id="300" onclick="saveError(this)"><td  > Aug 04</td>
@@ -367,7 +373,7 @@ Date</td><td ><i>&nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &n
 <tr onclick="saveResponse(this)">
 	<td>Aug 05</td>
 	<td>Aug 06</td>
-	<td>FIVESTAR COFFEE STORE 073959 NYC NY</td>
+	<td>FIVESTAR COFFEE STORE 073959 New York City NY</td>
 	<td>4.13</td>
 </tr>
 <tr onclick="saveResponse(this)">
@@ -385,7 +391,7 @@ Date</td><td ><i>&nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &n
 <tr onclick="saveResponse(this)">
 	<td>Aug 07</td>
 	<td>Aug 07</td>
-	<td>WHOLEFOODS NYC 700-334-0900 NY</td>
+	<td>WHOLEFOODS New York City 700-334-0900 NY</td>
 	<td>60.69</td>
 </tr>
 <tr onclick="saveResponse(this)">
@@ -453,7 +459,7 @@ Date</td><td ><i>&nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &n
 <tr onclick="saveResponse(this)">
 	<td>Aug 15</td>
 	<td>Aug 15</td>
-	<td>COMCAST CABLE NYC 700-334-0900 NY</td>
+	<td>COMCAST CABLE New York City 700-334-0900 NY</td>
 	<td>1486.07	</td>
 </tr>
 <tr onclick="saveResponse(this)">
@@ -508,7 +514,7 @@ Date</td><td ><i>&nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &n
 <tr onclick="saveResponse(this)">
 	<td>Aug 22</td>
 <td>Aug 24</td>
-<td>MIKES BAGELS NYC NEW YORK NY</td>
+<td>MIKES BAGELS New York City NEW YORK NY</td>
 <td>15.86</td>
 </tr>
 <tr onclick="saveResponse(this)">
@@ -533,7 +539,7 @@ Date</td><td ><i>&nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &n
 <tr onclick="saveResponse(this)">
 	<td>Aug 23</td>
 <td>Aug 23</td>
-<td>STARBUCKS CAFE #1233 NYC NY</td>
+<td>STARBUCKS CAFE #1233 New York City NY</td>
 <td>5.97</td>
 </tr>
 <tr onclick="saveResponse(this)">
@@ -566,115 +572,175 @@ Page 2 of 3</div>
 </td>
 </i>
 </td>
-</tr></table></div></pre></tr></table></i></td></i></td></i></i></i></tr></table></div></pre></pre></div></b></span></div></pre></pre></pre></div></pre></div></div></div>
-<br>
+</tr></table></div></pre>
+				</tr>
+			</table></i></td></i></td></i></i></i></tr>
+			</table>
+		</div>
+		</pre>
+		</pre>
+	</div></b></span></div>
+	</pre>
+	</pre>
+	</pre>
+	</div>
+	</pre>
+	</div>
+	</div>
+	</div>
+	<br>
 
 
 
-<div class="page3">
+	<div class="page3">
 		OMM VISA
-	<hr style="border-top: solid 1px; color:black;top:5em; margin-left: 0.8em; margin-right: 1em"/>
+		<hr style="border-top: solid 1px; color:black;top:5em; margin-left: 0.8em; margin-right: 1em" />
 		<pre><span class="sp1">
 			<span id= "a1" style="color: grey; font-size: 12px;"  onclick="saveResponse(this), setColor(event)"; data-count="0"/>							     		    Pat Miller
    			                        		Account Number Ending in 9012</span><br>
 			</span></pre>
-			<pre><div class="p7" style="font-size: 12px; font-family: times;" onclick="saveResponse(this), setColor(event)"; data-count="0"/><b>     ACCOUNT ACTIVITY CONTINUED</b></div>
-			</pre><div class="p8"><table class="t1" id="tbl" style="width:100%"> <tr onclick="saveResponse(this)"><td>Aug 24</td>
-<td>Aug 24</td>
-<td> 9876 BURGER KING  #5463 QUEENS NY</td>
-<td>43.00</td>
-</tr>
-<tr onclick="saveResponse(this)">
-	<td>Aug 24</td>
-<td>Aug 24</td>
-<td> UBER TAXI TRIP 7648930439599314202</td>
-<td>36.34</td>
-</tr>
-<tr onclick="saveResponse(this)">
-	<td>Aug 24</td>
-<td>Aug 24</td>
-<td>TRADER JOE'S #105 QPS ASTORIA NY </td>
-<td>11.90</td>
-</tr>
-<tr >
-<td>Aug 31</td>
-<td>Aug 31</td>
-<td> PORT AUTH CAFE 14 NEW YORK NY</td>
-<td>5.40</td>
-</tr>
-<tr>
-	<td>Sep 01</td>
-<td>Sep 03</td>
-<td> CHEESE IT QUEENS NY</td>
-<td>12.99</td>
-</tr>
-<tr>
-	<td>Sep 01</td>
-<td>Sep 01</td>
-<td> BLOOMINGDALES 314202 3278763 NY</td>
-<td>120.68</td>
-</tr>
-<tr>
-	<td>Sep 01</td>
-<td>Sep 01</td>
-<td>MOTTS HAIRCUTS 9507030021 BROOKLYN NY </td>
-<td>3.97</td>
-</tr>
-<tr>
-	<td>Sep 04</td>
-<td>Sep 04</td>
-<td> SLOAN KET CAFETERIA NEW YORK NY</td>
-<td>4.50</td>
-</tr>
-<tr>
-	<td>Sep 04</td>
-<td>Sep 04</td>
-<td>TRADER JOE'S #105 QPS ASTORIA NY </td>
-<td>6.16</td>
-</tr>
-<tr>
-	<td>Sep 04</td>
-<td>Sep 06</td>
-<td> GIFTSHOP QUEENS NY</td>
-<td>16.84</td>
-</tr>
-<tr>
-	<td>Sep 05</td>
-<td>Sep 05</td>
-<td> BAKE AND EAT NEW YORK NY</td>
-<td>90.85</td>
-</tr>
-<tr>
-	<td>Sep 05</td>
-<td>Sep 05</td>
-<td> SANDWICH SHOP 00314574255 NEW YORK NY</td><td>12.00</td>
-</tr>
-</table>
-<table class="t1">
-	<tr class="tr">
-	<td><b><i><pre style="font-size: 12px; font-family: times;">			    											       Total Purchases                   2, 829. 70
+		<pre><div class="p7" style="font-size: 12px; font-family: times;" onclick="saveResponse(this), setColor(event)"; data-count="0"/><b>     ACCOUNT ACTIVITY CONTINUED</b></div>
+			</pre>
+		<div class="p8">
+			<table class="t1" id="tbl" style="width:100%">
+				<tr onclick="saveResponse(this)">
+					<td>Aug 24</td>
+					<td>Aug 24</td>
+					<td> 9876 BURGER KING #5463 QUEENS NY</td>
+					<td>43.00</td>
+				</tr>
+				<tr onclick="saveResponse(this)">
+					<td>Aug 24</td>
+					<td>Aug 24</td>
+					<td> UBER TAXI TRIP 7648930439599314202</td>
+					<td>36.34</td>
+				</tr>
+				<tr onclick="saveResponse(this)">
+					<td>Aug 24</td>
+					<td>Aug 24</td>
+					<td>TRADER JOE'S #105 QPS ASTORIA NY </td>
+					<td>11.90</td>
+				</tr>
+				<tr>
+					<td>Aug 31</td>
+					<td>Aug 31</td>
+					<td> PORT AUTH CAFE 14 NEW YORK NY</td>
+					<td>5.40</td>
+				</tr>
+				<tr>
+					<td>Sep 01</td>
+					<td>Sep 03</td>
+					<td> CHEESE IT QUEENS NY</td>
+					<td>12.99</td>
+				</tr>
+				<tr>
+					<td>Sep 01</td>
+					<td>Sep 01</td>
+					<td> BLOOMINGDALES 314202 3278763 NY</td>
+					<td>120.68</td>
+				</tr>
+				<tr>
+					<td>Sep 01</td>
+					<td>Sep 01</td>
+					<td>MOTTS HAIRCUTS 9507030021 BROOKLYN NY </td>
+					<td>3.97</td>
+				</tr>
+				<tr>
+					<td>Sep 04</td>
+					<td>Sep 04</td>
+					<td> SLOAN KET CAFETERIA NEW YORK NY</td>
+					<td>4.50</td>
+				</tr>
+				<tr>
+					<td>Sep 04</td>
+					<td>Sep 04</td>
+					<td>TRADER JOE'S #105 QPS ASTORIA NY </td>
+					<td>6.16</td>
+				</tr>
+				<tr>
+					<td>Sep 04</td>
+					<td>Sep 06</td>
+					<td> GIFTSHOP QUEENS NY</td>
+					<td>16.84</td>
+				</tr>
+				<tr>
+					<td>Sep 05</td>
+					<td>Sep 05</td>
+					<td> BAKE AND EAT NEW YORK NY</td>
+					<td>90.85</td>
+				</tr>
+				<tr>
+					<td>Sep 05</td>
+					<td>Sep 05</td>
+					<td> SANDWICH SHOP 00314574255 NEW YORK NY</td>
+					<td>12.00</td>
+				</tr>
+			</table>
+			<table class="t1">
+				<tr class="tr">
+					<td><b><i>
+								<pre style="font-size: 12px; font-family: times;">			    											       Total Purchases                   2, 829. 70
 	</i>
 </b>
 </td>
 </pre>
-</tr>
-</table>
+				</tr>
+			</table>
 
-</table>
-</i></td></i></td></i></td></tr></table></div></pre></pre>
-<div class="p12"><table class="t1" style="width:100% ">
-  <tr class="tr"><div id= "c1" onclick="saveResponse(this)">Payments and Credits</div>
-  		<hr style="border-top: solid 1px; color:black;top:5em; border-collapse: collapse;"/>
-<table class="t1">
-	<tr class="tr">
-	<td><pre style="font-size: 12px; font-family: times;" >  <b><i>                                    								    Total Interest for this Period             		  49. 51</td>
+			</table>
+			</i></td></i></td></i></td>
+			</tr>
+			</table>
+		</div>
+		</pre>
+		</pre>
+		<div class="p12">
+			<table class="t1" style="width:100% ">
+				<tr class="tr">
+					<div id="c1" onclick="saveResponse(this)">Payments and Credits</div>
+					<hr style="border-top: solid 1px; color:black;top:5em; border-collapse: collapse;" />
+					<table class="t1">
+						<tr class="tr">
+							<td>
+								<pre style="font-size: 12px; font-family: times;">  <b><i>                                    								    Total Interest for this Period             		  49. 51</td>
 </tr>
 </table>
 </i>
-</b></pre></td></tr></table></tr></table></div></pre></b></td>
-<br></tr></table></div></div></tr></table></div></td></table></i></td></i></td></i></td></i></td></i></td></tr></table></div></pre></pre></div></center></pre></div></pre></pre></strong></span></pre></div></pre></div></div></div>
+</b></pre>
+							</td>
+						</tr>
+					</table>
+				</tr>
+			</table>
+		</div>
+		</pre></b></td>
+		<br></tr>
+		</table>
+	</div>
+	</div>
+	</tr>
+	</table>
+	</div>
+	</td>
+	</table></i></td></i></td></i></td></i></td></i></td>
+	</tr>
+	</table>
+	</div>
+	</pre>
+	</pre>
+	</div>
+	</center>
+	</pre>
+	</div>
+	</pre>
+	</pre></strong></span></pre>
+	</div>
+	</pre>
+	</div>
+	</div>
+	</div>
 
-<pre><div class="p13"><table style="width:100% " class="t1"><tr class="r1"><td class="r2" onclick="saveResponse(this)"><center><b>2019 Total Fee and Interest Charges</center></td></tr>
+	<pre><div class="p13"><table style="width:100% " class="t1"><tr class="r1"><td class="r2" onclick="saveResponse(this)"><center><b>2019 Total Fee and Interest Charges</center></td></tr>
 	<table style="width:100% ">
 		<tr class="r1">
 			<td class="r2" onclick="saveResponse(this)">Total Fees Charged in 2019</td>
@@ -690,7 +756,7 @@ Page 2 of 3</div>
 </table>
 </div>
 </pre>
-<pre><div class="col-sm-3 col-md-6 col-lg-4"><div class="p14"><table class="t1" style="width:100% "><thead><tr class="r1"><td><b>Interest Charges</td></tr></thead>	
+	<pre><div class="col-sm-3 col-md-6 col-lg-4"><div class="p14"><table class="t1" style="width:100% "><thead><tr class="r1"><td><b>Interest Charges</td></tr></thead>	
 	<table style="width:100% "><tbody><hr style="border-top: solid 1px; color:black;top:5em; border-collapse: collapse; max-width: 100% "/><tr>
 		<td >Balance Type</td>
 		<td>Annual <br>Percentage<br> Rate (APR)</td>
@@ -729,92 +795,106 @@ Page 2 of 3</div>
 </table>
 </i>
 </b>
-</pre></td>
-<pre><div class="p15" onclick="saveResponse(this)">																														  Page 3 of 3</div>
+</pre>
+	</td>
+	<pre><div class="p15" onclick="saveResponse(this)">																														  Page 3 of 3</div>
 </div>
 </div>
 </div>
 </div>
 </div></tr>
 </table></b></tr></thead></table></div></div></b></center></tr></table></div>
-</pre></tr></table></i></i></i></i></i></tr></table></div></pre></pre></div>
+</pre>
+	</tr>
+	</table></i></i></i></i></i></tr>
+	</table>
+	</div>
+	</pre>
+	</pre>
+	</div>
 
 
-</b></td></tr></thead></table></div></div></pre></b></center></td></tr></table></div></pre>
+	</b></td>
+	</tr>
+	</thead>
+	</table>
+	</div>
+	</div>
+	</pre></b></center>
+	</td>
+	</tr>
+	</table>
+	</div>
+	</pre>
 
-</table>
+	</table>
 
-</b></td></tr></thead></table></div>
-<script>
-  $(function() {
-    $('#tab').on('click', 'tr', function() {
-     
-      $(this).toggleClass('choose');
-     
-    });
-});
+	</b></td>
+	</tr>
+	</thead>
+	</table>
+	</div>
+	<script>
+		$(function() {
+			$('#tab').on('click', 'tr', function() {
 
+				$(this).toggleClass('choose');
 
+			});
+		});
+	</script>
+	<script>
+		$(function() {
+			$('#my-table').on('click', 'tr', function() {
 
-</script>
-<script>
-  $(function() {
-    $('#my-table').on('click', 'tr', function() {
-     
-      $(this).toggleClass('choose');
-     
-    });
-});
+				$(this).toggleClass('choose');
 
+			});
+		});
+	</script>
+	<script>
+		$(function() {
+			$('#tbl').on('click', 'tr', function() {
 
+				$(this).toggleClass('choose');
 
-</script>
-<script>
-  $(function() {
-    $('#tbl').on('click', 'tr', function() {
-     
-      $(this).toggleClass('choose');
-     
-    });
-});
+			});
+		});
+	</script>
+	</script>
+	<script>
+		var click1 = document.querySelector('#click1'),
+			click2 = document.querySelector('#click2');
 
+		function Color() {
+			this.style.color = 'green';
 
+		}
 
-</script>
-</script>
-<script>
-	var click1 = document.querySelector('#click1'),
-click2 = document.querySelector('#click2');
+		function restore() {
+			click1.style.color = 'blue';
 
-function Color() {
-  this.style.color = 'green';
-  
-}
+		}
 
-function restore() {
-  click1.style.color = 'blue';
+		click1.addEventListener('click', Color);
+		click2.addEventListener('click', restore);
+	</script>
 
-}
+	<script>
+		function setColor(e) {
+			var target = e.target,
+				count = +target.dataset.count;
 
-click1.addEventListener('click', Color);
-click2.addEventListener('click', restore);
-</script>
-   
-<script>
-        function setColor(e) {
-  var target = e.target,
-      count = +target.dataset.count;
-  
-   target.style.color = count === 0 ? "#bb0000 " : "#000000";
-   target.dataset.count = count === 0 ? 1 : 0;
+			target.style.color = count === 0 ? "#bb0000 " : "#000000";
+			target.dataset.count = count === 0 ? 1 : 0;
 
-}
-
-</script>
+		}
+	</script>
 
 
 
 </body>
+
 </html>
 
 
