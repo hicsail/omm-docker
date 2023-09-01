@@ -1,3 +1,8 @@
+/**
+ * form A and form B are two separate sets of questions. However, as of now, they are all the same except for que 4
+ * TODO: when form b deviates enough, add keys "formA" and "formB" directly under each question.
+ * "formA" and "formB" will have the same sets of key-value pairs that each question has now
+ */
 const bankStatementQuestionAnswers = {
   question1: {
     question: "In the current statement, when is the Minimum Payment due?",
@@ -23,6 +28,9 @@ const bankStatementQuestionAnswers = {
     question:
       "In the current statement, what amount did Pat receive as the cashback amount in the 5% Bonus Categories?",
     answer: "$17.61",
+    questionB:
+      "In the current statement, what is the annual percentage rate for cash advances?",
+    answerB: "24.99%",
     nextPage: "question5.php",
     answerTag: "4",
   },
@@ -50,10 +58,29 @@ const bankStatementQuestionAnswers = {
     answer: "08/16/2018",
     nextPage: "fetch.php",
   },
+  EliWinterErr: {
+    question: "Click on suspicious/strange transactions",
+    answer: "08/16/2018",
+    nextPage: "fetch.php",
+  },
 };
 
 //script that adds answer attempt to db
 var inputFile = "bank_statement_question_input.php";
+
+/**
+ * in bank_statement_question_content.php, form id is retrieved in php script.
+ * form id is written into a hidden element. get form id from there
+ */
+function getFormID() {
+  const formIdElement = document.querySelector(".formId");
+  if (formIdElement) {
+    const formId = formIdElement.textContent.trim();
+    return formId;
+  } else {
+    return null;
+  }
+}
 
 function getQuestionId() {
   // Get the script element that includes this script
@@ -72,6 +99,13 @@ function setQuestionText() {
   questionElement.textContent =
     bankStatementQuestionAnswers[getQuestionId()].question;
 
+  /**************** TODO adjust when formA and formB deviate enough *************** */
+  if (getQuestionId() == "question4" && getFormID() == "B") {
+    questionElement.textContent =
+      bankStatementQuestionAnswers[getQuestionId()].questionB;
+  }
+  /**************** */
+
   //set next button destination
   var link = document.querySelector(".button");
   const dest = link.href.split(".php");
@@ -85,6 +119,8 @@ function setQuestionText() {
 }
 
 function goToNextPage() {
+  console.log("next", bankStatementQuestionAnswers[getQuestionId()].nextPage);
+
   window.location.href = bankStatementQuestionAnswers[getQuestionId()].nextPage;
 }
 
@@ -139,6 +175,12 @@ function stopTimer(e) {
   //user clicked on the correct element
   if (elementId == bankStatementQuestionAnswers[getQuestionId()].answerTag) {
     user_answer = bankStatementQuestionAnswers[getQuestionId()].answer;
+
+    /**************** TODO adjust when formA and formB deviate enough *************** */
+    if (getQuestionId() == "question4" && getFormID() == "B") {
+      user_answer = bankStatementQuestionAnswers[getQuestionId()].answerB;
+    }
+    /****************  *************** */
     //user clicked on something else
   } else {
     var a = e.innerHTML;
@@ -198,7 +240,7 @@ function saveTime(time, user_answer, question_number) {
         console.log("no error while saving data");
       }
     };
-    if (getQuestionId() == "PatMillerErr") {
+    if (getQuestionId() == "PatMillerErr" || getQuestionId() == "EliWinterErr" ) {
       xmlhttp.open("POST", "send_task2.php", true);
       xmlhttp.setRequestHeader(
         "Content-type",
