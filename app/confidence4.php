@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include 'head_content.php'; ?>
-<script src="./confidenceSubmit.js"></script>
+<script src="./confidence_script.js" data-confidence-id="confidence4"></script>
 
 <body>
   <br>

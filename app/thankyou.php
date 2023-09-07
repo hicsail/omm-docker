@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
   <script src="./popup.js"></script>
 </head>
 
-<body onload="showAlert('Your confidence value is updated')">
+<body>
   <br>
   <br>
   <hr>

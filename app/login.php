@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html>
+<?php
+include 'connect.php';
+include 'getFormId.php';
+if (isset($_POST['submit'])) {
+  $user = $_POST["username"];
+  $pass = $_POST["psw"];
+  $correct_username = $formid === "B" ? "eli" : "pat";
+  if ($user == $correct_username and $pass == "admin123") {
+    header("Location: summary_page.php");
+  } else {
+    echo ("<script>alert('Incorrect Username or Password'); </script>");
+  }
+}
+?>
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,25 +32,12 @@
   <script src="./popup.js"></script>
 
 
-  <?php
-  include 'connect.php';
-  include 'getFormId.php';
-  if (isset($_POST['submit'])) {
 
-    $user = $_POST["username"];
-    $pass = $_POST["psw"];
-    $correct_username = $formid === "B" ? "eli" : "pat";
-    if ($user == $correct_username and $pass == "admin123") {
-      header("Location: summary_page.php");
-    } else {
-      echo ("<script>alert('Incorrect Username or Password'); </script>");
-    }
-  }
-  ?>
 
   <p id="errMsg"></p>
 
 <body onload="startTimer(this);">
+
 
   <div class="nv">
     <nav>
@@ -68,7 +69,7 @@
       <input type="text" style="font-family: georgia;" placeholder="User Name" name="username" required autocomplete="off">
 
       <input type="password" style="font-family: georgia;" placeholder="Password" name="psw" required>
-      <input type="submit" onclick="newFunction(this)" value="Login" name="submit" id="bt1">
+      <input type="submit" onclick="newFunction(this);" value="Login" name="submit" id="bt1">
       <br>
       <a id="1000" href="forgot.php" onclick="newFunction(this)" style="color: #bb0000; font-family: georgia;">Forgot username/password</a>
       <br>
@@ -228,6 +229,25 @@
         var clicks = 0;
         console.log('clicks init', clicks);
 
+        function onSubit() {
+          console.log('onsub called');
+
+          // const user = document.getElementById("username").value;
+          // const pass = document.getElementById("psw").value;
+          // const formid = document.getElementById("formid").value;
+
+          // const correctUsername = formid === "B" ? "eli" : "pat";
+
+          // if (user === correctUsername && pass === "admin123") {
+          //   // Redirect to summary_page.php
+          //   window.location.href = "summary_page.php";
+          // } else {
+          //   showAlert("Incorrect Username or Password");
+          // }
+        }
+
+
+
         function startTimer(e) {
           i = window.setInterval(() => {
             t++;
@@ -299,6 +319,8 @@
           if (b != "1000" && b != "bt1") {
             showAlert("This is incorrect. Please select another option.");
           }
+
+
         }
 
         function validate() {

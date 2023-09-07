@@ -56,12 +56,12 @@ const bankStatementQuestionAnswers = {
   PatMillerErr: {
     question: "Click on suspicious/strange transactions",
     answer: "08/16/2018",
-    nextPage: "fetch.php",
+    nextPage: "confidence6.php",
   },
   EliWinterErr: {
     question: "Click on suspicious/strange transactions",
     answer: "08/16/2018",
-    nextPage: "fetch.php",
+    nextPage: "confidence6.php",
   },
 };
 

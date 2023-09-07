@@ -788,7 +788,7 @@ Page 2 of 3</div>
 
 	
 </tr>
-<a href="fetch.php" onclick="" >Next</a>
+<a href="confidence6.php" onclick="" >Next</a>
 </tbody>
 </table>
 
