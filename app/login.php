@@ -32,8 +32,6 @@
       echo ("<script>alert('Incorrect Username or Password'); </script>");
     }
   }
-
-
   ?>
 
   <p id="errMsg"></p>

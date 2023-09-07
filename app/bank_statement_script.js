@@ -137,15 +137,12 @@ function helpAlert(e) {
 }
 
 function setColor(e) {
-  var target = e.target;
-  target.style.color = "#FF00FF";
-}
+  console.log("setColor", e.target);
 
-function setClr(e) {
   var target = e.target;
   var count = +target.dataset.count;
 
-  target.style.color = count === 0 ? "#000000 " : "#316605";
+  target.style.color = count === 0 ? "#000000 " : "#FF00FF";
   target.dataset.count = count === 0 ? 1 : 0;
 }
 
@@ -240,7 +237,10 @@ function saveTime(time, user_answer, question_number) {
         console.log("no error while saving data");
       }
     };
-    if (getQuestionId() == "PatMillerErr" || getQuestionId() == "EliWinterErr" ) {
+    if (
+      getQuestionId() == "PatMillerErr" ||
+      getQuestionId() == "EliWinterErr"
+    ) {
       xmlhttp.open("POST", "send_task2.php", true);
       xmlhttp.setRequestHeader(
         "Content-type",
