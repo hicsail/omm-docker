@@ -131,8 +131,10 @@ function toggleZoomScreen() {
 
 function helpAlert(e) {
   document.body.style.zoom = "100%";
+  document.querySelector("div.statement_content").hidden = true;
   showAlert(bankStatementQuestionAnswers[getQuestionId()].question, () => {
     document.body.style.zoom = "240%";
+    document.querySelector("div.statement_content").hidden = false;
   });
 }
 

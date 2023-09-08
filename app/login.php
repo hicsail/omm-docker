@@ -53,10 +53,8 @@ if (isset($_POST['submit'])) {
             <a href="#"><i id="2" onclick="newFunction(this)" class="fa fa-fw fa-search"></i> </a>
 
           </div>
-
         </div>
       </nav>
-
 
 
 
@@ -68,7 +66,11 @@ if (isset($_POST['submit'])) {
 
       <input type="text" style="font-family: georgia;" placeholder="User Name" name="username" required autocomplete="off">
 
-      <input type="password" style="font-family: georgia;" placeholder="Password" name="psw" required>
+      <!-- <input type="password" style="font-family: georgia;" placeholder="Password" name="psw" required> -->
+      <div class="password-container">
+        <input style="width:90%" type="password" style="font-family: georgia;" placeholder="Password" name="psw" required id="password-field">
+        <span style="width:10%" class="password-toggle" onclick="togglePasswordVisibility()">&#128065;</span>
+      </div>
       <input type="submit" onclick="newFunction(this);" value="Login" name="submit" id="bt1">
       <br>
       <a id="1000" href="forgot.php" onclick="newFunction(this)" style="color: #bb0000; font-family: georgia;">Forgot username/password</a>
@@ -246,7 +248,18 @@ if (isset($_POST['submit'])) {
           // }
         }
 
+        function togglePasswordVisibility() {
+          const passwordField = document.getElementById("password-field");
+          const passwordToggle = document.querySelector(".password-toggle");
 
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            passwordToggle.textContent = "🙈"; // Change to hide icon
+          } else {
+            passwordField.type = "password";
+            passwordToggle.textContent = "👁️"; // Change to show icon
+          }
+        }
 
         function startTimer(e) {
           i = window.setInterval(() => {
