@@ -73,13 +73,15 @@ var inputFile = "bank_statement_question_input.php";
  * form id is written into a hidden element. get form id from there
  */
 function getFormID() {
-  const formIdElement = document.querySelector(".formId");
-  if (formIdElement) {
-    const formId = formIdElement.textContent.trim();
-    return formId;
-  } else {
-    return null;
-  }
+  return A;
+  //TODO import getFormId.js funct
+  // const formIdElement = document.querySelector(".formId");
+  // if (formIdElement) {
+  //   const formId = formIdElement.textContent.trim();
+  //   return formId;
+  // } else {
+  //   return null;
+  // }
 }
 
 function getQuestionId() {

@@ -1,6 +1,5 @@
 <?php
 include 'connect.php';
-include 'getFormId.php';
 ?>
 
 
@@ -42,9 +41,9 @@ include 'getFormId.php';
         </div>
         <hr>
         <br>
-        <div class="formId" hidden="true"><?php echo ($formid === "B") ? "B" : "A"; ?></div>
+
         <center>
-            <a href=<?php echo ($formid === "B") ? "EliWinter1.php" : "PatMiller1.php"; ?> class="button" style="color:white"><span> Next </span></button>
+            <a href="PatMiller1.php" class="button" style="color:white"><span> Next </span></button>
         </center></a>
 
 </body>
