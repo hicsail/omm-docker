@@ -87,12 +87,12 @@
             </div>
             <div style="position:absolute;left:329.63px;top:482.90px" class="cls_012" onclick="stopTimer(this),setColor(event)" ; data-count="1"><span class="cls_012">Minimum Payment Warning: </span><span class="cls_006">If you make only the minimum</span></div>
             <div style="position:absolute;left:329.63px;top:494.90px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">payment each period, you will pay more in interest and it will</span></div>
-            <div id="2" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:26.00px;top:496.65px" class="cls_013"><span class="cls_013">Total Cash Advance Line</span></div>
                 <div style="position:absolute;left:266.35px;top:497.15px" class="cls_002"><span class="cls_002">$900.00</span></div>
             </div>
             <div style="position:absolute;left:329.63px;top:506.90px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">take you longer to pay off your balance. For example:</span></div>
-            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div id="2" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:26.00px;top:520.67px" class="cls_013"><span class="cls_013">Available for Cash</span></div>
                 <div style="position:absolute;left:266.35px;top:521.17px" class="cls_002"><span class="cls_002">$900.00</span></div>
             </div>
