@@ -44,7 +44,7 @@
                 <div style="position:absolute;left:26.00px;top:352.12px" class="cls_013"><span class="cls_013">Payment, Credits</span></div>
                 <div style="position:absolute;left:263.10px;top:352.62px" class="cls_002"><span class="cls_002">-$544.10</span></div>
             </div>
-            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div id="1" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:336.88px;top:352.62px" class="cls_002"><span class="cls_002">Payment Due Date</span></div>
                 <div style="position:absolute;left:546.22px;top:352.62px" class="cls_002"><span class="cls_002">10/09/2018</span></div>
             </div>
@@ -79,7 +79,8 @@
                 <div style="position:absolute;left:26.00px;top:448.65px" class="cls_013"><span class="cls_013">Total Credit Line</span></div>
                 <div style="position:absolute;left:258.85px;top:449.15px" class="cls_002"><span class="cls_002">$4,500.00</span></div>
             </div>
-            <div id="6" style="position:absolute;left:329.63px;top:451.90px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">maximum Penalty APR of 29.99%.</span></div>
+            <div style="position:absolute;left:329.63px;top:451.90px" class="cls_006"><span id="6" class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">maximum Penalty APR of 29.99%.</span></div>
+
             <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:26.00px;top:472.65px" class="cls_013"><span class="cls_013">Available Credit</span></div>
                 <div style="position:absolute;left:258.85px;top:473.15px" class="cls_002"><span class="cls_002">$1,078.74</span></div>
@@ -193,7 +194,7 @@
                 <div style="position:absolute;left:164.08px;top:267.82px" class="cls_002"><span class="cls_002">CHICK PEA NEW YORK NY</span></div>
                 <div style="position:absolute;left:462.95px;top:267.82px" class="cls_002"><span class="cls_002">10.57</span></div>
             </div>
-            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div id="300" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:32.53px;top:279.35px" class="cls_002"><span class="cls_002">Aug 4</span></div>
                 <div style="position:absolute;left:112.80px;top:279.35px" class="cls_002"><span class="cls_002">Aug 4</span></div>
                 <div style="position:absolute;left:164.08px;top:279.35px" class="cls_002"><span class="cls_002">CVS PHARMACY #10685 NY</span></div>
@@ -205,7 +206,7 @@
                 <div style="position:absolute;left:164.08px;top:290.85px" class="cls_002"><span class="cls_002">PAPYRUS GIFT STR QUEENS NY</span></div>
                 <div style="position:absolute;left:462.95px;top:290.85px" class="cls_002"><span class="cls_002">3.58</span></div>
             </div>
-            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div id="300" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:32.53px;top:302.35px" class="cls_002"><span class="cls_002">Aug 4</span></div>
                 <div style="position:absolute;left:112.80px;top:302.35px" class="cls_002"><span class="cls_002">Aug 4</span></div>
                 <div style="position:absolute;left:164.08px;top:302.35px" class="cls_002"><span class="cls_002">CVS PHARMACY #10685 NY</span></div>

@@ -89,7 +89,6 @@ function getQuestionId() {
     document.querySelector('script[src="./bank_statement_script.js"]');
 
   var questionId = scriptElement.getAttribute("data-question-id");
-  console.log("questionId", questionId);
 
   return questionId;
 }
@@ -139,8 +138,6 @@ function helpAlert(e) {
 }
 
 function setColor(e) {
-  console.log("setColor", e.target);
-
   var target = e.target;
   var count = +target.dataset.count;
 
@@ -169,6 +166,7 @@ function startTimer(e) {
 
 function stopTimer(e) {
   var elementId = e.id;
+  console.log("elementId", elementId);
 
   var user_answer;
   //user clicked on the correct element
@@ -218,16 +216,15 @@ function getTime(m) {
 }
 
 function saveTime(time, user_answer, question_number) {
+  const correct_answer = bankStatementQuestionAnswers[getQuestionId()].answer;
   console.log(
-    "time: ",
-    time,
     "  user_answer: ",
     user_answer,
-    "  question_number: ",
+    "\ncorrect_answer",
+    correct_answer,
+    "\nquestion_number: ",
     question_number
   );
-
-  const correct_answer = bankStatementQuestionAnswers[getQuestionId()].answer;
 
   clicks++;
   if (t > 0) {
@@ -235,8 +232,6 @@ function saveTime(time, user_answer, question_number) {
     xmlhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status != 200) {
         console.log("Exception while saving data");
-      } else {
-        console.log("no error while saving data");
       }
     };
     if (

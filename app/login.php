@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php
-include 'connect.php';
-include 'getFormId.php';
-if (isset($_POST['submit'])) {
-  $user = $_POST["username"];
-  $pass = $_POST["psw"];
-  $correct_username = $formid === "B" ? "eli" : "pat";
-  if ($user == $correct_username and $pass == "admin123") {
-    header("Location: summary_page.php");
-  } else {
-    echo ("<script>alert('Incorrect Username or Password'); </script>");
-  }
-}
-?>
+
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,15 +17,10 @@ if (isset($_POST['submit'])) {
   <link rel="stylesheet" type="text/css" href="login.css">
   <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
   <script src="./popup.js"></script>
-
-
-
-
+  <script src="./getFormId.js"></script>
   <p id="errMsg"></p>
 
 <body onload="startTimer(this);">
-
-
   <div class="nv">
     <nav>
 
@@ -64,14 +46,14 @@ if (isset($_POST['submit'])) {
       <h3 onclick="newFunction(this)" style="color:Black; font-family: georgia;">Welcome</h3>
 
 
-      <input type="text" style="font-family: georgia;" placeholder="User Name" name="username" required autocomplete="off">
+      <input id="username" type="text" style="font-family: georgia;" placeholder="User Name" name="username" required autocomplete="off">
 
-      <!-- <input type="password" style="font-family: georgia;" placeholder="Password" name="psw" required> -->
       <div class="password-container">
         <input style="width:90%" type="password" style="font-family: georgia;" placeholder="Password" name="psw" required id="password-field">
-        <span style="width:10%" class="password-toggle" onclick="togglePasswordVisibility()">&#128065;</span>
+        <span style="width:10%" class="password-toggle" onclick="togglePasswordVisibility()"> <i class="fa fa-eye" aria-hidden="true"></i></span>
       </div>
-      <input type="submit" onclick="newFunction(this);" value="Login" name="submit" id="bt1">
+      <input type="submit" onclick="newFunction(this); onSubmit(); return false; " value="Login" name="submit" id="bt1">
+
       <br>
       <a id="1000" href="forgot.php" onclick="newFunction(this)" style="color: #bb0000; font-family: georgia;">Forgot username/password</a>
       <br>
@@ -231,21 +213,21 @@ if (isset($_POST['submit'])) {
         var clicks = 0;
         console.log('clicks init', clicks);
 
-        function onSubit() {
-          console.log('onsub called');
-
-          // const user = document.getElementById("username").value;
-          // const pass = document.getElementById("psw").value;
-          // const formid = document.getElementById("formid").value;
-
-          // const correctUsername = formid === "B" ? "eli" : "pat";
-
-          // if (user === correctUsername && pass === "admin123") {
-          //   // Redirect to summary_page.php
-          //   window.location.href = "summary_page.php";
-          // } else {
-          //   showAlert("Incorrect Username or Password");
-          // }
+        function onSubmit() {
+          const user = document.getElementById("username").value;
+          const pass = document.getElementById("password-field").value;
+          if (!user || !pass) {
+            return
+          }
+          getFormId((formId) => {
+            const correctUsername = formId === "B" ? "eli" : "pat";
+            if (user === correctUsername && pass === "admin123") {
+              // Redirect to summary_page.php
+              window.location.href = "summary_page.php";
+            } else {
+              showAlert("Incorrect Username or Password");
+            }
+          })
         }
 
         function togglePasswordVisibility() {
@@ -254,10 +236,10 @@ if (isset($_POST['submit'])) {
 
           if (passwordField.type === "password") {
             passwordField.type = "text";
-            passwordToggle.textContent = "🙈"; // Change to hide icon
+            passwordToggle.innerHTML = '<i class="fa fa-eye-slash" aria-hidden="true"></i>'; // Show icon
           } else {
             passwordField.type = "password";
-            passwordToggle.textContent = "👁️"; // Change to show icon
+            passwordToggle.innerHTML = '<i class="fa fa-eye" aria-hidden="true"></i>'; // Hide icon
           }
         }
 
