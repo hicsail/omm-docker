@@ -1,7 +1,6 @@
 const instructionPageData = {
   instruction_page: {
-    instruction:
-      'For this task, you have to login to a pretend credit card account and download a statement. <br><br><br>Specific instructions will be given in the next page.<br><br><br>        If you make an error, an <span style="color:blue">error</span> message will ask you to try another option.<br><br><br>        If you forget what you have to do, click on the "Help" button in the upper right hand corner of the screen.',
+    instruction: `For this task, you have to login to a pretend credit card account and download a statement. <br><br><br>Specific instructions will be given in the next page.<br><br><br>        If you make an error, an <span class="cerror" style="color:blue" onclick="showAlert('This is an error message');" >error</span> message will ask you to try another option.<br><br><br>        If you forget what you have to do, click on the "Help" button in the upper right hand corner of the screen.`,
     nextPage: "instruction_page2.php",
   },
   instruction_page2: {
@@ -56,9 +55,13 @@ function setTaskInstructions() {
   //set next page
   document.querySelector("a.button").href =
     instructionPageData[taskId].nextPage;
+
+  //show help button on instruction_page
+  if (taskId == "instruction_page") {
+    document.querySelector("button.help").hidden = false;
+  }
 }
 
 function updatePageBasedOnFormType() {
   //replace pat with eli etc
 }
-

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 include 'connect.php';
-include 'getFormId.php';
 ?>
 <html>
 
@@ -33,15 +32,6 @@ include 'getFormId.php';
         b = 0;
       var i;
       var clicks = 0;
-
-      function NextButton(e) {
-        var Mydiv = document.getElementById("2000");
-        var button = document.createElement('BUTTON');
-        button.setAttribute("class", "button");
-        button.innerHTML = 'Next';
-        button.setAttribute("onclick", "window.location.href='confidence2.php'");
-        Mydiv.appendChild(button);
-      }
 
       function HelpAlert(e) {
         showAlert("Please download the statement for August 2018");
@@ -194,7 +184,8 @@ include 'getFormId.php';
           await showAlert("This is incorrect. Please select another option.");
         }
         if (b == 100) {
-          await showAlert("Well done. You clicked the right button to download");
+          // user clicked the right button. navigate to next screen          
+          window.location.href = 'confidence2.php';
         }
       }
 
@@ -400,7 +391,7 @@ include 'getFormId.php';
   float: right;"> &nbsp
               View</a>
 
-            <a id="100" onclick="NextButton(this),saveResponse(this);" style=" color: crimson;
+            <a id="100" onclick="saveResponse(this);" style=" color: crimson;
   float: right; border-right: 2px solid grey; height: 25px; ">&nbsp Download &nbsp</a>
             <hr>
             <span onclick="saveResponse(this) ; return false;">July</span>

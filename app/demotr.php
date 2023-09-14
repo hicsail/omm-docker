@@ -1,6 +1,5 @@
 <?php
 include 'connect.php';
-include 'getFormId.php';
 ?>
 <html>
 
@@ -407,8 +406,8 @@ include 'getFormId.php';
 	<div style="position:absolute;left:80.48px;top:103.08px" class="cls_013"><span id="27" class="cls_013" onclick="setColor(this)">[OMM Online Store]</span></div>
 	<div style="position:absolute;left:444.56px;top:112.20px" class="cls_010"><span id="28" class="cls_010" onclick="setColor(this)">Invoice #:</span><span id="111" class="cls_011" onclick="setColor(this)"> [100]</span></div>
 	<div style="position:absolute;left:113.48px;top:138.96px" class="cls_014"><span id="29" class="cls_014" onclick="setColor(this)">Ship to:</span></div>
-	<div style="position:absolute;left:138.92px;top:138.96px" class="cls_011"><span id="30" class="cls_011" onclick="setColor(this)"> <?php echo ($formid === "B") ? "Eli Winters" : "Pat Miller"; ?> </span></div>
-	<div style="position:absolute;left:391.13px;top:138.72px" class="cls_020"><span id="31" class="cls_020" onclick="setColor(this)">Bill to:</span><span id="106" class="cls_011" onclick="setColor(this)"> <?php echo ($formid === "B") ? "Eli Winters" : "Pat Miller"; ?></span></div>
+	<div style="position:absolute;left:138.92px;top:138.96px" class="cls_011"><span id="30" class="cls_011" onclick="setColor(this)"> Pat Miller </span></div>
+	<div style="position:absolute;left:391.13px;top:138.72px" class="cls_020"><span id="31" class="cls_020" onclick="setColor(this)">Bill to:</span><span id="106" class="cls_011" onclick="setColor(this)"> Pat Miller ></span></div>
 	<div style="position:absolute;left:138.92px;top:148.68px" class="cls_011"><span id="32" class="cls_011" onclick="setColor(this)">OMM Online Store</span></div>
 	<div style="position:absolute;left:416.36px;top:148.68px" class="cls_011"><span id="33" class="cls_011" onclick="setColor(this)">OMM Online Store</span></div>
 	<div style="position:absolute;left:138.92px;top:158.40px" class="cls_011"><span id="34" class="cls_011" onclick="setColor(this)">123 Anywhere Street 1</span></div>

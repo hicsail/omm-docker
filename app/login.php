@@ -226,6 +226,9 @@
               window.location.href = "summary_page.php";
             } else {
               showAlert("Incorrect Username or Password");
+              //clear inputs
+              document.getElementById("username").value = "";
+              document.getElementById("password-field").value = "";
             }
           })
         }

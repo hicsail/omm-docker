@@ -72,8 +72,8 @@ var inputFile = "bank_statement_question_input.php";
  * in bank_statement_question_content.php, form id is retrieved in php script.
  * form id is written into a hidden element. get form id from there
  */
-function getFormID() {
-  return A;
+function getFormId() {
+  return "A";
   //TODO import getFormId.js funct
   // const formIdElement = document.querySelector(".formId");
   // if (formIdElement) {
@@ -101,7 +101,7 @@ function setQuestionText() {
     bankStatementQuestionAnswers[getQuestionId()].question;
 
   /**************** TODO adjust when formA and formB deviate enough *************** */
-  if (getQuestionId() == "question4" && getFormID() == "B") {
+  if (getQuestionId() == "question4" && getFormId() == "B") {
     questionElement.textContent =
       bankStatementQuestionAnswers[getQuestionId()].questionB;
   }
@@ -143,6 +143,11 @@ function setColor(e) {
   var target = e.target;
   var count = +target.dataset.count;
 
+  // PIs want color resetting only on this page. may be removed later
+  if (getQuestionId() != "PatMillerErr") {
+    count = 1;
+  }
+
   target.style.color = count === 0 ? "#000000 " : "#FF00FF";
   target.dataset.count = count === 0 ? 1 : 0;
 }
@@ -176,7 +181,7 @@ function stopTimer(e) {
     user_answer = bankStatementQuestionAnswers[getQuestionId()].answer;
 
     /**************** TODO adjust when formA and formB deviate enough *************** */
-    if (getQuestionId() == "question4" && getFormID() == "B") {
+    if (getQuestionId() == "question4" && getFormId() == "B") {
       user_answer = bankStatementQuestionAnswers[getQuestionId()].answerB;
     }
     /****************  *************** */

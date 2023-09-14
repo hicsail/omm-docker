@@ -130,7 +130,7 @@
             </div>
             <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:18.75px;top:641.70px" class="cls_002"><span class="cls_002">Cashback Bonus Balance</span></div>
-                <div style="position:absolute;left:271.10px;top:641.70px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$42.38</span></div>
+                <div style="position:absolute;left:271.10px;top:641.70px" class="cls_002"><span class="cls_002" data-count="1">$42.38</span></div>
             </div>
             <div style="position:absolute;left:20.25px;top:693.97px" class="cls_014"><span class="cls_014" onclick="stopTimer(this),setColor(event)" ; data-count="1">Customer Service</span></div>
             <div style="position:absolute;left:95.30px;top:693.97px" class="cls_014"><span class="cls_014" onclick="stopTimer(this),setColor(event)" ; data-count="1">1-800-657-6754</span></div>

@@ -1,9 +1,5 @@
-<body onload="setTaskInstructions(); getFormId(); ">
-    <script>
-        function erroralert(e) {
-            alert("This is incorrect. Please select another option.");
-        }
-    </script>
+<body onload="setTaskInstructions(); ">
+    <button hidden = "true" class="help" value="help" style="background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black;border: 2px solid black; position:fixed; right:10px;">Help</button>
 
     <div class="container-fluid">
         <br>
@@ -25,11 +21,7 @@
         <center>
             <a href="" class="button" style="color:white"><span> Start Activity </span></button>
         </center></a>
-        <script>
-            function newFunction() {
-                alert("Error:You have made a wrong choice");
-            }
-        </script>
+    </div>
 </body>
 
 </html>
