@@ -37,33 +37,33 @@ const postTaskInstruction =
   "How confident are you that you performed well on this task?";
 
 const formData = {
-  confidence: {
+  1: {
     type: "pre-task",
     instruction:
       ' On the next page, please login with username <span style="color: blue;">pat</span> and password <span style="color: blue;">admin123</span>. <br><br><br>If needed, you can click on “forgot username/password”.<br><br><br>After you login, please download the <span style="text-decoration: underline; color: blue;">August 2018</span> statement.<br><br><br>Once I click on "Start Activity”, please complete this task as quickly and accurately as you can.<br><br><br>',
-    nextPage: "login.php",
+    nextPage: "../site/login.php",
   },
-  confidence2: {
+  2: {
     type: "post-task",
-    nextPage: "task_instruction.php",
+    nextPage: "../instructions/3.php",
   },
-  confidence3: {
+  3: {
     type: "pre-task",
     instruction:
       '  Now on the next screen a question will be displayed.<br><br><br> Once I click "Next", the credit card statement will be displayed and you have to click on the answer.<br><br><br> Try to answer the question as quickly as you can, but also as carefully as you can. Ready?',
     nextPage: "question1.php",
   },
-  confidence4: {
+  4: {
     type: "post-task",
     nextPage: "demoinstruction.php",
   },
-  confidence5: {
+  5: {
     type: "pre-task",
     instruction:
-      ' Once you are ready, the credit card statement will once again be displayed. <br><br><br>You have to go to the <b><span style="color: blue;">Account Activity</span> </b> section and click on any suspicious or strange transactions. <br><br><br>There could be several such transactions or there could be none. <br><br><br>Once you complete this task, let me know that you are done.',
-    nextPage: "PatMillerErr.php", //TODO: set based on formID
+      'Once you are ready, the credit card statement will once again be displayed. <br><br><br>You have to go to the <b><span style="color: blue;">Account Activity</span> </b> section and click on any suspicious or strange transactions. <br><br><br>There could be several such transactions or there could be none. <br><br><br>Once you complete this task, let me know that you are done.',
+    nextPage: "../statements/pat/8.php", //TODO: set based on formID
   },
-  confidence6: {
+  6: {
     type: "post-task",
     nextPage: "thankyou.php",
   },
@@ -74,6 +74,8 @@ function getConfidenceId() {
   var scriptElement =
     document.currentScript ||
     document.querySelector('script[src="./confidence_script.js"]');
+
+  console.log("id", scriptElement.getAttribute("data-confidence-id"));
 
   return scriptElement.getAttribute("data-confidence-id");
 }

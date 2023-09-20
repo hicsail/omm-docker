@@ -1,48 +1,29 @@
 <?php
-if (isset($_POST['delete'])){
-  $con=mysqli_connect("localhost","root","","CreditCard");
+if (isset($_POST['delete'])) {
+  $con = mysqli_connect("localhost", "root", "", "CreditCard");
 
-  if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit;
   }
 
-  $sql = "Truncate table question1;";
-  $sql .= "Truncate table logintask;";
-  $sql .= "Truncate table statement_download;";
-  $sql .= "Truncate table summarypage;";
-  $sql .= "Truncate table summary_transaction;";
-  $sql .= "Truncate table sum_trans_eliminate;";
-  $sql .= "Truncate table transaction_task;";
-  $sql .= "Truncate table question2;";
-  $sql .= "Truncate table question3;";
-  $sql .= "Truncate table question4;";
-  $sql .= "Truncate table question5;";
-  $sql .= "Truncate table question6;";
-  $sql .= "Truncate table question7;";
+  $tables = [
+    "registration", "logintask", "statement_download", "summarypage",
+    "summary_transaction", "sum_trans_eliminate", "transaction_task",
+    "question1", "question2", "question3", "question4", "question5", "question6",
+    "question7", "confidence1", "confidence2", "confidence3", "confidence4",
+    "confidence5", "confidence6"
+  ];
 
+  foreach ($tables as $table) {
+    $sql = "TRUNCATE TABLE $table";
 
-
-
-
-  if (mysqli_multi_query($con,$sql))
-  {
-   do
-    {
-    
-     if ($result=mysqli_store_result($con)) {
-  
-      while ($row=mysqli_fetch_row($result))
-        {
-        printf("");
-        }
-    
-      mysqli_free_result($result);
-      }
+    if (mysqli_query($con, $sql)) {
+      echo "Table $table truncated successfully.<br>";
+    } else {
+      echo "Error truncating table $table: " . mysqli_error($con) . "<br>";
     }
-    while (mysqli_next_result($con));
   }
 
   mysqli_close($con);
 }
-?>

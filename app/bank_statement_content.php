@@ -206,7 +206,7 @@
                 <div style="position:absolute;left:164.08px;top:290.85px" class="cls_002"><span class="cls_002">PAPYRUS GIFT STR QUEENS NY</span></div>
                 <div style="position:absolute;left:462.95px;top:290.85px" class="cls_002"><span class="cls_002">3.58</span></div>
             </div>
-            <div id="300" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div id="400" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:32.53px;top:302.35px" class="cls_002"><span class="cls_002">Aug 4</span></div>
                 <div style="position:absolute;left:112.80px;top:302.35px" class="cls_002"><span class="cls_002">Aug 4</span></div>
                 <div style="position:absolute;left:164.08px;top:302.35px" class="cls_002"><span class="cls_002">CVS PHARMACY #10685 NY</span></div>

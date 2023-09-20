@@ -391,7 +391,7 @@ include 'connect.php';
   float: right;"> &nbsp
               View</a>
 
-            <a id="100" onclick="saveResponse(this);" style=" color: crimson;
+            <a id="100" href="" onclick="saveResponse(this); return false;" style=" color: crimson;
   float: right; border-right: 2px solid grey; height: 25px; ">&nbsp Download &nbsp</a>
             <hr>
             <span onclick="saveResponse(this) ; return false;">July</span>
