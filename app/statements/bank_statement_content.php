@@ -211,6 +211,9 @@
                 <div style="position:absolute;left:112.80px;top:302.35px" class="cls_002"><span class="cls_002">Aug 4</span></div>
                 <div style="position:absolute;left:164.08px;top:302.35px" class="cls_002"><span class="cls_002">CVS PHARMACY #10685 NY</span></div>
                 <div style="position:absolute;left:462.95px;top:302.35px" class="cls_002"><span class="cls_002">20.69</span></div>
+                <!-- this is added to differentiate this  div from the previous cvs transaction (after all html is stripped) -->
+                <div hidden="true" style="position:absolute;left:462.95px;top:302.35px" class="cls_002"><span class="cls_002">2</span></div>
+
             </div>
             <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:32.53px;top:313.85px" class="cls_002"><span class="cls_002">Aug 5</span></div>

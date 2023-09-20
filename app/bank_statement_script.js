@@ -253,6 +253,8 @@ function saveTime(time, user_answer, question_number) {
       // in PatMillerErr.php, question_number var is forced to store value of element id
       //to prevent creating a new handler function
       const user_answer_id = question_number;
+      console.log("user answer", user_answer);
+
       xmlhttp.send(
         "time=" +
           time +
