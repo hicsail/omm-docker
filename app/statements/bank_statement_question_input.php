@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include_once 'connect.php';
+include_once '../database/connect.php';
 
 $time = $_POST["time"];
 $user_answer = strip_tags($_POST["user_answer"]);

@@ -17,7 +17,8 @@ if (isset($_POST['Enter'])) {
 ?>
     <p style='padding: 20px; color: black;'> Registration Successful. Please <a href="instruction_page.php"> Click Here </a> to start the task.
     </p>
-
+    <p style='padding: 20px; color: black;'> Registration Successful. Please <a href="instructions/1.php"> Click Here (New Folder Structure)</a> to start the task.
+    </p>
 <?php }
 } ?>
 
