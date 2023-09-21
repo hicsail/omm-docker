@@ -51,11 +51,11 @@ const formData = {
     type: "pre-task",
     instruction:
       '  Now on the next screen a question will be displayed.<br><br><br> Once I click "Next", the credit card statement will be displayed and you have to click on the answer.<br><br><br> Try to answer the question as quickly as you can, but also as carefully as you can. Ready?',
-    nextPage: "question1.php",
+    nextPage: "../questions/1.php",
   },
   4: {
     type: "post-task",
-    nextPage: "demoinstruction.php",
+    nextPage: "../instructions/8.php",
   },
   5: {
     type: "pre-task",

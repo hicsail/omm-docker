@@ -21,7 +21,7 @@ const instructionPageData = {
   task_instructionp3: {
     instruction:
       'Now on the next screen a question will be displayed.<br><br><br> Once I click "Next", the credit card statement will be displayed and you have to click on the answer.<br><br><br> Try to answer the question as quickly as you can, but also as carefully as you can. Ready?',
-    nextPage: "../confidence/5.php",
+    nextPage: "../confidence/3.php",
   },
   task_instructionp4: {
     instruction:
@@ -35,7 +35,11 @@ const instructionPageData = {
       'Once you are ready, the credit card statement will once again be displayed. <br><br><br>You have to go to the <b><span style="color: blue;">Account Activity</span> </b> section and click on any suspicious or strange transactions. <br><br><br>There could be several such transactions or there could be none. <br><br><br>Once you complete this task, let me know that you are done.      ',
 
     nextPage: "../confidence/5.php",
-    //TODO set name based on formId
+  },
+  demoinstruction: {
+    instruction:
+      'The next part of the task is focused on the <b><span style="color: blue;">Account Activity</span></b> section.<br><br><br>For this task you have to click on any suspicious or strange transactions.<br><br><br> Before I give you further instructions, let\'s try doing this with another example. <br><br><br>     ',
+    nextPage: "../statements/suspicioustransactiondemo.php",
   },
 };
 
