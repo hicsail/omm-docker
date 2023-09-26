@@ -82,7 +82,6 @@ if (isset($_POST["export"])) {
      fputcsv($output, array(' '));
      fputcsv($output, array('question6'));
      fputcsv($output, array('subid', 'clicks', 'timer', 'response', 'right_ans', 'wrong_ans'));
-     fputcsv($output, array(' '));
      $query = "SELECT * from question6;";
      $result = mysqli_query($connect, $query);
      while ($row = mysqli_fetch_assoc($result)) {

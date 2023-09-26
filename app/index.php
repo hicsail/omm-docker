@@ -12,12 +12,11 @@ if (isset($_POST['Enter'])) {
     $session = $_POST['session'];
     $form = $_POST['form'];
 
-    $add_user = mysqli_query($con, "INSERT INTO registration VALUES ('$userid','$subid','$session','$form',DATE_FORMAT(now(), '%m/%d/%Y'),now())") or die("error" . mysqli_error($con));
+    $add_user = mysqli_query($con, "INSERT INTO registration VALUES ('$userid','$subid','$session','$form',DATE_FORMAT(now(), '%m/%d/%Y'), TIME(NOW()))")  or die("error" . mysqli_error($con));
 
 ?>
-    <p style='padding: 20px; color: black;'> Registration Successful. Please <a href="instruction_page.php"> Click Here </a> to start the task.
-    </p>
-    <p style='padding: 20px; color: black;'> Registration Successful. Please <a href="instructions/1.php"> Click Here (New Folder Structure)</a> to start the task.
+
+    <p style='padding: 20px; color: black;'> Registration Successful. Please <a href="instructions/1.php"> Click Here</a> to start the task.
     </p>
 <?php }
 } ?>
