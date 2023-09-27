@@ -183,25 +183,22 @@ include '../common/head_content.php'; ?>
 
       function startTimer(e) {
         var a = e.innerHTML;
-        //alert(a);
+
         i = window.setInterval(() => {
           t++;
           showTime(getTime(t));
         }, 1000)
-        // e.setAttribute("onclick", "saveResponse(this) ; return false;");
-        //b+=1;
-        saveTime(getTime(t), a);
-        //alert("You have chosen the home tab");
+
 
       }
 
       function stopTimer(e) {
         window.clearInterval(i);
         var a = e.innerHTML;
-        //alert(a);
+
         e.setAttribute("onclick", "startTimer(this)");
 
-        //alert(a);
+
         b += 1;
 
         saveTime(getTime(t), a, b);

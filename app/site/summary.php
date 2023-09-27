@@ -15,7 +15,7 @@ include '../common/head_content.php'; ?>
 
     <script>
       var t = 0,
-        b = 0;
+      b = 0;
       var i;
       var clicks = 0;
 
@@ -25,35 +25,24 @@ include '../common/head_content.php'; ?>
 
       function startTimer(e) {
         var a = e.innerHTML;
-        //alert(a);
         i = window.setInterval(() => {
           t++;
-          // showTime(getTime(t));
         }, 1000)
-        // e.setAttribute("onclick", "stopTimer(this)");
-        //b+=1;
-        saveTime(getTime(t), a);
       }
 
       function stopTimer(e) {
         window.clearInterval(i);
         var a = e.innerHTML;
-        //alert(a);
         e.setAttribute("onclick", "startTimer(this)");
-
-        //alert(a);
-        //b+=1;
-
         saveTime(getTime(t), a);
 
       }
 
       function saveResponse(e) {
-        //"setColor(e);
+
         var a = e.innerHTML;
         var b = e.id;
-        //alert(a);
-        //b+=1;
+
         if (b == "al2") {
           a = "Learn More 1"
         }

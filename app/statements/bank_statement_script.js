@@ -154,13 +154,13 @@ var t = 0;
 var i;
 var clicks = 0;
 
-function OMMTimer(e) {
-  i = window.setInterval(() => {
-    t++;
-    showTime(getTime(t));
-  }, 1000);
-  e.setAttribute("onclick", "startTimer(this)");
-}
+// function OMMTimer(e) {
+//   i = window.setInterval(() => {
+//     t++;
+//     showTime(getTime(t));
+//   }, 1000);
+//   e.setAttribute("onclick", "startTimer(this)");
+// }
 
 function startTimer(e) {
   i = window.setInterval(() => {
