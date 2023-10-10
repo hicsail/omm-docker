@@ -276,4 +276,5 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
     <script src="../../common/popup.js"></script>
+    <script src="../../common/getFormId.js"></script>
 </head>

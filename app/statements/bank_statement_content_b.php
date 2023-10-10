@@ -86,12 +86,12 @@
             </div>
             <div style="position:absolute;left:329.63px;top:482.90px" class="cls_012" onclick="stopTimer(this),setColor(event)" ; data-count="1"><span class="cls_012">Minimum Payment Warning: </span><span class="cls_006">If you make only the minimum</span></div>
             <div style="position:absolute;left:329.63px;top:494.90px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">payment each period, you will pay more in interest and it will</span></div>
-            <div id="2" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:26.00px;top:496.65px" class="cls_013"><span class="cls_013">Total Cash Advance Line</span></div>
                 <div style="position:absolute;left:266.35px;top:497.15px" class="cls_002"><span class="cls_002">$900.00</span></div>
             </div>
             <div style="position:absolute;left:329.63px;top:506.90px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">take you longer to pay off your balance. For example:</span></div>
-            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div id="2" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:26.00px;top:520.67px" class="cls_013"><span class="cls_013">Available for Cash</span></div>
                 <div style="position:absolute;left:266.35px;top:521.17px" class="cls_002"><span class="cls_002">$900.00</span></div>
             </div>
@@ -386,154 +386,153 @@
                 <div style="position:absolute;left:164.08px;top:651.95px" class="cls_002"><span class="cls_002">SPECTRUM CABLE H-L-902334 NY</span></div>
                 <div style="position:absolute;left:462.95px;top:651.95px" class="cls_002"><span class="cls_002">43.99</span></div>
             </div>
-            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                <div style="position:absolute;left:283.63px;top:767.25px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">Page 2 of 3</span></div>
-            </div>
-            <div style="position:absolute;left:50%;margin-left:-306px;top:1604px;width:612px;height:792px;border-style:outset;overflow:hidden">
-                <div style="position:absolute;left:0px;top:0px">
-                    <img src="../../assets/background/3.jpg" width=612 height=792>
-                </div>
-                <div style="position:absolute;left:562.97px;top:10.75px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Eli Winter</span></div>
-                <div style="position:absolute;left:7.25px;top:2.25px" class="cls_003"><span class="cls_003" onclick="stopTimer(this),setColor(event)" ; data-count="1">OMM VISA</span></div>
-                <div style="position:absolute;left:470.20px;top:22.25px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Account Number Ending in 9012</span></div>
-                <div style="position:absolute;left:31.27px;top:78.78px" class="cls_011"><span class="cls_011" onclick="stopTimer(this),setColor(event)" ; data-count="1">ACCOUNT ACTIVITY CONTINUED</span></div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:94.78px" class="cls_002"><span class="cls_002">Aug 23</span></div>
-                    <div style="position:absolute;left:112.80px;top:94.78px" class="cls_002"><span class="cls_002">Aug 23</span></div>
-                    <div style="position:absolute;left:164.08px;top:96.28px" class="cls_002"><span class="cls_002">SUPERCUTS QUEENS New York City</span></div>
-                    <div style="position:absolute;left:462.95px;top:94.78px" class="cls_002"><span class="cls_002">15.56</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:107.78px" class="cls_002"><span class="cls_002">Aug 24</span></div>
-                    <div style="position:absolute;left:112.80px;top:107.78px" class="cls_002"><span class="cls_002">Aug 24</span></div>
-                    <div style="position:absolute;left:164.08px;top:109.03px" class="cls_002"><span class="cls_002">AMAZON.COM MZN.COM/BILL XAW5746OLWS</span></div>
-                    <div style="position:absolute;left:462.95px;top:107.78px" class="cls_002"><span class="cls_002">15.32</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:120.55px" class="cls_002"><span class="cls_002">Aug 24</span></div>
-                    <div style="position:absolute;left:112.80px;top:120.55px" class="cls_002"><span class="cls_002">Aug 24</span></div>
-                    <div style="position:absolute;left:164.08px;top:120.55px" class="cls_002"><span class="cls_002">PETCO #39257 New York City NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:120.55px" class="cls_002"><span class="cls_002">68.11</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:132.05px" class="cls_002"><span class="cls_002">Aug 24</span></div>
-                    <div style="position:absolute;left:112.80px;top:132.05px" class="cls_002"><span class="cls_002">Aug 24</span></div>
-                    <div style="position:absolute;left:164.08px;top:132.05px" class="cls_002"><span class="cls_002">UBER TAXI TRIP 3674589210034</span></div>
-                    <div style="position:absolute;left:462.95px;top:132.05px" class="cls_002"><span class="cls_002">17.43</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:146.05px" class="cls_002"><span class="cls_002">Aug 24</span></div>
-                    <div style="position:absolute;left:112.80px;top:146.05px" class="cls_002"><span class="cls_002">Aug 24</span></div>
-                    <div style="position:absolute;left:164.08px;top:146.05px" class="cls_002"><span class="cls_002">TRADER JOE'S #105 New York City NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:146.05px" class="cls_002"><span class="cls_002">21.55</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:159.80px" class="cls_002"><span class="cls_002">Aug 31</span></div>
-                    <div style="position:absolute;left:112.80px;top:159.80px" class="cls_002"><span class="cls_002">Aug 31</span></div>
-                    <div style="position:absolute;left:164.08px;top:159.80px" class="cls_002"><span class="cls_002">SHUKO RESTAURANT GREENWICH NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:159.80px" class="cls_002"><span class="cls_002">45.00</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:173.55px" class="cls_002"><span class="cls_002">Sep 1</span></div>
-                    <div style="position:absolute;left:112.80px;top:173.55px" class="cls_002"><span class="cls_002">Sep 3</span></div>
-                    <div style="position:absolute;left:164.08px;top:173.55px" class="cls_002"><span class="cls_002">STARBUCKS CAFE #3551 New York City NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:173.55px" class="cls_002"><span class="cls_002">14.66</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:187.30px" class="cls_002"><span class="cls_002">Sep 1</span></div>
-                    <div style="position:absolute;left:112.80px;top:187.30px" class="cls_002"><span class="cls_002">Sep 1</span></div>
-                    <div style="position:absolute;left:164.08px;top:187.30px" class="cls_002"><span class="cls_002">BLOOMINGDALES 314202 3278763 NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:187.30px" class="cls_002"><span class="cls_002">78.98</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:201.08px" class="cls_002"><span class="cls_002">Sep 1</span></div>
-                    <div style="position:absolute;left:112.80px;top:201.08px" class="cls_002"><span class="cls_002">Sep 1</span></div>
-                    <div style="position:absolute;left:164.08px;top:201.08px" class="cls_002"><span class="cls_002">MET MUSEUM #9954 New York City NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:201.08px" class="cls_002"><span class="cls_002">20.00</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:215.08px" class="cls_002"><span class="cls_002">Sep 2</span></div>
-                    <div style="position:absolute;left:112.80px;top:215.08px" class="cls_002"><span class="cls_002">Sep 2</span></div>
-                    <div style="position:absolute;left:164.08px;top:215.08px" class="cls_002"><span class="cls_002">THE CONTAINER STORE 854-922-0474 NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:215.08px" class="cls_002"><span class="cls_002">69.23</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:228.83px" class="cls_002"><span class="cls_002">Sep 4</span></div>
-                    <div style="position:absolute;left:112.80px;top:228.83px" class="cls_002"><span class="cls_002">Sep 4</span></div>
-                    <div style="position:absolute;left:164.08px;top:228.83px" class="cls_002"><span class="cls_002">DUNKIN DONUTS #3777 NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:228.83px" class="cls_002"><span class="cls_002">4.50</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:242.58px" class="cls_002"><span class="cls_002">Sep 4</span></div>
-                    <div style="position:absolute;left:112.80px;top:242.58px" class="cls_002"><span class="cls_002">Sep 4</span></div>
-                    <div style="position:absolute;left:164.08px;top:242.58px" class="cls_002"><span class="cls_002">SKETCHERS ASTORIA TL-0099 NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:242.58px" class="cls_002"><span class="cls_002">56.00</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:242.58px" class="cls_002"><span class="cls_002">Sep 4</span></div>
-                    <div style="position:absolute;left:112.80px;top:242.58px" class="cls_002"><span class="cls_002">Sep 5</span></div>
-                    <div style="position:absolute;left:164.08px;top:242.58px" class="cls_002"><span class="cls_002">AU BON PAIN New York City NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:242.58px" class="cls_002"><span class="cls_002">20.90</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:242.58px" class="cls_002"><span class="cls_002">Sep 5</span></div>
-                    <div style="position:absolute;left:112.80px;top:242.58px" class="cls_002"><span class="cls_002">Sep 5</span></div>
-                    <div style="position:absolute;left:164.08px;top:242.58px" class="cls_002"><span class="cls_002">AMC MOVIES NEW YORK NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:242.58px" class="cls_002"><span class="cls_002">14.58</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:32.53px;top:242.58px" class="cls_002"><span class="cls_002">Sep 5</span></div>
-                    <div style="position:absolute;left:112.80px;top:242.58px" class="cls_002"><span class="cls_002">Sep 5</span></div>
-                    <div style="position:absolute;left:164.08px;top:242.58px" class="cls_002"><span class="cls_002">PEARL DINER #7161 NEW YORK NY</span></div>
-                    <div style="position:absolute;left:462.95px;top:242.58px" class="cls_002"><span class="cls_002">25.25</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:381.90px;top:256.33px" class="cls_022"><span class="cls_022">Total Purchases</span></div>
-                    <div style="position:absolute;left:519.95px;top:256.33px" class="cls_022"><span class="cls_022">2,448.16</span></div>
-                </div>
-                <div style="position:absolute;left:32.53px;top:315.10px" class="cls_016"><span class="cls_016" onclick="stopTimer(this),setColor(event)" ; data-count="1">Interest Charged</span></div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:328.38px;top:341.60px" class="cls_022"><span class="cls_022">Total Interest for this Period</span></div>
-                    <div style="position:absolute;left:519.95px;top:342.10px" class="cls_024"><span class="cls_024">53.50</span></div>
-                </div>
-                <div style="position:absolute;left:205.83px;top:424.87px" class="cls_016"><span class="cls_016" onclick="stopTimer(this),setColor(event)" ; data-count="1">2019 Total Fee and Interest Charges</span></div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:145.05px;top:440.65px" class="cls_002"><span class="cls_002">Total Fees Charged in 2019</span></div>
-                    <div style="position:absolute;left:416.17px;top:440.65px" class="cls_021"><span class="cls_021">$30.00</span></div>
-                </div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:145.05px;top:455.40px" class="cls_002"><span class="cls_002">Total Interest Charged in 2019</span></div>
-                    <div style="position:absolute;left:410.92px;top:455.40px" class="cls_021"><span class="cls_021">$273.57</span></div>
-                </div>
-                <div style="position:absolute;left:32.78px;top:526.42px" class="cls_016"><span class="cls_016" onclick="stopTimer(this),setColor(event)" ; data-count="1">Interest Charges</span></div>
-                <div style="position:absolute;left:32.78px;top:542.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Balance Type</span></div>
-                <div style="position:absolute;left:370.15px;top:542.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Annual</span></div>
-                <div style="position:absolute;left:446.67px;top:542.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Balance</span></div>
-                <div style="position:absolute;left:514.20px;top:542.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Interest</span></div>
-                <div style="position:absolute;left:370.15px;top:553.67px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Percentage</span></div>
-                <div style="position:absolute;left:446.67px;top:553.67px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Subject to</span></div>
-                <div style="position:absolute;left:514.20px;top:553.67px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Charge</span></div>
-                <div style="position:absolute;left:370.15px;top:565.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Rate (APR)</span></div>
-                <div style="position:absolute;left:446.67px;top:565.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Interest Rate</span></div>
-                <div style="position:absolute;left:32.78px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Purchases</span></div>
-                <div id="3" style="position:absolute;left:370.15px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">16.99%</span></div>
-                <div style="position:absolute;left:446.67px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$3,182.94</span></div>
-                <div style="position:absolute;left:514.20px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$53.50</span></div>
-                <div style="position:absolute;left:32.78px;top:590.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Cash Advances</span></div>
-                <div id="4" style="position:absolute;left:370.15px;top:590.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">24.99%</span></div>
-                <div style="position:absolute;left:446.67px;top:590.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$0.00</span></div>
-                <div style="position:absolute;left:514.20px;top:590.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$0.00</span></div>
-                <div style="position:absolute;left:32.78px;top:604.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Balance Transfers</span></div>
-                <div style="position:absolute;left:370.15px;top:604.95px" class="cls_002"><span id="1001" class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">-</span></div>
-                <div style="position:absolute;left:446.67px;top:604.95px" class="cls_002"><span id="1002" class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">-</span></div>
-                <div style="position:absolute;left:514.20px;top:604.95px" class="cls_002"><span id="1003" class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">-</span></div>
-                <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
-                    <div style="position:absolute;left:300.88px;top:618.20px" class="cls_022"><span class="cls_022">Total Interest</span></div>
-                    <div style="position:absolute;left:551.22px;top:618.20px" class="cls_022"><span class="cls_022">$53.50</span></div>
-                </div>
-                <div style="position:absolute;left:283.63px;top:767.25px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">Page 3 of 3</span></div>
-            </div>
+            <div style="position:absolute;left:283.63px;top:767.25px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">Page 2 of 3</span></div>
         </div>
-        <button value="help" style="background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black;border: 2px solid black; position:fixed; right:10px;" onclick="helpAlert(this),stopTimer(this)">Help</button>
-        <button onclick="goToNextPage()" style="position: fixed;right:10px; bottom: 20px;">Next</button>
+        <div style="position:absolute;left:50%;margin-left:-306px;top:1604px;width:612px;height:792px;border-style:outset;overflow:hidden">
+            <div style="position:absolute;left:0px;top:0px">
+                <img src="../../assets/background/3.jpg" width=612 height=792>
+            </div>
+            <div style="position:absolute;left:562.97px;top:10.75px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Eli Winter</span></div>
+            <div style="position:absolute;left:7.25px;top:2.25px" class="cls_003"><span class="cls_003" onclick="stopTimer(this),setColor(event)" ; data-count="1">OMM VISA</span></div>
+            <div style="position:absolute;left:470.20px;top:22.25px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Account Number Ending in 9012</span></div>
+            <div style="position:absolute;left:31.27px;top:78.78px" class="cls_011"><span class="cls_011" onclick="stopTimer(this),setColor(event)" ; data-count="1">ACCOUNT ACTIVITY CONTINUED</span></div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:94.78px" class="cls_002"><span class="cls_002">Aug 23</span></div>
+                <div style="position:absolute;left:112.80px;top:94.78px" class="cls_002"><span class="cls_002">Aug 23</span></div>
+                <div style="position:absolute;left:164.08px;top:96.28px" class="cls_002"><span class="cls_002">SUPERCUTS QUEENS New York City</span></div>
+                <div style="position:absolute;left:462.95px;top:94.78px" class="cls_002"><span class="cls_002">15.56</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:107.78px" class="cls_002"><span class="cls_002">Aug 24</span></div>
+                <div style="position:absolute;left:112.80px;top:107.78px" class="cls_002"><span class="cls_002">Aug 24</span></div>
+                <div style="position:absolute;left:164.08px;top:109.03px" class="cls_002"><span class="cls_002">AMAZON.COM MZN.COM/BILL XAW5746OLWS</span></div>
+                <div style="position:absolute;left:462.95px;top:107.78px" class="cls_002"><span class="cls_002">15.32</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:120.55px" class="cls_002"><span class="cls_002">Aug 24</span></div>
+                <div style="position:absolute;left:112.80px;top:120.55px" class="cls_002"><span class="cls_002">Aug 24</span></div>
+                <div style="position:absolute;left:164.08px;top:120.55px" class="cls_002"><span class="cls_002">PETCO #39257 New York City NY</span></div>
+                <div style="position:absolute;left:462.95px;top:120.55px" class="cls_002"><span class="cls_002">68.11</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:132.05px" class="cls_002"><span class="cls_002">Aug 24</span></div>
+                <div style="position:absolute;left:112.80px;top:132.05px" class="cls_002"><span class="cls_002">Aug 24</span></div>
+                <div style="position:absolute;left:164.08px;top:132.05px" class="cls_002"><span class="cls_002">UBER TAXI TRIP 3674589210034</span></div>
+                <div style="position:absolute;left:462.95px;top:132.05px" class="cls_002"><span class="cls_002">17.43</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:146.05px" class="cls_002"><span class="cls_002">Aug 24</span></div>
+                <div style="position:absolute;left:112.80px;top:146.05px" class="cls_002"><span class="cls_002">Aug 24</span></div>
+                <div style="position:absolute;left:164.08px;top:146.05px" class="cls_002"><span class="cls_002">TRADER JOE'S #105 New York City NY</span></div>
+                <div style="position:absolute;left:462.95px;top:146.05px" class="cls_002"><span class="cls_002">21.55</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:159.80px" class="cls_002"><span class="cls_002">Aug 31</span></div>
+                <div style="position:absolute;left:112.80px;top:159.80px" class="cls_002"><span class="cls_002">Aug 31</span></div>
+                <div style="position:absolute;left:164.08px;top:159.80px" class="cls_002"><span class="cls_002">SHUKO RESTAURANT GREENWICH NY</span></div>
+                <div style="position:absolute;left:462.95px;top:159.80px" class="cls_002"><span class="cls_002">45.00</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:173.55px" class="cls_002"><span class="cls_002">Sep 1</span></div>
+                <div style="position:absolute;left:112.80px;top:173.55px" class="cls_002"><span class="cls_002">Sep 3</span></div>
+                <div style="position:absolute;left:164.08px;top:173.55px" class="cls_002"><span class="cls_002">STARBUCKS CAFE #3551 New York City NY</span></div>
+                <div style="position:absolute;left:462.95px;top:173.55px" class="cls_002"><span class="cls_002">14.66</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:187.30px" class="cls_002"><span class="cls_002">Sep 1</span></div>
+                <div style="position:absolute;left:112.80px;top:187.30px" class="cls_002"><span class="cls_002">Sep 1</span></div>
+                <div style="position:absolute;left:164.08px;top:187.30px" class="cls_002"><span class="cls_002">BLOOMINGDALES 314202 3278763 NY</span></div>
+                <div style="position:absolute;left:462.95px;top:187.30px" class="cls_002"><span class="cls_002">78.98</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:201.08px" class="cls_002"><span class="cls_002">Sep 1</span></div>
+                <div style="position:absolute;left:112.80px;top:201.08px" class="cls_002"><span class="cls_002">Sep 1</span></div>
+                <div style="position:absolute;left:164.08px;top:201.08px" class="cls_002"><span class="cls_002">MET MUSEUM #9954 New York City NY</span></div>
+                <div style="position:absolute;left:462.95px;top:201.08px" class="cls_002"><span class="cls_002">20.00</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:215.08px" class="cls_002"><span class="cls_002">Sep 2</span></div>
+                <div style="position:absolute;left:112.80px;top:215.08px" class="cls_002"><span class="cls_002">Sep 2</span></div>
+                <div style="position:absolute;left:164.08px;top:215.08px" class="cls_002"><span class="cls_002">THE CONTAINER STORE 854-922-0474 NY</span></div>
+                <div style="position:absolute;left:462.95px;top:215.08px" class="cls_002"><span class="cls_002">69.23</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:228.83px" class="cls_002"><span class="cls_002">Sep 4</span></div>
+                <div style="position:absolute;left:112.80px;top:228.83px" class="cls_002"><span class="cls_002">Sep 4</span></div>
+                <div style="position:absolute;left:164.08px;top:228.83px" class="cls_002"><span class="cls_002">DUNKIN DONUTS #3777 NY</span></div>
+                <div style="position:absolute;left:462.95px;top:228.83px" class="cls_002"><span class="cls_002">4.50</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:242.58px" class="cls_002"><span class="cls_002">Sep 4</span></div>
+                <div style="position:absolute;left:112.80px;top:242.58px" class="cls_002"><span class="cls_002">Sep 4</span></div>
+                <div style="position:absolute;left:164.08px;top:242.58px" class="cls_002"><span class="cls_002">SKETCHERS ASTORIA TL-0099 NY</span></div>
+                <div style="position:absolute;left:462.95px;top:242.58px" class="cls_002"><span class="cls_002">56.00</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:242.58px" class="cls_002"><span class="cls_002">Sep 4</span></div>
+                <div style="position:absolute;left:112.80px;top:242.58px" class="cls_002"><span class="cls_002">Sep 5</span></div>
+                <div style="position:absolute;left:164.08px;top:242.58px" class="cls_002"><span class="cls_002">AU BON PAIN New York City NY</span></div>
+                <div style="position:absolute;left:462.95px;top:242.58px" class="cls_002"><span class="cls_002">20.90</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:242.58px" class="cls_002"><span class="cls_002">Sep 5</span></div>
+                <div style="position:absolute;left:112.80px;top:242.58px" class="cls_002"><span class="cls_002">Sep 5</span></div>
+                <div style="position:absolute;left:164.08px;top:242.58px" class="cls_002"><span class="cls_002">AMC MOVIES NEW YORK NY</span></div>
+                <div style="position:absolute;left:462.95px;top:242.58px" class="cls_002"><span class="cls_002">14.58</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:32.53px;top:242.58px" class="cls_002"><span class="cls_002">Sep 5</span></div>
+                <div style="position:absolute;left:112.80px;top:242.58px" class="cls_002"><span class="cls_002">Sep 5</span></div>
+                <div style="position:absolute;left:164.08px;top:242.58px" class="cls_002"><span class="cls_002">PEARL DINER #7161 NEW YORK NY</span></div>
+                <div style="position:absolute;left:462.95px;top:242.58px" class="cls_002"><span class="cls_002">25.25</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:381.90px;top:256.33px" class="cls_022"><span class="cls_022">Total Purchases</span></div>
+                <div style="position:absolute;left:519.95px;top:256.33px" class="cls_022"><span class="cls_022">2,448.16</span></div>
+            </div>
+            <div style="position:absolute;left:32.53px;top:315.10px" class="cls_016"><span class="cls_016" onclick="stopTimer(this),setColor(event)" ; data-count="1">Interest Charged</span></div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:328.38px;top:341.60px" class="cls_022"><span class="cls_022">Total Interest for this Period</span></div>
+                <div style="position:absolute;left:519.95px;top:342.10px" class="cls_024"><span class="cls_024">53.50</span></div>
+            </div>
+            <div style="position:absolute;left:205.83px;top:424.87px" class="cls_016"><span class="cls_016" onclick="stopTimer(this),setColor(event)" ; data-count="1">2019 Total Fee and Interest Charges</span></div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:145.05px;top:440.65px" class="cls_002"><span class="cls_002">Total Fees Charged in 2019</span></div>
+                <div style="position:absolute;left:416.17px;top:440.65px" class="cls_021"><span class="cls_021">$30.00</span></div>
+            </div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:145.05px;top:455.40px" class="cls_002"><span class="cls_002">Total Interest Charged in 2019</span></div>
+                <div style="position:absolute;left:410.92px;top:455.40px" class="cls_021"><span class="cls_021">$273.57</span></div>
+            </div>
+            <div style="position:absolute;left:32.78px;top:526.42px" class="cls_016"><span class="cls_016" onclick="stopTimer(this),setColor(event)" ; data-count="1">Interest Charges</span></div>
+            <div style="position:absolute;left:32.78px;top:542.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Balance Type</span></div>
+            <div style="position:absolute;left:370.15px;top:542.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Annual</span></div>
+            <div style="position:absolute;left:446.67px;top:542.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Balance</span></div>
+            <div style="position:absolute;left:514.20px;top:542.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Interest</span></div>
+            <div style="position:absolute;left:370.15px;top:553.67px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Percentage</span></div>
+            <div style="position:absolute;left:446.67px;top:553.67px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Subject to</span></div>
+            <div style="position:absolute;left:514.20px;top:553.67px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Charge</span></div>
+            <div style="position:absolute;left:370.15px;top:565.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Rate (APR)</span></div>
+            <div style="position:absolute;left:446.67px;top:565.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Interest Rate</span></div>
+            <div style="position:absolute;left:32.78px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Purchases</span></div>
+            <div id="3" style="position:absolute;left:370.15px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">16.99%</span></div>
+            <div style="position:absolute;left:446.67px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$3,182.94</span></div>
+            <div style="position:absolute;left:514.20px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$53.50</span></div>
+            <div style="position:absolute;left:32.78px;top:590.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Cash Advances</span></div>
+            <div id="4" style="position:absolute;left:370.15px;top:590.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">24.99%</span></div>
+            <div style="position:absolute;left:446.67px;top:590.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$0.00</span></div>
+            <div style="position:absolute;left:514.20px;top:590.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$0.00</span></div>
+            <div style="position:absolute;left:32.78px;top:604.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Balance Transfers</span></div>
+            <div style="position:absolute;left:370.15px;top:604.95px" class="cls_002"><span id="1001" class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">-</span></div>
+            <div style="position:absolute;left:446.67px;top:604.95px" class="cls_002"><span id="1002" class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">-</span></div>
+            <div style="position:absolute;left:514.20px;top:604.95px" class="cls_002"><span id="1003" class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">-</span></div>
+            <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
+                <div style="position:absolute;left:300.88px;top:618.20px" class="cls_022"><span class="cls_022">Total Interest</span></div>
+                <div style="position:absolute;left:551.22px;top:618.20px" class="cls_022"><span class="cls_022">$53.50</span></div>
+            </div>
+            <div style="position:absolute;left:283.63px;top:767.25px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">Page 3 of 3</span></div>
+        </div>
+    </div>
+    <button value="help" style="background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black;border: 2px solid black; position:fixed; right:10px;" onclick="helpAlert(this),stopTimer(this)">Help</button>
+    <button onclick="goToNextPage()" style="position: fixed;right:10px; bottom: 20px;">Next</button>
 </body>

@@ -546,5 +546,4 @@
     </div>
     <button value="help" style="background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black;border: 2px solid black; position:fixed; right:10px;" onclick="helpAlert(this),stopTimer(this)">Help</button>
     <button onclick="goToNextPage()" style="position: fixed;right:10px; bottom: 20px;">Next</button>
-
 </body>

@@ -68,22 +68,6 @@ const bankStatementQuestionAnswers = {
 //script that adds answer attempt to db
 var inputFile = "../bank_statement_question_input.php";
 
-/**
- * in bank_statement_question_content.php, form id is retrieved in php script.
- * form id is written into a hidden element. get form id from there
- */
-// function getFormId() {
-//   return "A";
-//   //TODO import getFormId.js funct
-//   // const formIdElement = document.querySelector(".formId");
-//   // if (formIdElement) {
-//   //   const formId = formIdElement.textContent.trim();
-//   //   return formId;
-//   // } else {
-//   //   return null;
-//   // }
-// }
-
 function getQuestionId() {
   // Get the script element who's source is this script
   var scriptElement =
@@ -102,15 +86,15 @@ function setQuestionText() {
   questionElement.textContent =
     bankStatementQuestionAnswers[questionId].question;
 
-  /**************** TODO adjust when formA and formB deviate enough *************** */
-  if (questionId == "question4" && getFormId() == "B") {
-    questionElement.textContent =
-      bankStatementQuestionAnswers[questionId].questionB;
-  }
-  /**************** */
-
-  //set next button destination
   getFormId((formId) => {
+    /**************** TODO adjust when formA and formB deviate enough *************** */
+    if (questionId == "question4" && formId == "B") {
+      questionElement.textContent =
+        bankStatementQuestionAnswers[questionId].questionB;
+    }
+    /**************** */
+
+    //set next button destination
     //set link prefix based on formID
     const linkPrefix =
       formId == "B" ? "../statements/eli/" : "../statements/pat/";
@@ -164,36 +148,38 @@ function startTimer(e) {
 
 function stopTimer(e) {
   var elementId = e.id;
-  console.log("elementId", elementId);
+  const questionId = getQuestionId();
 
   var user_answer;
-  //user clicked on the correct element
-  if (elementId == bankStatementQuestionAnswers[getQuestionId()].answerTag) {
-    user_answer = bankStatementQuestionAnswers[getQuestionId()].answer;
 
-    /**************** TODO adjust when formA and formB deviate enough *************** */
-    if (getQuestionId() == "question4" && getFormId() == "B") {
-      user_answer = bankStatementQuestionAnswers[getQuestionId()].answerB;
+  getFormId((formId) => {
+    //user clicked on the correct element
+    if (elementId == bankStatementQuestionAnswers[questionId].answerTag) {
+      user_answer = bankStatementQuestionAnswers[questionId].answer;
+
+      if (questionId == "question4" && formId == "B") {
+        user_answer = bankStatementQuestionAnswers[questionId].answerB;
+      }
+
+      //user clicked on something else
+    } else {
+      var a = e.innerHTML;
+      a = a.trim();
+      a = a.replace(/(<([^>]+)>)/gi, "");
+      a = a.replace(/(&amp;)/gi, " and ");
+      a = a.replace(/(')/gi, "");
+      a = a.replace(/(\r\n|\n|\r)/gi, " ");
+      user_answer = a;
     }
-    /****************  *************** */
-    //user clicked on something else
-  } else {
-    var a = e.innerHTML;
-    a = a.trim();
-    a = a.replace(/(<([^>]+)>)/gi, "");
-    a = a.replace(/(&amp;)/gi, " and ");
-    a = a.replace(/(')/gi, "");
-    a = a.replace(/(\r\n|\n|\r)/gi, " ");
-    user_answer = a;
-  }
-  var question_number = getQuestionId();
-  if (getQuestionId() == "PatMillerErr") {
-    // in PatMillerErr, send_task2.php is called with requires id of the clicked element.
-    //here, it question_number var is forced to store value of element id to prevent creating a new handler function
-    question_number = elementId;
-    //TODO refactor and merge bank_statement_input.php with send_task2.php to prevent this hacky workaround
-  }
-  saveTime(getTime(t), user_answer, question_number);
+    var question_number = questionId;
+    if (questionId == "PatMillerErr") {
+      // in PatMillerErr, send_task2.php is called with requires id of the clicked element.
+      //here, it question_number var is forced to store value of element id to prevent creating a new handler function
+      question_number = elementId;
+      //TODO refactor and merge bank_statement_input.php with send_task2.php to prevent this hacky workaround
+    }
+    saveTime(getTime(t), user_answer, question_number, formId);
+  }, true);
 }
 
 function getTime(m) {
@@ -208,8 +194,16 @@ function getTime(m) {
   );
 }
 
-function saveTime(time, user_answer, question_number) {
-  const correct_answer = bankStatementQuestionAnswers[getQuestionId()].answer;
+function saveTime(time, user_answer, question_number, formId) {
+  const questionId = getQuestionId();
+  console.log('questionId == "question4" ', questionId == "question4");
+
+  var correct_answer = bankStatementQuestionAnswers[questionId].answer;
+  /**************** TODO adjust when formA and formB deviate enough *************** */
+  if (questionId == "question4" && formId == "B") {
+    correct_answer = bankStatementQuestionAnswers[questionId].answerB;
+  }
+  /**************** */
   console.log(
     "  user_answer: ",
     user_answer,
