@@ -23,5 +23,3 @@
         </center></a>
     </div>
 </body>
-
-</html>

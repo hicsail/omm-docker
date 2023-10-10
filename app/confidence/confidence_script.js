@@ -75,8 +75,6 @@ function getConfidenceId() {
     document.currentScript ||
     document.querySelector('script[src="./confidence_script.js"]');
 
-  console.log("id", scriptElement.getAttribute("data-confidence-id"));
-
   return scriptElement.getAttribute("data-confidence-id");
 }
 
@@ -101,4 +99,6 @@ function setInstructions() {
     //hide next page button
     document.querySelector("div.next_page").hidden = true;
   }
+
+  updatePageBasedOnFormType();
 }

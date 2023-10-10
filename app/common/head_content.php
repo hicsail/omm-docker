@@ -9,8 +9,9 @@
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
   <link rel="stylesheet" type="text/css" href="../styles/header.css">
-  <!-- <link rel="stylesheet" type="text/css" href="flip.css"> -->
   <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
   <script src="../common/popup.js"></script>
+  <script src="../common/getFormId.js"></script>
+  <script src="../common/utils.js"></script>
 
 </head>

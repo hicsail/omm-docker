@@ -64,8 +64,6 @@ function setTaskInstructions() {
   if (taskId == "instruction_page") {
     document.querySelector("button.help").hidden = false;
   }
-}
 
-function updatePageBasedOnFormType() {
-  //replace pat with eli etc
+  updatePageBasedOnFormType();
 }

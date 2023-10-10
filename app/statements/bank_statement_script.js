@@ -72,17 +72,17 @@ var inputFile = "../bank_statement_question_input.php";
  * in bank_statement_question_content.php, form id is retrieved in php script.
  * form id is written into a hidden element. get form id from there
  */
-function getFormId() {
-  return "A";
-  //TODO import getFormId.js funct
-  // const formIdElement = document.querySelector(".formId");
-  // if (formIdElement) {
-  //   const formId = formIdElement.textContent.trim();
-  //   return formId;
-  // } else {
-  //   return null;
-  // }
-}
+// function getFormId() {
+//   return "A";
+//   //TODO import getFormId.js funct
+//   // const formIdElement = document.querySelector(".formId");
+//   // if (formIdElement) {
+//   //   const formId = formIdElement.textContent.trim();
+//   //   return formId;
+//   // } else {
+//   //   return null;
+//   // }
+// }
 
 function getQuestionId() {
   // Get the script element who's source is this script
@@ -110,13 +110,15 @@ function setQuestionText() {
   /**************** */
 
   //set next button destination
+  getFormId((formId) => {
+    //set link prefix based on formID
+    const linkPrefix =
+      formId == "B" ? "../statements/eli/" : "../statements/pat/";
+    var link = document.querySelector(".button");
 
-  const linkPrefix = "../statements/pat/"; // ../statements/pat is where the bank statements are stored
-  var link = document.querySelector(".button");
-
-  //TODO change question ids from "question1" to just "1" then remove slice(-1)
-  const linkWithCorrectQueNumber = linkPrefix + questionId.slice(-1) + ".php";
-  link.href = linkWithCorrectQueNumber;
+    const linkWithCorrectQueNumber = linkPrefix + questionId.slice(-1) + ".php";
+    link.href = linkWithCorrectQueNumber;
+  });
 }
 
 function goToNextPage() {
@@ -154,18 +156,9 @@ var t = 0;
 var i;
 var clicks = 0;
 
-// function OMMTimer(e) {
-//   i = window.setInterval(() => {
-//     t++;
-//     showTime(getTime(t));
-//   }, 1000);
-//   e.setAttribute("onclick", "startTimer(this)");
-// }
-
 function startTimer(e) {
   i = window.setInterval(() => {
     t++;
-    showTime(getTime(t));
   }, 1000);
 }
 
@@ -201,11 +194,6 @@ function stopTimer(e) {
     //TODO refactor and merge bank_statement_input.php with send_task2.php to prevent this hacky workaround
   }
   saveTime(getTime(t), user_answer, question_number);
-}
-
-//TODO remove
-function showTime(time) {
-  /* document.getElementById("time").innerHTML= time; */
 }
 
 function getTime(m) {
