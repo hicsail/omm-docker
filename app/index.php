@@ -1,4 +1,4 @@
-<?php include_once 'connect.php';
+<?php include_once 'database/connect.php';
 
 
 
@@ -26,7 +26,7 @@ if (isset($_POST['Enter'])) {
 
 <head>
   <title>Registration Page</title>
-  <link rel="stylesheet" type="text/css" href="register.css">
+  <link rel="stylesheet" type="text/css" href="styles/register.css">
   <meta charset="utf-8" name="viewport" content="widtg=device-width" , initial-scale=1>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">

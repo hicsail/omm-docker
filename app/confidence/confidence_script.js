@@ -34,7 +34,7 @@ function handleFormSubmission(confidence_table) {
 const preTaskInstruction =
   "How confident are you that you will perform well on this task?";
 const postTaskInstruction =
-  "How confident are you that you performed well on this task?";
+  "This part of the task is now complete. How confident are you that you performed well on this task?";
 
 const formData = {
   1: {
