@@ -34,7 +34,7 @@ function handleFormSubmission(confidence_table) {
 const preTaskInstruction =
   "How confident are you that you will perform well on this task?";
 const postTaskInstruction =
-  "This part of the task is now complete. How confident are you that you performed well on this task?";
+  "This part of the task is now complete. <br><br>How confident are you that you performed well on this task?";
 
 const formData = {
   1: {
@@ -93,7 +93,7 @@ function setInstructions() {
     document.querySelector("a.button").href =
       formData[getConfidenceId()].nextPage;
   } else {
-    document.querySelector("b.confidence_instruction").textContent =
+    document.querySelector("b.confidence_instruction").innerHTML =
       postTaskInstruction;
 
     //hide next page button
