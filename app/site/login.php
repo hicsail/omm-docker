@@ -18,7 +18,35 @@
   <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
   <script src="../common/popup.js"></script>
   <script src="../common/getFormId.js"></script>
+  <!-- <script src="../common/exportToRedcap.js"></script> -->
   <p id="errMsg"></p>
+
+  <?php
+
+  # Use only one of the following requires:
+  require('PHPCap/autoloader.php'); # For Git 
+
+  use IU\PHPCap\RedCapProject;
+
+  $apiUrl = 'https://redcap.bumc.bu.edu/api/';
+  $apiToken  = 'CAF463BC78CA05550D35A13C1FA07599';
+
+  $project = new RedCapProject($apiUrl, $apiToken);
+  $projectInfo = $project->exportProjectInfo();
+
+  # Print the project title
+  print "project title: " . $projectInfo['project_title'] . "\n";
+
+  # Print the first and last names for all records
+  $records = $project->exportRecords();
+  foreach ($records as $record) {
+    print $record . "\n";
+  }
+
+
+  print_r($projectInfo);
+
+  ?>
 
 <body onload="startTimer(this);">
   <div class="nv">

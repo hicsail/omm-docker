@@ -2,6 +2,8 @@
 <?php
 session_start();
 include '../database/connect.php';
+include '../database/importToRedCap.php';
+
 $sql = mysqli_query($con, "SELECT subid FROM registration ORDER BY datetime DESC LIMIT 1;");
 $row = mysqli_fetch_row($sql);
 $subid = $row[0];
