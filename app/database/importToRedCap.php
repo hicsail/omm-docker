@@ -56,7 +56,6 @@ $record['q1_timer'] = $question1Row['time'];
 $record['omm_q1_click'] = $question1Row['clicks'];
 $record['omm_q1_correct_click'] = $question1Row['right_ans'];
 $record['omm_q1_incorrect_click'] = $question1Row['wrong_ans'];
-// $record['omm_q1_help_click'] = $question1Row['response'];
 $record['omm_q1_response'] = $question1Row['response'];
 
 
@@ -67,7 +66,6 @@ $record['q2_timer'] = $question2Row['time'];
 $record['omm_q2_click'] = $question2Row['clicks'];
 $record['omm_q2_correct_click'] = $question2Row['right_ans'];
 $record['omm_q2_incorrect_click'] = $question2Row['wrong_ans'];
-// $record['omm_q2_help_click'] = $question2Row['response'];
 $record['omm_q2_response'] = $question2Row['response'];
 
 
@@ -78,7 +76,6 @@ $record['q3_timer'] = $question3Row['time'];
 $record['omm_q3_click'] = $question3Row['clicks'];
 $record['omm_q3_correct_click'] = $question3Row['right_ans'];
 $record['omm_q3_incorrect_click'] = $question3Row['wrong_ans'];
-// $record['omm_q3_help_click'] = $question3Row['response'];
 $record['omm_q3_response'] = $question3Row['response'];
 
 
@@ -89,7 +86,6 @@ $record['q4_timer'] = $question4Row['time'];
 $record['omm_q4_click'] = $question4Row['clicks'];
 $record['omm_q4_correct_click'] = $question4Row['right_ans'];
 $record['omm_q4_incorrect_click'] = $question4Row['wrong_ans'];
-// $record['omm_q4_help_click'] = $question4Row['response'];
 $record['omm_q4_response'] = $question4Row['response'];
 
 
@@ -100,7 +96,6 @@ $record['q5_timer'] = $question5Row['time'];
 $record['omm_q5_click'] = $question5Row['clicks'];
 $record['omm_q5_correct_click'] = $question5Row['right_ans'];
 $record['omm_q5_incorrect_click'] = $question5Row['wrong_ans'];
-// $record['omm_q5_help_click'] = $question5Row['response'];
 $record['omm_q5_response'] = $question5Row['response'];
 
 
@@ -111,7 +106,6 @@ $record['q6_timer'] = $question6Row['time'];
 $record['omm_q6_click'] = $question6Row['clicks'];
 $record['omm_q6_correct_click'] = $question6Row['right_ans'];
 $record['omm_q6_incorrect_click'] = $question6Row['wrong_ans'];
-// $record['omm_q6_help_click'] = $question6Row['response'];
 $record['omm_q6_response'] = $question6Row['response'];
 
 
@@ -122,28 +116,16 @@ $record['q7_timer'] = $question7Row['time'];
 $record['omm_q7_click'] = $question7Row['clicks'];
 $record['omm_q7_correct_click'] = $question7Row['right_ans'];
 $record['omm_q7_incorrect_click'] = $question7Row['wrong_ans'];
-// $record['omm_q7_help_click'] = $question7Row['response'];
 $record['omm_q7_response'] = $question7Row['response'];
 
-# blocker : how to identify clicks by most recent participant
-# 1. add row 'separator' to the table : a row with special characters
-# 2. assume every row before the last row with same idwas generated in the most recent session
-# confirm with maddy: do you ever have consecutive sessions with the same id?
 # transaction_task
 $transactionRow = getLastRow($connect, 'transaction_task');
 $record['omm_transaction_clicks'] = $transactionRow['clicks'];
 $record['omm_transaction_timer'] = $transactionRow['time'];
 
-#correct answers
-// $correct_ans = array();
-// $correct_ans['omm_correct_ans___1'] = 1;
-// $record['omm_correct_ans'] = $correct_ans;
-
-
 try {
     $records[] = $record;
     $number = $project->importRecords($records);
-    print "{$number} records were imported.\n";
 } catch (Exception $exception) {
     print "*** Import Error: " . $exception->getMessage() . "\n";
 }
