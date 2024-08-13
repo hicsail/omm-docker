@@ -18,6 +18,21 @@ if (isset($_POST['Enter'])) {
 
     <p style='padding: 20px; color: black;'> Registration Successful. Please <a href="instructions/1.php"> Click Here</a> to start the task.
     </p>
+
+    <script>
+      // Send subid to Google Analytics
+      gtag('event', 'registration_success', {
+        'event_category': 'Form Submission',
+        'event_label': 'Registration',
+        'value': '<?php echo $subid; ?>'
+      });
+
+        // Set User-ID for tracking
+        gtag('config', 'G-08TXFVE94F', {
+        'user_id': '<?php echo $subid; ?>'
+      });
+    </script>
+
 <?php }
 } ?>
 
