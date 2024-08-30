@@ -225,9 +225,17 @@ include '../common/head_content.php'; ?>
           getFormId((formId) => {
             const correctUsername = formId === "B" ? "eli" : "pat";
             if (user === correctUsername && pass === "admin123") {
+              gtag('event', 'successful_site_login', {
+                'subid': '<?php echo $subid; ?>',
+                'page': 'Login',
+              });
               // Redirect to summary page.php
               window.location.href = "summary.php";
             } else {
+              gtag('event', 'failed_site_login', {
+                'subid': '<?php echo $subid; ?>',
+                'page': 'Login',
+              });
               showAlert("Incorrect Username or Password");
               //clear inputs
               document.getElementById("username").value = "";

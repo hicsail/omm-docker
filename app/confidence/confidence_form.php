@@ -1,3 +1,7 @@
+<script>
+    var subid = "<?php echo $subid; ?>";
+</script>
+
 <body onload="setInstructions()">
 
     <br>

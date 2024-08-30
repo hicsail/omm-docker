@@ -1,7 +1,9 @@
 const inputFile = "confidence_input.php";
 
 function handleFormSubmission(confidence_table) {
+  console.log("confidence: ", confidence_table);
   var confidence = document.querySelector('input[name="confident"]:checked');
+
   if (confidence) {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", inputFile, true);
@@ -9,11 +11,31 @@ function handleFormSubmission(confidence_table) {
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
+          console.log("confidence.value", confidence.value);
+
+          let event_name;
+          const isPostTask = formData[getConfidenceId()].type == "post-task";
+          if (confidence.value == "1") {
+            event_name = isPostTask
+              ? "lo_confidence_post"
+              : "lo_confidence_pre";
+          } else if (confidence.value == "10") {
+            event_name = isPostTask
+              ? "hi_confidence_post"
+              : "hi_confidence_pre";
+          }
+          if (event_name) {
+            console.log("sending event: ", event_name, "sub", subid);
+            gtag("event", event_name, {
+              subid: subid,
+              page: "Confidence",
+            });
+          }
+
           showAlert("Your confidence value is updated", () => {
             // move to next page if on a post task confidence page
-            if (formData[getConfidenceId()].type == "post-task") {
+            if (isPostTask) {
               console.log("going to ", formData[getConfidenceId()].nextPage);
-
               window.location.href = formData[getConfidenceId()].nextPage;
             }
           });
@@ -27,7 +49,7 @@ function handleFormSubmission(confidence_table) {
       "confident=" + confidence.value + "&confidence_table=" + confidence_table
     );
   } else {
-    showAlert("Please select a confidence value before submitting.");
+    showAlert("Please please select a confidence value before submitting.");
   }
 }
 
