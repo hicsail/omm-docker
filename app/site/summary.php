@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>Online Bank System</title>
-</head>
-
 <?php
+$pageTitle = 'Site Summary';
 include '../common/head_content.php'; ?>
 
 
@@ -15,7 +12,7 @@ include '../common/head_content.php'; ?>
 
     <script>
       var t = 0,
-      b = 0;
+        b = 0;
       var i;
       var clicks = 0;
 
@@ -70,6 +67,10 @@ include '../common/head_content.php'; ?>
         //alert(a);
         saveTime(getTime(t), a);
         if (b != "al1") {
+          console.log('Incorrect click', '<?php echo $subid; ?>');
+          gtag('event', 'incorrect_click', {
+            'value': a
+          });
           showAlert("This is incorrect. Please select another option.");
         }
       }

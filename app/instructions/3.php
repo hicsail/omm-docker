@@ -2,7 +2,9 @@
 
 <html>
 
-<?php include '../common/head_content.php'; ?>
+<?php
+$pageTitle = 'Instructions 3';
+ include '../common/head_content.php'; ?>
 <script src="./instruction_script.js" data-instruction-id="task_instruction"></script>
 
 <?php

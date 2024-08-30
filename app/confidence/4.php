@@ -2,7 +2,9 @@
 
 <html>
 
-<?php include '../common/head_content.php'; ?>
+<?php 
+$pageTitle = 'Confidence 4';
+include '../common/head_content.php'; ?>
 <script src="./confidence_script.js" data-confidence-id="4"></script>
 
 <?php

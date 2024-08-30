@@ -10,8 +10,6 @@ function getFormId(callback, calledFromNestedFile) {
   // Define the URL of your PHP script
   var url = "../database/getFormId.php";
 
-  console.log("calledFromNestedFile", calledFromNestedFile);
-
   if (calledFromNestedFile) {
     url = "../../database/getFormId.php";
   }

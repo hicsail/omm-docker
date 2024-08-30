@@ -19,7 +19,9 @@ if ($sql) {
 
 <html>
 
-<?php include '../common/head_content.php'; ?>
+<?php
+$pageTitle = 'Confidence 6';
+include '../common/head_content.php'; ?>
 <script src="./confidence_script.js" data-confidence-id="6"></script>
 
 <?php

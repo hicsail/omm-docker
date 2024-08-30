@@ -2,23 +2,31 @@
 <html>
 
 
+<?php
+$pageTitle = 'Site Login';
+include '../common/head_content.php'; ?>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   <link rel="stylesheet" type="text/css" href="footer.css">
   <link rel="stylesheet" type="text/css" href="login.css">
-  <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
-  <script src="../common/popup.js"></script>
-  <script src="../common/getFormId.js"></script>
-  <p id="errMsg"></p>
+</head>
+
+<!-- removes styles/header.css (from common/head_content.php) just to match previous style. 
+ This script can be removed if PI's aren't particular about the style on this page -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+    stylesheets.forEach(function(sheet) {
+      if (sheet.getAttribute('href') === '../styles/header.css') {
+        sheet.disabled = true; // or sheet.parentNode.removeChild(sheet);
+      }
+    });
+  });
+</script>
+
+
+<p id="errMsg"></p>
 
 <body onload="startTimer(this);">
   <div class="nv">
@@ -310,6 +318,10 @@
 
           saveTime(getTime(t), a);
           if (b != "1000" && b != "bt1") {
+            console.log('Incorrect click', '<?php echo $subid; ?>');
+            gtag('event', 'incorrect_click', {
+              'value': a
+            });
             showAlert("This is incorrect. Please select another option.");
           }
         }

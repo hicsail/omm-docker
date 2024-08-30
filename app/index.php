@@ -1,35 +1,34 @@
 <?php include_once 'database/connect.php';
-
-
+include 'common/gtag_setup.php';
 
 if (isset($_POST['Enter'])) {
-
   if (empty($form_errors)) {
-
 
     $userid = $_POST['userid'];
     $subid = $_POST['subid'];
     $session = $_POST['session'];
     $form = $_POST['form'];
+    $track_ga = $_POST['track_ga']; //whether to track events in Google Analytics
+
 
     $add_user = mysqli_query($con, "INSERT INTO registration VALUES ('$userid','$subid','$session','$form',DATE_FORMAT(now(), '%m/%d/%Y'), TIME(NOW()))")  or die("error" . mysqli_error($con));
-
+    // Set the subid in a session or cookie
+    session_start();
+    $_SESSION['subid'] = $subid;
+    // set cookie for 24 hours
+    setcookie('subid', $subid, time() + (86400), "/");
+    $_SESSION['track_ga'] = $track_ga;
+    setcookie('track_ga', $track_ga, time() + (86400), "/");
+    echo "<script>console.log('track_ga (from form): ', $track_ga);</script>";
 ?>
-
     <p style='padding: 20px; color: black;'> Registration Successful. Please <a href="instructions/1.php"> Click Here</a> to start the task.
     </p>
-
     <script>
-      // Send subid to Google Analytics
+      console.log('Registration Successful', '<?php echo $subid; ?>');
       gtag('event', 'registration_success', {
         'event_category': 'Form Submission',
         'event_label': 'Registration',
         'value': '<?php echo $subid; ?>'
-      });
-
-        // Set User-ID for tracking
-        gtag('config', 'G-08TXFVE94F', {
-        'user_id': '<?php echo $subid; ?>'
       });
     </script>
 
@@ -39,30 +38,15 @@ if (isset($_POST['Enter'])) {
 
 <html>
 
+
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-08TXFVE94F"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-08TXFVE94F');
-  </script>
-
-  <title>Registration Page</title>
   <link rel="stylesheet" type="text/css" href="styles/register.css">
-  <meta charset="utf-8" name="viewport" content="widtg=device-width" , initial-scale=1>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </head>
+<?php
+$pageTitle = 'Registration';
+include 'common/head_content.php'; ?>
+
+
 
 <body>
   <div class="jumbotron">
@@ -93,6 +77,9 @@ if (isset($_POST['Enter'])) {
             <option value="A">A</option>
             <option value="B">B</option>
           </select><br><br>
+          <!-- add a checkbox to track events in Google Analytics -->
+          <input type="hidden" name="track_ga" value="0">
+          <input type="checkbox" name="track_ga" value="1" checked> Track events in Google Analytics<br><br>
           <center><input type="submit" name="Enter" value="Enter" style="color: white;"></center></input>
         </form>
 

@@ -6,7 +6,7 @@ include 'connect.php';
 <html>
 
 <head>
-  <title>Online Bank System</title>
+  <title>Site (Statement Download)</title>
   <link rel="stylesheet" type="text/css" href="statement_download.css">
 </head>
 
@@ -173,6 +173,10 @@ include '../common/head_content.php'; ?>
         //alert(a);
         saveTime(getTime(t), a);
         if (b != "100" && b != "al1") {
+          console.log('Incorrect click', '<?php echo $subid; ?>');
+          gtag('event', 'incorrect_click', {
+            'value': a
+          });
           await showAlert("This is incorrect. Please select another option.");
         }
         if (b == 100) {
