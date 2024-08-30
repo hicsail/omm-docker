@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+<?php include '../common/gtag_setup.php'; ?>
 
 <head>
-  <title></title>
+  <title>Forgot Password</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -10,9 +11,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../styles/header.css">
-
-
 </head>
+
+<script>
+  gtag('event', 'forgot_password', {
+    'subid': '<?php echo $subid; ?>',
+    'page': 'Forgot Password'
+  });
+</script>
 
 <body>
   <div class="container-fluid">

@@ -115,6 +115,10 @@ function toggleZoomScreen() {
 }
 
 function helpAlert(e) {
+  gtag("event", "help_click", {
+    subid: subid,
+    page: "Bank Statement",
+  });
   document.body.style.zoom = "100%";
   document.querySelector("div.statement_content").hidden = true;
   showAlert(bankStatementQuestionAnswers[getQuestionId()].question, () => {
@@ -155,6 +159,14 @@ function stopTimer(e) {
   getFormId((formId) => {
     //user clicked on the correct element
     if (elementId == bankStatementQuestionAnswers[questionId].answerTag) {
+      console.log("element: ", e);
+
+      console.log('logging "correct_click" event');
+      gtag("event", "correct_click", {
+        page: "Bank Statement",
+        subid: subid,
+      });
+
       user_answer = bankStatementQuestionAnswers[questionId].answer;
 
       if (questionId == "question4" && formId == "B") {
@@ -163,6 +175,15 @@ function stopTimer(e) {
 
       //user clicked on something else
     } else {
+      if (e.value != "next" && e.value != "help") {
+        console.log('logging "incorrect_click" event');
+        gtag("event", "incorrect_click", {
+          page: "Bank Statement",
+          subid: subid,
+          elementClicked: e.value,
+        });
+      }
+
       var a = e.innerHTML;
       a = a.trim();
       a = a.replace(/(<([^>]+)>)/gi, "");

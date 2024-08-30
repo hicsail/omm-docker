@@ -26,6 +26,10 @@ include '../common/head_content.php'; ?>
       var clicks = 0;
 
       function HelpAlert(e) {
+        gtag('event', 'help_click', {
+          'subid': '<?php echo $subid; ?>',
+          'page': 'Statement Download'
+        });
         showAlert("Please download the statement for August 2018");
       }
 

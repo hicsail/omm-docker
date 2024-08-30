@@ -1,3 +1,7 @@
+<script>
+    var subid = '<?php echo $subid; ?>';
+</script>
+
 <body onload="toggleZoomScreen()">
     <div class="statement_content">
         <div style="position:absolute;left:50%;margin-left:-306px;top:0px;width:612px;height:792px;border-style:outset;overflow:hidden" data-count="0">

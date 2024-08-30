@@ -17,6 +17,10 @@ include '../common/head_content.php'; ?>
       var clicks = 0;
 
       function HelpAlert(e) {
+        gtag('event', 'help_click', {
+          'subid': '<?php echo $subid; ?>',
+          'page': 'Summary'
+        });
         showAlert("Please download the statement for August 2018");
       }
 
@@ -69,7 +73,9 @@ include '../common/head_content.php'; ?>
         if (b != "al1") {
           console.log('Incorrect click', '<?php echo $subid; ?>');
           gtag('event', 'incorrect_click', {
-            'value': a
+            'elementClicked': a
+            'subid': '<?php echo $subid; ?>',
+            'page': 'Summary'
           });
           showAlert("This is incorrect. Please select another option.");
         }

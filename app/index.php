@@ -28,7 +28,8 @@ if (isset($_POST['Enter'])) {
       gtag('event', 'registration_success', {
         'event_category': 'Form Submission',
         'event_label': 'Registration',
-        'value': '<?php echo $subid; ?>'
+        'subid': '<?php echo $subid; ?>',
+        'page': 'Registration'
       });
     </script>
 

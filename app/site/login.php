@@ -318,9 +318,10 @@ include '../common/head_content.php'; ?>
 
           saveTime(getTime(t), a);
           if (b != "1000" && b != "bt1") {
-            console.log('Incorrect click', '<?php echo $subid; ?>');
             gtag('event', 'incorrect_click', {
-              'value': a
+              'elementClicked': a,
+              'subid': '<?php echo $subid; ?>',
+              'page': 'Login'
             });
             showAlert("This is incorrect. Please select another option.");
           }

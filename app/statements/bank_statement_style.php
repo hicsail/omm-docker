@@ -1,6 +1,5 @@
 <head>
     <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
-    <title>Bank Statement</title>
     <style type="text/css">
         <!--
         span.cls_002 {
