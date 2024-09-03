@@ -19,7 +19,7 @@
         <hr>
         <br>
         <center>
-            <a href="" class="button" style="color:white"><span> Start Activity </span></button>
+            <a href="" class="button" style="color:white"><span> Next </span></button>
         </center></a>
     </div>
 </body>

@@ -32,13 +32,10 @@ function handleFormSubmission(confidence_table) {
             });
           }
 
-          showAlert("Your confidence value is updated", () => {
-            // move to next page if on a post task confidence page
-            if (isPostTask) {
-              console.log("going to ", formData[getConfidenceId()].nextPage);
-              window.location.href = formData[getConfidenceId()].nextPage;
-            }
-          });
+          //delay page change to allow time for event to be sent
+          setTimeout(function () {
+            window.location.href = formData[getConfidenceId()].nextPage;
+          }, 200);
         } else {
           showAlert("An error occurred while submitting the form.");
         }
