@@ -16,7 +16,10 @@
 <script>
   gtag('event', 'forgot_password', {
     'subid': '<?php echo $subid; ?>',
-    'page': 'Forgot Password'
+    'page': 'Forgot Password',
+    'event_callback': function() {
+      console.log('forgot_password event sent to Google Analytics');
+    }
   });
 </script>
 

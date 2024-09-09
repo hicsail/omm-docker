@@ -25,17 +25,18 @@ function handleFormSubmission(confidence_table) {
               : "hi_confidence_pre";
           }
           if (event_name) {
-            console.log("sending event: ", event_name, "sub", subid);
             gtag("event", event_name, {
               subid: subid,
               page: "Confidence",
+              event_callback: function () {
+                console.log(event_name, " event sent to Google Analytics");
+              },
             });
           }
 
           showAlert("Your confidence value is updated", () => {
             // move to next page if on a post task confidence page
             if (isPostTask) {
-              console.log("going to ", formData[getConfidenceId()].nextPage);
               window.location.href = formData[getConfidenceId()].nextPage;
             }
           });

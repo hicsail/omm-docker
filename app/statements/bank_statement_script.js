@@ -118,6 +118,9 @@ function helpAlert(e) {
   gtag("event", "help_click", {
     subid: subid,
     page: "Bank Statement",
+    event_callback: function () {
+      console.log("help_click event sent to Google Analytics");
+    },
   });
   document.body.style.zoom = "100%";
   document.querySelector("div.statement_content").hidden = true;
@@ -159,12 +162,14 @@ function stopTimer(e) {
   getFormId((formId) => {
     //user clicked on the correct element
     if (elementId == bankStatementQuestionAnswers[questionId].answerTag) {
-      console.log("element: ", e);
-
       console.log('logging "correct_click" event');
       gtag("event", "correct_click", {
         page: "Bank Statement",
         subid: subid,
+        elementClicked: e.innerText,
+        event_callback: function () {
+          console.log("correct_click event sent to Google Analytics");
+        },
       });
 
       user_answer = bankStatementQuestionAnswers[questionId].answer;
@@ -176,11 +181,14 @@ function stopTimer(e) {
       //user clicked on something else
     } else {
       if (e.value != "next" && e.value != "help") {
-        console.log('logging "incorrect_click" event');
+        console.log('logging "incorrect_click" event.');
         gtag("event", "incorrect_click", {
           page: "Bank Statement",
           subid: subid,
-          elementClicked: e.value,
+          elementClicked: e.innerText,
+          event_callback: function () {
+            console.log("incorrect_click event sent to Google Analytics");
+          },
         });
       }
 
@@ -225,14 +233,14 @@ function saveTime(time, user_answer, question_number, formId) {
     correct_answer = bankStatementQuestionAnswers[questionId].answerB;
   }
   /**************** */
-  console.log(
-    "  user_answer: ",
-    user_answer,
-    "\ncorrect_answer",
-    correct_answer,
-    "\nquestion_number: ",
-    question_number
-  );
+  // console.log(
+  //   "  user_answer: ",
+  //   user_answer,
+  //   "\ncorrect_answer",
+  //   correct_answer,
+  //   "\nquestion_number: ",
+  //   question_number
+  // );
 
   clicks++;
   if (t > 0) {
