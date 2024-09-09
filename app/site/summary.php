@@ -73,7 +73,7 @@ include '../common/head_content.php'; ?>
         if (b != "al1") {
           console.log('Incorrect click', '<?php echo $subid; ?>');
           gtag('event', 'incorrect_click', {
-            'elementClicked': a
+            'elementClicked': a,
             'subid': '<?php echo $subid; ?>',
             'page': 'Summary'
           });

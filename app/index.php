@@ -29,7 +29,10 @@ if (isset($_POST['Enter'])) {
         'event_category': 'Form Submission',
         'event_label': 'Registration',
         'subid': '<?php echo $subid; ?>',
-        'page': 'Registration'
+        'page': 'Registration',
+        'event_callback': function() {
+          console.log('Registration event sent to Google Analytics');
+        }
       });
     </script>
 

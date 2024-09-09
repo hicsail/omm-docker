@@ -228,9 +228,16 @@ include '../common/head_content.php'; ?>
               gtag('event', 'successful_site_login', {
                 'subid': '<?php echo $subid; ?>',
                 'page': 'Login',
+                'event_callback': function() {
+                  console.log('successful_site_login event sent to Google Analytics');
+                }
               });
               // Redirect to summary page.php
-              window.location.href = "summary.php";
+              //delay page change to allow time for event to be sent
+              setTimeout(function() {
+                window.location.href = "summary.php";
+              }, 200);
+
             } else {
               gtag('event', 'failed_site_login', {
                 'subid': '<?php echo $subid; ?>',
