@@ -67,6 +67,7 @@ const bankStatementQuestionAnswers = {
 
 //script that adds answer attempt to db
 var inputFile = "../bank_statement_question_input.php";
+const PAGE_TITLE = "Bank Statement";
 
 function getQuestionId() {
   // Get the script element who's source is this script
@@ -137,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
   detectAndLogHover([helpElement], function (hoverTime) {
     gtag("event", "hover_on_help", {
       subid: subid,
-      page: "Bank Statement",
+      page: PAGE_TITLE,
       hover_time: hoverTime,
       event_callback: function () {
         console.log(
@@ -156,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("user hovered over correct element");
       gtag("event", "hover_on_answer", {
         subid: subid,
-        page: "Bank Statement",
+        page: PAGE_TITLE,
         hover_time: hoverTime,
         event_callback: function () {
           console.log(
@@ -173,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
     element.addEventListener("dblclick", function () {
       gtag("event", "double_click", {
         subid: subid,
-        page: "Bank Statement",
+        page: PAGE_TITLE,
         elementClicked: element.textContent,
         event_callback: function () {
           console.log("double_click event sent to Google Analytics");
@@ -200,7 +201,7 @@ function toggleZoomScreen() {
 function helpAlert(e) {
   gtag("event", "help_click", {
     subid: subid,
-    page: "Bank Statement",
+    page: PAGE_TITLE,
     event_callback: function () {
       console.log("help_click event sent to Google Analytics");
     },
@@ -214,9 +215,6 @@ function helpAlert(e) {
 }
 
 function setColor(e) {
-  // console.log("data-count: ", e.target.dataset.count);
-  // console.log("data-color: ", e.target.style.color);
-
   var target = e.target;
   var count = +target.dataset.count;
   let countBefore = count;
@@ -229,18 +227,35 @@ function setColor(e) {
   target.dataset.count = count === 0 ? 1 : 0;
   let countAfter = target.dataset.count;
 
-  // if (countBefore != countAfter) {
-  //   console.log("user clicked and reclicked same element");
-  //   // count changed, meaning user clicked and reclicked same element
-  //   gtag("event", "unselect_answer", {
-  //     page: "Bank Statement",
-  //     subid: subid,
-  //     elementClicked: e.innerText,
-  //     event_callback: function () {
-  //       console.log("unselect_answer event sent to Google Analytics");
-  //     },
-  //   });
-  // }
+  // detect and log unselect choice event
+  if (getQuestionId() == "PatMillerErr") {
+    const suspiciousTransactionsElementIds = [
+      "300",
+      "400",
+      "500",
+      "600",
+      "700",
+      "800",
+      "900",
+    ];
+    if (countBefore == 0 && countAfter == 1) {
+      const isCorrectAnswer = suspiciousTransactionsElementIds.includes(
+        e.currentTarget.id
+      );
+      gtag("event", "unselect_choice", {
+        page: PAGE_TITLE,
+        subid: subid,
+        isCorrect: isCorrectAnswer,
+        elementClicked: e.innerText,
+        event_callback: function () {
+          console.log(
+            "unselect_answer event sent to Google Analytics. isCorrectAnswer: ",
+            isCorrectAnswer
+          );
+        },
+      });
+    }
+  }
 }
 
 var t = 0;
@@ -264,7 +279,7 @@ function stopTimer(e) {
     if (elementId == bankStatementQuestionAnswers[questionId].answerTag) {
       console.log('logging "correct_click" event', elementId);
       gtag("event", "correct_click", {
-        page: "Bank Statement",
+        page: PAGE_TITLE,
         subid: subid,
         elementClicked: e.innerText,
         event_callback: function () {
@@ -283,7 +298,7 @@ function stopTimer(e) {
       if (e.value != "next" && e.value != "help") {
         console.log('logging "incorrect_click" event.');
         gtag("event", "incorrect_click", {
-          page: "Bank Statement",
+          page: PAGE_TITLE,
           subid: subid,
           elementClicked: e.innerText,
           event_callback: function () {
@@ -302,7 +317,7 @@ function stopTimer(e) {
     }
     var question_number = questionId;
     if (questionId == "PatMillerErr") {
-      // in PatMillerErr, send_task2.php is called with requires id of the clicked element.
+      // in PatMillerErr, send_task2.php is called with required id of the clicked element.
       //here, it question_number var is forced to store value of element id to prevent creating a new handler function
       question_number = elementId;
       //TODO refactor and merge bank_statement_input.php with send_task2.php to prevent this hacky workaround
