@@ -12,7 +12,7 @@
             <div style="position:absolute;left:7.25px;top:2.25px" class="cls_003"><span class="cls_003" onclick="startTimer(this),setColor(event)" ; data-count="1">OMM VISA</span></div>
             <div style="position:absolute;left:470.20px;top:22.25px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Account Number Ending in 9012</span></div>
             <div style="position:absolute;left:58.03px;top:57.28px" class="cls_007"><span class="cls_007" onclick="stopTimer(this),setColor(event)" ; data-count="1">00558 BEX Z 08109 D</span></div>
-            <div id="1" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="1" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:444.67px;top:63.43px" class="cls_007"><span class="cls_007">Payment Due Date:</span></div>
                 <div style="position:absolute;left:536.22px;top:62.78px" class="cls_008"><span class="cls_008">10/09/2018</span></div>
             </div>
@@ -48,7 +48,7 @@
                 <div style="position:absolute;left:26.00px;top:352.12px" class="cls_013"><span class="cls_013">Payment, Credits</span></div>
                 <div style="position:absolute;left:263.10px;top:352.62px" class="cls_002"><span class="cls_002">-$544.10</span></div>
             </div>
-            <div id="1" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="1" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:336.88px;top:352.62px" class="cls_002"><span class="cls_002">Payment Due Date</span></div>
                 <div style="position:absolute;left:546.22px;top:352.62px" class="cls_002"><span class="cls_002">10/09/2018</span></div>
             </div>
@@ -56,7 +56,7 @@
                 <div style="position:absolute;left:26.00px;top:364.12px" class="cls_013"><span class="cls_013">Purchases</span></div>
                 <div style="position:absolute;left:258.85px;top:364.62px" class="cls_002"><span class="cls_002">$2,829.70</span></div>
             </div>
-            <div id="200" onclick="stopTimer(this),setColor(event)">
+            <div class="possible_answer" id="200" onclick="stopTimer(this),setColor(event)">
                 <div style="position:absolute;left:336.88px;top:364.62px" class="cls_002"><span class="cls_002">Minimum Payment Due</span></div>
                 <div style="position:absolute;left:564.22px;top:364.62px" class="cls_002"><span class="cls_002">$83.72</span></div>
             </div>
@@ -73,17 +73,17 @@
                 <div style="position:absolute;left:258.85px;top:401.12px" class="cls_002"><span class="cls_002">$3,421.26</span></div>
             </div>
             <div style="position:absolute;left:329.63px;top:415.12px" class="cls_012" onclick="stopTimer(this),setColor(event)" ; data-count="0"><span class="cls_012">Late Payment Warning: </span><span class="cls_006">If we do not receive your minimum</span></div>
-            <div id="7" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="7" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:26.00px;top:424.62px" class="cls_013"><span class="cls_013">Opening/Closing Date</span></div>
                 <div style="position:absolute;left:204.33px;top:425.12px" class="cls_002"><span class="cls_002">08/16/2018-09/15/2018</span></div>
             </div>
             <div style="position:absolute;left:329.63px;top:427.37px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">payment by the date listed above, you may have to pay up to a</span></div>
             <div style="position:absolute;left:329.63px;top:439.65px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">$35.00 late fee and your APRs will be subject to increase to a</span></div>
-            <div id="5" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="5" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:26.00px;top:448.65px" class="cls_013"><span class="cls_013">Total Credit Line</span></div>
                 <div style="position:absolute;left:258.85px;top:449.15px" class="cls_002"><span class="cls_002">$4,500.00</span></div>
             </div>
-            <div style="position:absolute;left:329.63px;top:451.90px" class="cls_006"><span id="6" class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">maximum Penalty APR of 29.99%.</span></div>
+            <div style="position:absolute;left:329.63px;top:451.90px" class="cls_006"><span class="possible_answer" id="6" class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">maximum Penalty APR of 29.99%.</span></div>
 
             <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:26.00px;top:472.65px" class="cls_013"><span class="cls_013">Available Credit</span></div>
@@ -96,7 +96,7 @@
                 <div style="position:absolute;left:266.35px;top:497.15px" class="cls_002"><span class="cls_002">$900.00</span></div>
             </div>
             <div style="position:absolute;left:329.63px;top:506.90px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">take you longer to pay off your balance. For example:</span></div>
-            <div id="2" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="2" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:26.00px;top:520.67px" class="cls_013"><span class="cls_013">Available for Cash</span></div>
                 <div style="position:absolute;left:266.35px;top:521.17px" class="cls_002"><span class="cls_002">$900.00</span></div>
             </div>
@@ -121,7 +121,7 @@
                 <div style="position:absolute;left:276.10px;top:593.20px" class="cls_002"><span class="cls_002">$0.00</span></div>
             </div>
             <div style="position:absolute;left:340.15px;top:591.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Minimum Payment</span></div>
-            <div id="4" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="4" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:18.75px;top:605.20px" class="cls_002"><span class="cls_002">5% Bonus Categories</span></div>
                 <div style="position:absolute;left:271.10px;top:605.20px" class="cls_002"><span class="cls_002">$17.61</span></div>
             </div>
@@ -198,7 +198,7 @@
                 <div style="position:absolute;left:164.08px;top:267.82px" class="cls_002"><span class="cls_002">CHICK PEA NEW YORK NY</span></div>
                 <div style="position:absolute;left:462.95px;top:267.82px" class="cls_002"><span class="cls_002">10.57</span></div>
             </div>
-            <div id="300" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="300" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:32.53px;top:279.35px" class="cls_002"><span class="cls_002">Aug 4</span></div>
                 <div style="position:absolute;left:112.80px;top:279.35px" class="cls_002"><span class="cls_002">Aug 4</span></div>
                 <div style="position:absolute;left:164.08px;top:279.35px" class="cls_002"><span class="cls_002">CVS PHARMACY #10685 NY</span></div>
@@ -210,7 +210,7 @@
                 <div style="position:absolute;left:164.08px;top:290.85px" class="cls_002"><span class="cls_002">PAPYRUS GIFT STR QUEENS NY</span></div>
                 <div style="position:absolute;left:462.95px;top:290.85px" class="cls_002"><span class="cls_002">3.58</span></div>
             </div>
-            <div id="400" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="400" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:32.53px;top:302.35px" class="cls_002"><span class="cls_002">Aug 4</span></div>
                 <div style="position:absolute;left:112.80px;top:302.35px" class="cls_002"><span class="cls_002">Aug 4</span></div>
                 <div style="position:absolute;left:164.08px;top:302.35px" class="cls_002"><span class="cls_002">CVS PHARMACY #10685 NY</span></div>
@@ -249,7 +249,7 @@
                 <div style="position:absolute;left:164.08px;top:359.87px" class="cls_002"><span class="cls_002">OLLIE DINER L-09118 NY</span></div>
                 <div style="position:absolute;left:462.95px;top:359.87px" class="cls_002"><span class="cls_002">28.88</span></div>
             </div>
-            <div id="500" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="500" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:32.53px;top:371.37px" class="cls_002"><span class="cls_002">Aug 6</span></div>
                 <div style="position:absolute;left:112.80px;top:371.37px" class="cls_002"><span class="cls_002">Aug 6</span></div>
                 <div style="position:absolute;left:164.08px;top:371.37px" class="cls_002"><span class="cls_002">HAMPTON INN DC LONDON UK</span></div>
@@ -322,13 +322,13 @@
                 <div style="position:absolute;left:164.08px;top:513.92px" class="cls_002"><span class="cls_002">BURGER KING #5463 NY</span></div>
                 <div style="position:absolute;left:462.95px;top:513.92px" class="cls_002"><span class="cls_002">13.93</span></div>
             </div>
-            <div id="600" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="600" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:32.53px;top:525.42px" class="cls_002"><span class="cls_002">Aug 15</span></div>
                 <div style="position:absolute;left:112.80px;top:525.42px" class="cls_002"><span class="cls_002">Aug 15</span></div>
                 <div style="position:absolute;left:164.08px;top:525.42px" class="cls_002"><span class="cls_002">COMCAST CABLE New York City 700-334-0900 NY</span></div>
                 <div style="position:absolute;left:462.95px;top:525.42px" class="cls_002"><span class="cls_002">1486.07</span></div>
             </div>
-            <div id="700" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="700" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:32.53px;top:536.92px" class="cls_002"><span class="cls_002">Aug 18</span></div>
                 <div style="position:absolute;left:112.80px;top:536.92px" class="cls_002"><span class="cls_002">Aug 18</span></div>
                 <div style="position:absolute;left:164.08px;top:536.92px" class="cls_002"><span class="cls_002">UBER TAXI TRIP #2220648 WASHINGTON DC</span></div>
@@ -406,7 +406,7 @@
                 <div style="position:absolute;left:164.08px;top:676.22px" class="cls_002"><span class="cls_002">STARBUCKS CAFE #1233 New York City NY</span></div>
                 <div style="position:absolute;left:462.95px;top:676.22px" class="cls_002"><span class="cls_002">5.97</span></div>
             </div>
-            <div id="900" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="900" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:32.53px;top:687.72px" class="cls_002"><span class="cls_002">Aug 23</span></div>
                 <div style="position:absolute;left:112.80px;top:687.72px" class="cls_002"><span class="cls_002">Aug 23</span></div>
                 <div style="position:absolute;left:164.08px;top:687.72px" class="cls_002"><span class="cls_002">MAGNOLIA RESTAURANT NY</span></div>
@@ -465,7 +465,7 @@
                 <div style="position:absolute;left:164.08px;top:159.80px" class="cls_002"><span class="cls_002">BLOOMINGDALES 314202 3278763 NY</span></div>
                 <div style="position:absolute;left:462.95px;top:159.80px" class="cls_002"><span class="cls_002">120.68</span></div>
             </div>
-            <div id="800" onclick="stopTimer(this),setColor(event)" ; data-count="0">
+            <div class="possible_answer" id="800" onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:32.53px;top:173.55px" class="cls_002"><span class="cls_002">Sep 1</span></div>
                 <div style="position:absolute;left:112.80px;top:173.55px" class="cls_002"><span class="cls_002">Sep 1</span></div>
                 <div style="position:absolute;left:164.08px;top:173.55px" class="cls_002"><span class="cls_002">MOTTS HAIRCUTS 9507030021 BROOKLYN NY</span></div>
@@ -530,7 +530,7 @@
             <div style="position:absolute;left:370.15px;top:565.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Rate (APR)</span></div>
             <div style="position:absolute;left:446.67px;top:565.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Interest Rate</span></div>
             <div style="position:absolute;left:32.78px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Purchases</span></div>
-            <div id="3" style="position:absolute;left:370.15px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">16.99%</span></div>
+            <div class="possible_answer" id="3" style="position:absolute;left:370.15px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">16.99%</span></div>
             <div style="position:absolute;left:446.67px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$3,421.26</span></div>
             <div style="position:absolute;left:514.20px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$49.51</span></div>
             <div style="position:absolute;left:32.78px;top:590.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Cash Advances</span></div>
@@ -548,6 +548,6 @@
             <div style="position:absolute;left:283.63px;top:767.25px" class="cls_006"><span class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">Page 3 of 3</span></div>
         </div>
     </div>
-    <button value="help" style="background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black;border: 2px solid black; position:fixed; right:10px;" onclick="helpAlert(this),stopTimer(this)">Help</button>
+    <button class="help" value="help" style="background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black;border: 2px solid black; position:fixed; right:10px;" onclick="helpAlert(this),stopTimer(this)">Help</button>
     <button onclick="goToNextPage()" style="position: fixed;right:10px; bottom: 20px;">Next</button>
 </body>

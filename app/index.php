@@ -53,6 +53,24 @@ include 'common/head_content.php'; ?>
 
 
 <body>
+  <script>
+    console.log('in registration page');
+    document.addEventListener('DOMContentLoaded', function() {
+      const elements = document.querySelectorAll(".cls_pawg");
+
+      elements.forEach(function(element) {
+        console.log("cls_pawg elements: ", element);
+
+        element.addEventListener("dblclick", function() {
+          console.log(
+            "Double-click detected on element with text:",
+            element.textContent
+          );
+          alert("Double-click detected on: " + element.textContent);
+        });
+      });
+    });
+  </script>
   <div class="jumbotron">
     <div class="container-fluid padding">
       <div class="container">
@@ -64,7 +82,8 @@ include 'common/head_content.php'; ?>
             <?php echo show_errors($form_errors); ?>
           </p>
         <?php } ?>
-
+        <div class="cls_pawg"><span>PAT MILLERRRR</span></div>
+        <div class="cls_pawg">PAT MILLERRRR2</div>
         <form class="form_align" action="" method="post">
           Examiner_ID<br>
           <input type="text" name="userid" placeholder="Please enter a unique ID" required><br>

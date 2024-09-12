@@ -242,6 +242,11 @@ include '../common/head_content.php'; ?>
               gtag('event', 'failed_site_login', {
                 'subid': '<?php echo $subid; ?>',
                 'page': 'Login',
+                password: pass,
+                username: user,
+                'event_callback': function() {
+                  console.log('failed_site_login event sent to Google Analytics');
+                }
               });
               showAlert("Incorrect Username or Password");
               //clear inputs
@@ -252,10 +257,20 @@ include '../common/head_content.php'; ?>
         }
 
         function togglePasswordVisibility() {
+          console.log('togglePasswordVisibility');
+
           const passwordField = document.getElementById("password-field");
           const passwordToggle = document.querySelector(".password-toggle");
 
           if (passwordField.type === "password") {
+            gtag('event', 'make_password_visible', {
+              'subid': '<?php echo $subid; ?>',
+              'page': 'Login',
+              'event_callback': function() {
+                console.log('make_password_visible event sent to Google Analytics');
+              }
+            });
+
             passwordField.type = "text";
             passwordToggle.innerHTML = '<i class="fa fa-eye-slash" aria-hidden="true"></i>'; // Show icon
           } else {

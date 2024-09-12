@@ -105,6 +105,89 @@ function setQuestionText() {
   });
 }
 
+function detectAndLogHover(elements, gaLogger) {
+  const HOVER_TIME = 2; // seconds
+  let hoverStartTime;
+  let hoverTimeout;
+
+  elements.forEach(function (element) {
+    element.addEventListener("mouseover", function () {
+      hoverStartTime = Date.now();
+      hoverTimeout = setTimeout(function () {
+        console.log("Hovering over elements for more than 5 seconds.");
+      }, HOVER_TIME * 1000);
+    });
+
+    element.addEventListener("mouseleave", function () {
+      clearTimeout(hoverTimeout);
+
+      const hoverEndTime = Date.now();
+      const hoverTime = (hoverEndTime - hoverStartTime) / 1000; // Convert milliseconds to seconds
+
+      if (hoverTime > HOVER_TIME) {
+        gaLogger(hoverTime, element);
+      }
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // log hover on help button
+  const helpElement = document.querySelector("button.help");
+  detectAndLogHover([helpElement], function (hoverTime) {
+    gtag("event", "hover_on_help", {
+      subid: subid,
+      page: "Bank Statement",
+      hover_time: hoverTime,
+      event_callback: function () {
+        console.log(
+          `hover_on_help event sent to Google Analytics with hover_time: ${hoverTime} seconds`
+        );
+      },
+    });
+  });
+
+  //log hover on potential answers
+  const answerElements = document.querySelectorAll("div.possible_answer");
+  const questionId = getQuestionId();
+  detectAndLogHover(answerElements, function (hoverTime, element) {
+    console.log("element.id: ", element.id);
+    if (element.id == bankStatementQuestionAnswers[questionId].answerTag) {
+      console.log("user hovered over correct element");
+      gtag("event", "hover_on_answer", {
+        subid: subid,
+        page: "Bank Statement",
+        hover_time: hoverTime,
+        event_callback: function () {
+          console.log(
+            `hover_on_answer event sent to Google Analytics with hover_time: ${hoverTime} seconds`
+          );
+        },
+      });
+    }
+  });
+
+  //detect and log double clicks on potential answers
+  answerElements.forEach(function (element) {
+    //detect and log double clicks
+    element.addEventListener("dblclick", function () {
+      gtag("event", "double_click", {
+        subid: subid,
+        page: "Bank Statement",
+        elementClicked: element.textContent,
+        event_callback: function () {
+          console.log("double_click event sent to Google Analytics");
+        },
+      });
+    });
+  });
+
+  //selects pretty much all elements that can be clicked on
+  // const selectorString =
+  //   "span.cls_002, span.cls_003, span.cls_006, span.cls_007, span.cls_008, span.cls_009, span.cls_011, span.cls_012, span.cls_013,span.cls_014, span.cls_016, span.cls_020, span.cls_021, span.cls_022, span.cls_024";
+  //TODO clarify whether to detect double clicks on all elements or just potential answers
+});
+
 function goToNextPage() {
   window.location.href = bankStatementQuestionAnswers[getQuestionId()].nextPage;
 }
@@ -131,9 +214,12 @@ function helpAlert(e) {
 }
 
 function setColor(e) {
+  // console.log("data-count: ", e.target.dataset.count);
+  // console.log("data-color: ", e.target.style.color);
+
   var target = e.target;
   var count = +target.dataset.count;
-
+  let countBefore = count;
   // PIs want color resetting only on this page. may be removed later
   if (getQuestionId() != "PatMillerErr") {
     count = 1;
@@ -141,6 +227,20 @@ function setColor(e) {
 
   target.style.color = count === 0 ? "#000000 " : "#FF00FF";
   target.dataset.count = count === 0 ? 1 : 0;
+  let countAfter = target.dataset.count;
+
+  // if (countBefore != countAfter) {
+  //   console.log("user clicked and reclicked same element");
+  //   // count changed, meaning user clicked and reclicked same element
+  //   gtag("event", "unselect_answer", {
+  //     page: "Bank Statement",
+  //     subid: subid,
+  //     elementClicked: e.innerText,
+  //     event_callback: function () {
+  //       console.log("unselect_answer event sent to Google Analytics");
+  //     },
+  //   });
+  // }
 }
 
 var t = 0;
@@ -162,7 +262,7 @@ function stopTimer(e) {
   getFormId((formId) => {
     //user clicked on the correct element
     if (elementId == bankStatementQuestionAnswers[questionId].answerTag) {
-      console.log('logging "correct_click" event');
+      console.log('logging "correct_click" event', elementId);
       gtag("event", "correct_click", {
         page: "Bank Statement",
         subid: subid,
@@ -225,8 +325,6 @@ function getTime(m) {
 
 function saveTime(time, user_answer, question_number, formId) {
   const questionId = getQuestionId();
-  console.log('questionId == "question4" ', questionId == "question4");
-
   var correct_answer = bankStatementQuestionAnswers[questionId].answer;
   /**************** TODO adjust when formA and formB deviate enough *************** */
   if (questionId == "question4" && formId == "B") {

@@ -13,26 +13,17 @@ function handleFormSubmission(confidence_table) {
         if (xhr.status === 200) {
           console.log("confidence.value", confidence.value);
 
-          let event_name;
           const isPostTask = formData[getConfidenceId()].type == "post-task";
-          if (confidence.value == "1") {
-            event_name = isPostTask
-              ? "lo_confidence_post"
-              : "lo_confidence_pre";
-          } else if (confidence.value == "10") {
-            event_name = isPostTask
-              ? "hi_confidence_post"
-              : "hi_confidence_pre";
-          }
-          if (event_name) {
-            gtag("event", event_name, {
-              subid: subid,
-              page: "Confidence",
-              event_callback: function () {
-                console.log(event_name, " event sent to Google Analytics");
-              },
-            });
-          }
+
+          gtag("event", "confidence_rating", {
+            subid: subid,
+            page: "Confidence",
+            rating: confidence.value,
+            stage: isPostTask ? "post-task" : "pre-task",
+            event_callback: function () {
+              console.log("confidence_rating event sent to Google Analytics");
+            },
+          });
 
           showAlert("Your confidence value is updated", () => {
             // move to next page if on a post task confidence page
