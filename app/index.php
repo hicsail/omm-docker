@@ -82,8 +82,6 @@ include 'common/head_content.php'; ?>
             <?php echo show_errors($form_errors); ?>
           </p>
         <?php } ?>
-        <div class="cls_pawg"><span>PAT MILLERRRR</span></div>
-        <div class="cls_pawg">PAT MILLERRRR2</div>
         <form class="form_align" action="" method="post">
           Examiner_ID<br>
           <input type="text" name="userid" placeholder="Please enter a unique ID" required><br>
