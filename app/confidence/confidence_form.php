@@ -41,4 +41,28 @@
 
                 </form>
                 <br><br>
+
+
+                </h3>
+                </center>
+                <br>
+                <hr>
+                <div class="next_page">
+                    <br><br><br>
+                    </center>
+                    <h3><b>
+                            <center class="task_instruction">
+                            </center>
+
+                    </h3><br>
+
+
+
+                    <hr>
+                    <br>
+                    <br>
+                    <center>
+                        <a href="" class="button" style="color:white"><span> Start Activity </span></button>
+                    </center></a>
+                </div>
 </body>

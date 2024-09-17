@@ -11,7 +11,8 @@ const instructionPageData = {
   task_instruction: {
     instruction:
       " Thank you for downloading the statement. <br><br><br>Please review the different parts of this statement. You do not have to memorize any information.  <br><br><br> Just see the overall format of the statement and know where various pieces of information are located. <br><br><br>Let me know when you are ready to begin the next part of the task.<b>      ",
-    nextPage: "4.php",
+    // nextPage: "4.php",
+    nextPage: "../statements/bank_statement_static.php",
   },
   task_instructionp2: {
     instruction:
