@@ -21,6 +21,24 @@
       console.log('forgot_password event sent to Google Analytics');
     }
   });
+  let timeSpentOnPage = 0;
+  let startTime = Date.now();
+
+  const updateTimeSpent = setInterval(function() {
+    timeSpentOnPage = Math.floor((Date.now() - startTime) / 1000); //  in seconds
+  }, 1000);
+
+  window.addEventListener('beforeunload', function(event) {
+    clearInterval(updateTimeSpent);
+    gtag('event', 'exit_forgot_password', {
+      'subid': '<?php echo $subid; ?>',
+      'page': 'Forgot Password',
+      'time_spent_on_page': timeSpentOnPage,
+      'event_callback': function() {
+        console.log('exit_forgot_password event sent to Google Analytics');
+      }
+    });
+  });
 </script>
 
 <body>

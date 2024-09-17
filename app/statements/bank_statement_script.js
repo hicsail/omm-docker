@@ -114,9 +114,7 @@ function detectAndLogHover(elements, gaLogger) {
   elements.forEach(function (element) {
     element.addEventListener("mouseover", function () {
       hoverStartTime = Date.now();
-      hoverTimeout = setTimeout(function () {
-        console.log("Hovering over elements for more than 5 seconds.");
-      }, HOVER_TIME * 1000);
+      hoverTimeout = setTimeout(function () {}, HOVER_TIME * 1000);
     });
 
     element.addEventListener("mouseleave", function () {
@@ -296,7 +294,6 @@ function stopTimer(e) {
       //user clicked on something else
     } else {
       if (e.value != "next" && e.value != "help") {
-        console.log('logging "incorrect_click" event.');
         gtag("event", "incorrect_click", {
           page: PAGE_TITLE,
           subid: subid,
