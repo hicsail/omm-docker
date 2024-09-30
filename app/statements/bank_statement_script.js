@@ -106,6 +106,42 @@ function setQuestionText() {
   });
 }
 
+function detectAndLogMultipleClicks(elements, gaLogger) {
+  let clickCount = 0;
+  const doubleClickThreshold = 2; // For detecting a double-click
+  const multiClickThreshold = 3; // For detecting multiple clicks
+  const timeLimit = 500; // Time window in milliseconds
+
+  const handleClick = (element) => {
+    clickCount++;
+
+    // // Detect double-click
+    // if (clickCount === doubleClickThreshold) {
+    //   console.log("Double click detected!");
+    //   gaLogger(clickCount, element);
+    //   clickCount = 0; // Reset after detecting double-click
+    //   return;
+    // }
+
+    // Detect multiple clicks (3 or more)
+    if (clickCount >= multiClickThreshold) {
+      console.log("Multiple clicks detected (3 or more)!");
+      gaLogger(clickCount, element);
+      clickCount = 0; // Reset after detecting multiple clicks
+      return;
+    }
+
+    // Reset click count if no further clicks within the timeLimit
+    setTimeout(() => {
+      clickCount = 0;
+    }, timeLimit);
+  };
+
+  elements.forEach(function (element) {
+    element.addEventListener("click", () => handleClick(element));
+  });
+}
+
 function detectAndLogHover(elements, gaLogger) {
   const HOVER_TIME = 2; // seconds
   let hoverStartTime;
@@ -146,28 +182,41 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  //log hover on potential answers
+  //selects pretty much all elements that can be clicked on
+  const selectorString =
+    "span.cls_002, span.cls_003, span.cls_006, span.cls_007, span.cls_008, span.cls_009, span.cls_011, span.cls_012, span.cls_013,span.cls_014, span.cls_016, span.cls_020, span.cls_021, span.cls_022, span.cls_024";
+  const clickableElements = document.querySelectorAll(selectorString);
   const answerElements = document.querySelectorAll("div.possible_answer");
+  const allElements = [...clickableElements, ...answerElements];
+  //log hover on elements
   const questionId = getQuestionId();
-  detectAndLogHover(answerElements, function (hoverTime, element) {
-    console.log("element.id: ", element.id);
-    if (element.id == bankStatementQuestionAnswers[questionId].answerTag) {
-      console.log("user hovered over correct element");
-      gtag("event", "hover_on_answer", {
-        subid: subid,
-        page: PAGE_TITLE,
-        hover_time: hoverTime,
-        event_callback: function () {
-          console.log(
-            `hover_on_answer event sent to Google Analytics with hover_time: ${hoverTime} seconds`
-          );
-        },
-      });
-    }
+  detectAndLogHover(allElements, function (hoverTime, element) {
+    console.log(
+      "element.id: ",
+      element.id,
+      "elementHovered:",
+      element.textContent
+    );
+    const eventName =
+      element.id == bankStatementQuestionAnswers[questionId].answerTag
+        ? "hover_on_correct_answer"
+        : "hover_on_element";
+    gtag("event", eventName, {
+      subid: subid,
+      page: PAGE_TITLE,
+      elementHovered: element.textContent,
+      hover_time: hoverTime,
+      event_callback: function () {
+        console.log(
+          eventName +
+            ` event sent to Google Analytics with hover_time: ${hoverTime} seconds`
+        );
+      },
+    });
   });
 
-  //detect and log double clicks on potential answers
-  answerElements.forEach(function (element) {
+  //detect and log double clicks on elements
+  clickableElements.forEach(function (element) {
     //detect and log double clicks
     element.addEventListener("dblclick", function () {
       gtag("event", "double_click", {
@@ -181,9 +230,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  //selects pretty much all elements that can be clicked on
-  // const selectorString =
-  //   "span.cls_002, span.cls_003, span.cls_006, span.cls_007, span.cls_008, span.cls_009, span.cls_011, span.cls_012, span.cls_013,span.cls_014, span.cls_016, span.cls_020, span.cls_021, span.cls_022, span.cls_024";
+  //detect and log multiple clicks
+  detectAndLogMultipleClicks(clickableElements, function (clickCount, element) {
+    gtag("event", "multiple_clicks", {
+      subid: subid,
+      page: PAGE_TITLE,
+      elementClicked: element.textContent,
+      clickCount: clickCount,
+      event_callback: function () {
+        console.log(
+          `multiple_clicks event sent to Google Analytics with clickCount: ${clickCount}`
+        );
+      },
+    });
+  });
+
   //TODO clarify whether to detect double clicks on all elements or just potential answers
 });
 
