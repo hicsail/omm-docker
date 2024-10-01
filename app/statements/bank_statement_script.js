@@ -108,20 +108,11 @@ function setQuestionText() {
 
 function detectAndLogMultipleClicks(elements, gaLogger) {
   let clickCount = 0;
-  const doubleClickThreshold = 2; // For detecting a double-click
   const multiClickThreshold = 3; // For detecting multiple clicks
   const timeLimit = 500; // Time window in milliseconds
 
   const handleClick = (element) => {
     clickCount++;
-
-    // // Detect double-click
-    // if (clickCount === doubleClickThreshold) {
-    //   console.log("Double click detected!");
-    //   gaLogger(clickCount, element);
-    //   clickCount = 0; // Reset after detecting double-click
-    //   return;
-    // }
 
     // Detect multiple clicks (3 or more)
     if (clickCount >= multiClickThreshold) {
@@ -170,16 +161,18 @@ document.addEventListener("DOMContentLoaded", function () {
   // log hover on help button
   const helpElement = document.querySelector("button.help");
   detectAndLogHover([helpElement], function (hoverTime) {
-    gtag("event", "hover_on_help", {
-      subid: subid,
-      page: PAGE_TITLE,
-      hover_time: hoverTime,
-      event_callback: function () {
-        console.log(
-          `hover_on_help event sent to Google Analytics with hover_time: ${hoverTime} seconds`
-        );
-      },
-    });
+    if (track_ga != 0) {
+      gtag("event", "hover_on_help", {
+        subid: subid,
+        page: PAGE_TITLE,
+        hover_time: hoverTime,
+        event_callback: function () {
+          console.log(
+            `hover_on_help event sent to Google Analytics with hover_time: ${hoverTime} seconds`
+          );
+        },
+      });
+    }
   });
 
   //selects pretty much all elements that can be clicked on
@@ -201,48 +194,54 @@ document.addEventListener("DOMContentLoaded", function () {
       element.id == bankStatementQuestionAnswers[questionId].answerTag
         ? "hover_on_correct_answer"
         : "hover_on_element";
-    gtag("event", eventName, {
-      subid: subid,
-      page: PAGE_TITLE,
-      elementHovered: element.textContent,
-      hover_time: hoverTime,
-      event_callback: function () {
-        console.log(
-          eventName +
-            ` event sent to Google Analytics with hover_time: ${hoverTime} seconds`
-        );
-      },
-    });
+    if (track_ga != 0) {
+      gtag("event", eventName, {
+        subid: subid,
+        page: PAGE_TITLE,
+        elementHovered: element.textContent,
+        hover_time: hoverTime,
+        event_callback: function () {
+          console.log(
+            eventName +
+              ` event sent to Google Analytics with hover_time: ${hoverTime} seconds`
+          );
+        },
+      });
+    }
   });
 
   //detect and log double clicks on elements
   clickableElements.forEach(function (element) {
     //detect and log double clicks
     element.addEventListener("dblclick", function () {
-      gtag("event", "double_click", {
-        subid: subid,
-        page: PAGE_TITLE,
-        elementClicked: element.textContent,
-        event_callback: function () {
-          console.log("double_click event sent to Google Analytics");
-        },
-      });
+      if (track_ga != 0) {
+        gtag("event", "double_click", {
+          subid: subid,
+          page: PAGE_TITLE,
+          elementClicked: element.textContent,
+          event_callback: function () {
+            console.log("double_click event sent to Google Analytics");
+          },
+        });
+      }
     });
   });
 
   //detect and log multiple clicks
   detectAndLogMultipleClicks(clickableElements, function (clickCount, element) {
-    gtag("event", "multiple_clicks", {
-      subid: subid,
-      page: PAGE_TITLE,
-      elementClicked: element.textContent,
-      clickCount: clickCount,
-      event_callback: function () {
-        console.log(
-          `multiple_clicks event sent to Google Analytics with clickCount: ${clickCount}`
-        );
-      },
-    });
+    if (track_ga != 0) {
+      gtag("event", "multiple_clicks", {
+        subid: subid,
+        page: PAGE_TITLE,
+        elementClicked: element.textContent,
+        clickCount: clickCount,
+        event_callback: function () {
+          console.log(
+            `multiple_clicks event sent to Google Analytics with clickCount: ${clickCount}`
+          );
+        },
+      });
+    }
   });
 
   //TODO clarify whether to detect double clicks on all elements or just potential answers
@@ -258,13 +257,15 @@ function toggleZoomScreen() {
 }
 
 function helpAlert(e) {
-  gtag("event", "help_click", {
-    subid: subid,
-    page: PAGE_TITLE,
-    event_callback: function () {
-      console.log("help_click event sent to Google Analytics");
-    },
-  });
+  if (track_ga != 0) {
+    gtag("event", "help_click", {
+      subid: subid,
+      page: PAGE_TITLE,
+      event_callback: function () {
+        console.log("help_click event sent to Google Analytics");
+      },
+    });
+  }
   document.body.style.zoom = "100%";
   document.querySelector("div.statement_content").hidden = true;
   showAlert(bankStatementQuestionAnswers[getQuestionId()].question, () => {
@@ -337,14 +338,16 @@ function stopTimer(e) {
     //user clicked on the correct element
     if (elementId == bankStatementQuestionAnswers[questionId].answerTag) {
       console.log('logging "correct_click" event', elementId);
-      gtag("event", "correct_click", {
-        page: PAGE_TITLE,
-        subid: subid,
-        elementClicked: e.innerText,
-        event_callback: function () {
-          console.log("correct_click event sent to Google Analytics");
-        },
-      });
+      if (track_ga != 0) {
+        gtag("event", "correct_click", {
+          page: PAGE_TITLE,
+          subid: subid,
+          elementClicked: e.innerText,
+          event_callback: function () {
+            console.log("correct_click event sent to Google Analytics");
+          },
+        });
+      }
 
       user_answer = bankStatementQuestionAnswers[questionId].answer;
 
@@ -355,14 +358,16 @@ function stopTimer(e) {
       //user clicked on something else
     } else {
       if (e.value != "next" && e.value != "help") {
-        gtag("event", "incorrect_click", {
-          page: PAGE_TITLE,
-          subid: subid,
-          elementClicked: e.innerText,
-          event_callback: function () {
-            console.log("incorrect_click event sent to Google Analytics");
-          },
-        });
+        if (track_ga != 0) {
+          gtag("event", "incorrect_click", {
+            page: PAGE_TITLE,
+            subid: subid,
+            elementClicked: e.innerText,
+            event_callback: function () {
+              console.log("incorrect_click event sent to Google Analytics");
+            },
+          });
+        }
       }
 
       var a = e.innerHTML;

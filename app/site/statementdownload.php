@@ -26,10 +26,12 @@ include '../common/head_content.php'; ?>
       var clicks = 0;
 
       function HelpAlert(e) {
-        gtag('event', 'help_click', {
-          'subid': '<?php echo $subid; ?>',
-          'page': 'Statement Download'
-        });
+        if (track_ga != 0) {
+          gtag('event', 'help_click', {
+            'subid': '<?php echo $subid; ?>',
+            'page': 'Statement Download'
+          });
+        }
         showAlert("Please download the statement for August 2018");
       }
 
@@ -178,9 +180,11 @@ include '../common/head_content.php'; ?>
         saveTime(getTime(t), a);
         if (b != "100" && b != "al1") {
           console.log('Incorrect click', '<?php echo $subid; ?>');
-          gtag('event', 'incorrect_click', {
-            'value': a
-          });
+          if (track_ga != 0) {
+            gtag('event', 'incorrect_click', {
+              'value': a
+            });
+          }
           await showAlert("This is incorrect. Please select another option.");
         }
         if (b == 100) {

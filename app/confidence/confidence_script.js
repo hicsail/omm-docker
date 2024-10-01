@@ -15,15 +15,19 @@ function handleFormSubmission(confidence_table) {
 
           const isPostTask = formData[getConfidenceId()].type == "post-task";
 
-          gtag("event", "confidence_rating", {
-            subid: subid,
-            page: "Confidence",
-            rating: confidence.value,
-            stage: isPostTask ? "post-task" : "pre-task",
-            event_callback: function () {
-              console.log("confidence_rating event sent to Google Analytics");
-            },
-          });
+          console.log("track_ga", track_ga);
+
+          if (track_ga != 0) {
+            gtag("event", "confidence_rating", {
+              subid: subid,
+              page: "Confidence",
+              rating: confidence.value,
+              stage: isPostTask ? "post-task" : "pre-task",
+              event_callback: function () {
+                console.log("confidence_rating event sent to Google Analytics");
+              },
+            });
+          }
 
           showAlert("Your confidence value is updated", () => {
             // move to next page if on a post task confidence page

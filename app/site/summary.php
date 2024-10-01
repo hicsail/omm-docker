@@ -17,10 +17,12 @@ include '../common/head_content.php'; ?>
       var clicks = 0;
 
       function HelpAlert(e) {
-        gtag('event', 'help_click', {
-          'subid': '<?php echo $subid; ?>',
-          'page': 'Summary'
-        });
+        if (track_ga != 0) {
+          gtag('event', 'help_click', {
+            'subid': '<?php echo $subid; ?>',
+            'page': 'Summary'
+          });
+        }
         showAlert("Please download the statement for August 2018");
       }
 
@@ -71,11 +73,13 @@ include '../common/head_content.php'; ?>
         //alert(a);
         saveTime(getTime(t), a);
         if (b != "al1") {
-          gtag('event', 'incorrect_click', {
-            'elementClicked': a,
-            'subid': '<?php echo $subid; ?>',
-            'page': 'Summary'
-          });
+          if (track_ga != 0) {
+            gtag('event', 'incorrect_click', {
+              'elementClicked': a,
+              'subid': '<?php echo $subid; ?>',
+              'page': 'Summary'
+            });
+          }
           showAlert("This is incorrect. Please select another option.");
         }
       }

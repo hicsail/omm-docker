@@ -14,13 +14,15 @@
 </head>
 
 <script>
-  gtag('event', 'forgot_password', {
-    'subid': '<?php echo $subid; ?>',
-    'page': 'Forgot Password',
-    'event_callback': function() {
-      console.log('forgot_password event sent to Google Analytics');
-    }
-  });
+  if (track_ga != 0) {
+    gtag('event', 'forgot_password', {
+      'subid': '<?php echo $subid; ?>',
+      'page': 'Forgot Password',
+      'event_callback': function() {
+        console.log('forgot_password event sent to Google Analytics');
+      }
+    });
+  }
   let timeSpentOnPage = 0;
   let startTime = Date.now();
 
@@ -30,14 +32,16 @@
 
   window.addEventListener('beforeunload', function(event) {
     clearInterval(updateTimeSpent);
-    gtag('event', 'exit_forgot_password', {
-      'subid': '<?php echo $subid; ?>',
-      'page': 'Forgot Password',
-      'time_spent_on_page': timeSpentOnPage,
-      'event_callback': function() {
-        console.log('exit_forgot_password event sent to Google Analytics');
-      }
-    });
+    if (track_ga != 0) {
+      gtag('event', 'exit_forgot_password', {
+        'subid': '<?php echo $subid; ?>',
+        'page': 'Forgot Password',
+        'time_spent_on_page': timeSpentOnPage,
+        'event_callback': function() {
+          console.log('exit_forgot_password event sent to Google Analytics');
+        }
+      });
+    }
   });
 </script>
 

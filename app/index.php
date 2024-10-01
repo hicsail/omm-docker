@@ -25,15 +25,17 @@ if (isset($_POST['Enter'])) {
     </p>
     <script>
       console.log('Registration Successful', '<?php echo $subid; ?>');
-      gtag('event', 'registration_success', {
-        'event_category': 'Form Submission',
-        'event_label': 'Registration',
-        'subid': '<?php echo $subid; ?>',
-        'page': 'Registration',
-        'event_callback': function() {
-          console.log('Registration event sent to Google Analytics');
-        }
-      });
+      if (track_ga != 0) {
+        gtag('event', 'registration_success', {
+          'event_category': 'Form Submission',
+          'event_label': 'Registration',
+          'subid': '<?php echo $subid; ?>',
+          'page': 'Registration',
+          'event_callback': function() {
+            console.log('Registration event sent to Google Analytics');
+          }
+        });
+      }
     </script>
 
 <?php }

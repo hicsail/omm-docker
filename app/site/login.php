@@ -225,13 +225,15 @@ include '../common/head_content.php'; ?>
           getFormId((formId) => {
             const correctUsername = formId === "B" ? "eli" : "pat";
             if (user === correctUsername && pass === "admin123") {
-              gtag('event', 'successful_site_login', {
-                'subid': '<?php echo $subid; ?>',
-                'page': 'Login',
-                'event_callback': function() {
-                  console.log('successful_site_login event sent to Google Analytics');
-                }
-              });
+              if (track_ga != 0) {
+                gtag('event', 'successful_site_login', {
+                  'subid': '<?php echo $subid; ?>',
+                  'page': 'Login',
+                  'event_callback': function() {
+                    console.log('successful_site_login event sent to Google Analytics');
+                  }
+                });
+              }
               // Redirect to summary page.php	         
               //delay page change to allow time for event to be sent
               setTimeout(function() {
@@ -239,15 +241,17 @@ include '../common/head_content.php'; ?>
               }, 200);
 
             } else {
-              gtag('event', 'failed_site_login', {
-                'subid': '<?php echo $subid; ?>',
-                'page': 'Login',
-                password: pass,
-                username: user,
-                'event_callback': function() {
-                  console.log('failed_site_login event sent to Google Analytics');
-                }
-              });
+              if (track_ga != 0) {
+                gtag('event', 'failed_site_login', {
+                  'subid': '<?php echo $subid; ?>',
+                  'page': 'Login',
+                  password: pass,
+                  username: user,
+                  'event_callback': function() {
+                    console.log('failed_site_login event sent to Google Analytics');
+                  }
+                });
+              }
               showAlert("Incorrect Username or Password");
               //clear inputs
               document.getElementById("username").value = "";
@@ -263,13 +267,15 @@ include '../common/head_content.php'; ?>
           const passwordToggle = document.querySelector(".password-toggle");
 
           if (passwordField.type === "password") {
-            gtag('event', 'make_password_visible', {
-              'subid': '<?php echo $subid; ?>',
-              'page': 'Login',
-              'event_callback': function() {
-                console.log('make_password_visible event sent to Google Analytics');
-              }
-            });
+            if (track_ga != 0) {
+              gtag('event', 'make_password_visible', {
+                'subid': '<?php echo $subid; ?>',
+                'page': 'Login',
+                'event_callback': function() {
+                  console.log('make_password_visible event sent to Google Analytics');
+                }
+              });
+            }
 
             passwordField.type = "text";
             passwordToggle.innerHTML = '<i class="fa fa-eye-slash" aria-hidden="true"></i>'; // Show icon
@@ -348,11 +354,13 @@ include '../common/head_content.php'; ?>
 
           saveTime(getTime(t), a);
           if (b != "1000" && b != "bt1") {
-            gtag('event', 'incorrect_click', {
-              'elementClicked': a,
-              'subid': '<?php echo $subid; ?>',
-              'page': 'Login'
-            });
+            if (track_ga != 0) {
+              gtag('event', 'incorrect_click', {
+                'elementClicked': a,
+                'subid': '<?php echo $subid; ?>',
+                'page': 'Login'
+              });
+            }
             showAlert("This is incorrect. Please select another option.");
           }
         }
