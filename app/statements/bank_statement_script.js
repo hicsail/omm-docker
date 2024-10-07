@@ -268,9 +268,22 @@ function helpAlert(e) {
   }
   document.body.style.zoom = "100%";
   document.querySelector("div.statement_content").hidden = true;
+  //start timer to record time spent on help
+  const helpStartTime = Date.now();
   showAlert(bankStatementQuestionAnswers[getQuestionId()].question, () => {
     document.body.style.zoom = "240%";
     document.querySelector("div.statement_content").hidden = false;
+    if (track_ga != 0) {
+      const helpTime = (Date.now() - helpStartTime) / 1000; // in seconds
+      gtag("event", "exited_help", {
+        subid: subid,
+        page: PAGE_TITLE,
+        time_spent_on_help: helpTime,
+        event_callback: function () {
+          console.log("exited_help event sent to Google Analytics");
+        },
+      });
+    }
   });
 }
 
@@ -336,7 +349,21 @@ function stopTimer(e) {
 
   getFormId((formId) => {
     //user clicked on the correct element
-    if (elementId == bankStatementQuestionAnswers[questionId].answerTag) {
+    console.log("element: ", e);
+    console.log("elementId: ", elementId);
+    console.log(
+      "answerTag: ",
+      bankStatementQuestionAnswers[questionId].answerTag
+    );
+    console.log("questionId: ", questionId);
+
+    if (
+      elementId == bankStatementQuestionAnswers[questionId].answerTag ||
+      // in PatMillerErr,  correct answers are tagged with unique ids
+      ((getQuestionId() == "PatMillerErr" ||
+        getQuestionId() == "EliWinterErr") &&
+        ["300", "400", "500", "600", "700", "800", "900"].includes(elementId))
+    ) {
       console.log('logging "correct_click" event', elementId);
       if (track_ga != 0) {
         gtag("event", "correct_click", {

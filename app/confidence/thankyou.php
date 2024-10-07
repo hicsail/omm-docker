@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+<?php include '../common/gtag_setup.php';
+//study finished, reset subid
+// if current subid ends in 'debug', add it to the placeholder subid
+$_old_subid = isset($_SESSION['subid']) ? $_SESSION['subid'] : (isset($_COOKIE['subid']) ? $_COOKIE['subid'] : '');
+
+$_subid = "PLACEHOLDER";
+if ($_old_subid && strlen($_old_subid) >= 5) {
+  $_subid .= (substr($_old_subid, -5) === 'debug') ? 'debug' : '';
+}
+
+
+// update session variable with new subid
+$_SESSION['subid'] = $_subid;
+
+// set cookie for 24 hours
+setcookie('subid', $_subid, time() + 86400, "/");
+?>
+
 <?php
 session_start();
 include '../database/connect.php';

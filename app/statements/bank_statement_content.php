@@ -530,7 +530,9 @@
             <div style="position:absolute;left:370.15px;top:565.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Rate (APR)</span></div>
             <div style="position:absolute;left:446.67px;top:565.17px" class="cls_021"><span class="cls_021" onclick="stopTimer(this),setColor(event)" ; data-count="1">Interest Rate</span></div>
             <div style="position:absolute;left:32.78px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Purchases</span></div>
-            <div class="possible_answer" id="3" style="position:absolute;left:370.15px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">16.99%</span></div>
+            <div class="possible_answer" id="3" onclick="stopTimer(this),setColor(event)" ; data-count="1">
+                <div style="position:absolute;left:370.15px;top:576.67px" class="cls_002"><span class="cls_002">16.99%</span></div>
+            </div>
             <div style="position:absolute;left:446.67px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$3,421.26</span></div>
             <div style="position:absolute;left:514.20px;top:576.67px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">$49.51</span></div>
             <div style="position:absolute;left:32.78px;top:590.95px" class="cls_002"><span class="cls_002" onclick="stopTimer(this),setColor(event)" ; data-count="1">Cash Advances</span></div>

@@ -1,4 +1,5 @@
 <?php include_once 'database/connect.php';
+$pageTitle = 'Registration';
 include 'common/gtag_setup.php';
 
 if (isset($_POST['Enter'])) {
@@ -44,15 +45,12 @@ if (isset($_POST['Enter'])) {
 
 <html>
 
-
 <head>
   <link rel="stylesheet" type="text/css" href="styles/register.css">
 </head>
 <?php
 $pageTitle = 'Registration';
 include 'common/head_content.php'; ?>
-
-
 
 <body>
   <script>

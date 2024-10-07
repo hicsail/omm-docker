@@ -1,6 +1,7 @@
 <head>
-  <?php include 'gtag_setup.php'; ?>
   <title><?php echo isset($pageTitle) ? $pageTitle : 'Default Title'; ?></title>
+  <?php $pageTitle = isset($pageTitle) ? $pageTitle : 'Default Title';
+  include 'gtag_setup.php'; ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">

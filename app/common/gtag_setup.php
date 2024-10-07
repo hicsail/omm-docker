@@ -6,8 +6,6 @@ $track_ga = isset($_SESSION['track_ga']) ? $_SESSION['track_ga'] : (isset($_COOK
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-08TXFVE94F"></script>
 <script>
-    console.log('subid (setup)', '<?php echo $subid; ?>');
-
     //get track_ga from session, set to 0 if not set
     var track_ga = '<?php echo $track_ga; ?>';
     console.log('track_ga (setup)', track_ga);
@@ -34,6 +32,9 @@ $track_ga = isset($_SESSION['track_ga']) ? $_SESSION['track_ga'] : (isset($_COOK
                 'user_id': '<?php echo $subid; ?>'
             });
         }
+
+
+
     } else {
         console.log('Google Analytics tracking is disabled');
     }
