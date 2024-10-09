@@ -23,6 +23,7 @@ function handleFormSubmission(confidence_table) {
               page: "Confidence",
               rating: confidence.value,
               stage: isPostTask ? "post-task" : "pre-task",
+              timestamp: Date.now(),
               event_callback: function () {
                 console.log("confidence_rating event sent to Google Analytics");
               },

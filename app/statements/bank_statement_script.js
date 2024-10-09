@@ -166,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
         subid: subid,
         page: PAGE_TITLE,
         hover_time: hoverTime,
+        timestamp: Date.now(),
         event_callback: function () {
           console.log(
             `hover_on_help event sent to Google Analytics with hover_time: ${hoverTime} seconds`
@@ -200,6 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
         page: PAGE_TITLE,
         elementHovered: element.textContent,
         hover_time: hoverTime,
+        timestamp: Date.now(),
         event_callback: function () {
           console.log(
             eventName +
@@ -219,6 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
           subid: subid,
           page: PAGE_TITLE,
           elementClicked: element.textContent,
+          timestamp: Date.now(),
           event_callback: function () {
             console.log("double_click event sent to Google Analytics");
           },
@@ -235,6 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
         page: PAGE_TITLE,
         elementClicked: element.textContent,
         clickCount: clickCount,
+        timestamp: Date.now(),
         event_callback: function () {
           console.log(
             `multiple_clicks event sent to Google Analytics with clickCount: ${clickCount}`
@@ -261,6 +265,7 @@ function helpAlert(e) {
     gtag("event", "help_click", {
       subid: subid,
       page: PAGE_TITLE,
+      timestamp: Date.now(),
       event_callback: function () {
         console.log("help_click event sent to Google Analytics");
       },
@@ -279,6 +284,7 @@ function helpAlert(e) {
         subid: subid,
         page: PAGE_TITLE,
         time_spent_on_help: helpTime,
+        timestamp: Date.now(),
         event_callback: function () {
           console.log("exited_help event sent to Google Analytics");
         },
@@ -320,6 +326,7 @@ function setColor(e) {
         subid: subid,
         isCorrect: isCorrectAnswer,
         elementClicked: e.innerText,
+        timestamp: Date.now(),
         event_callback: function () {
           console.log(
             "unselect_answer event sent to Google Analytics. isCorrectAnswer: ",
@@ -370,6 +377,7 @@ function stopTimer(e) {
           page: PAGE_TITLE,
           subid: subid,
           elementClicked: e.innerText,
+          timestamp: Date.now(),
           event_callback: function () {
             console.log("correct_click event sent to Google Analytics");
           },
@@ -390,6 +398,7 @@ function stopTimer(e) {
             page: PAGE_TITLE,
             subid: subid,
             elementClicked: e.innerText,
+            timestamp: Date.now(),
             event_callback: function () {
               console.log("incorrect_click event sent to Google Analytics");
             },

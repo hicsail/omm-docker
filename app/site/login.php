@@ -229,6 +229,7 @@ include '../common/head_content.php'; ?>
                 gtag('event', 'successful_site_login', {
                   'subid': '<?php echo $subid; ?>',
                   'page': 'Login',
+                  timestamp: Date.now(),
                   'event_callback': function() {
                     console.log('successful_site_login event sent to Google Analytics');
                   }
@@ -247,6 +248,7 @@ include '../common/head_content.php'; ?>
                   'page': 'Login',
                   password: pass,
                   username: user,
+                  timestamp: Date.now(),
                   'event_callback': function() {
                     console.log('failed_site_login event sent to Google Analytics');
                   }
@@ -271,6 +273,7 @@ include '../common/head_content.php'; ?>
               gtag('event', 'make_password_visible', {
                 'subid': '<?php echo $subid; ?>',
                 'page': 'Login',
+                timestamp: Date.now(),
                 'event_callback': function() {
                   console.log('make_password_visible event sent to Google Analytics');
                 }
@@ -358,7 +361,8 @@ include '../common/head_content.php'; ?>
               gtag('event', 'incorrect_click', {
                 'elementClicked': a,
                 'subid': '<?php echo $subid; ?>',
-                'page': 'Login'
+                'page': 'Login',
+                timestamp: Date.now(),
               });
             }
             showAlert("This is incorrect. Please select another option.");

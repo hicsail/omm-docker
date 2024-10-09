@@ -20,7 +20,8 @@ include '../common/head_content.php'; ?>
         if (track_ga != 0) {
           gtag('event', 'help_click', {
             'subid': '<?php echo $subid; ?>',
-            'page': 'Summary'
+            'page': 'Summary',
+            timestamp: Date.now(),
           });
         }
         showAlert("Please download the statement for August 2018");
@@ -77,7 +78,8 @@ include '../common/head_content.php'; ?>
             gtag('event', 'incorrect_click', {
               'elementClicked': a,
               'subid': '<?php echo $subid; ?>',
-              'page': 'Summary'
+              'page': 'Summary',
+              timestamp: Date.now(),
             });
           }
           showAlert("This is incorrect. Please select another option.");

@@ -32,6 +32,7 @@ if (isset($_POST['Enter'])) {
           'event_label': 'Registration',
           'subid': '<?php echo $subid; ?>',
           'page': 'Registration',
+          timestamp: Date.now(),
           'event_callback': function() {
             console.log('Registration event sent to Google Analytics');
           }
