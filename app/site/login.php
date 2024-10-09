@@ -363,6 +363,9 @@ include '../common/head_content.php'; ?>
                 'subid': '<?php echo $subid; ?>',
                 'page': 'Login',
                 timestamp: Date.now(),
+                'event_callback': function() {
+                  console.log('incorrect_click event sent to Google Analytics');
+                }
               });
             }
             showAlert("This is incorrect. Please select another option.");

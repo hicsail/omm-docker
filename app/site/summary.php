@@ -22,6 +22,9 @@ include '../common/head_content.php'; ?>
             'subid': '<?php echo $subid; ?>',
             'page': 'Summary',
             timestamp: Date.now(),
+            'event_callback': function() {
+                console.log('help_click event sent to Google Analytics');
+              }
           });
         }
         showAlert("Please download the statement for August 2018");
@@ -80,6 +83,9 @@ include '../common/head_content.php'; ?>
               'subid': '<?php echo $subid; ?>',
               'page': 'Summary',
               timestamp: Date.now(),
+              'event_callback': function() {
+                console.log('incorrect_click event sent to Google Analytics');
+              }
             });
           }
           showAlert("This is incorrect. Please select another option.");
