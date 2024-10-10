@@ -1,6 +1,7 @@
 <script>
     var subid = '<?php echo $subid; ?>';
 </script>
+<script src="../../common/detectElementInteraction.js"></script>
 
 <body onload="toggleZoomScreen()">
     <div class="statement_content">

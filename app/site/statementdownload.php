@@ -12,7 +12,8 @@ include 'connect.php';
 
 <?php
 include '../common/head_content.php'; ?>
-
+<?php $pageTitle = 'Site Statement Download';
+include 'shared_element_detection.php'; ?>
 
 <body onload="startTimer(this)">
 

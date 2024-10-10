@@ -4,7 +4,8 @@
 <?php
 $pageTitle = 'Site Summary';
 include '../common/head_content.php'; ?>
-
+<?php $pageTitle = 'Site Summary';
+include 'shared_element_detection.php'; ?>
 
 <body onload="startTimer(this)">
   <div class="container-fluid">
@@ -23,8 +24,8 @@ include '../common/head_content.php'; ?>
             'page': 'Summary',
             timestamp: Date.now(),
             'event_callback': function() {
-                console.log('help_click event sent to Google Analytics');
-              }
+              console.log('help_click event sent to Google Analytics');
+            }
           });
         }
         showAlert("Please download the statement for August 2018");

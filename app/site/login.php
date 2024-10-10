@@ -19,12 +19,14 @@ include '../common/head_content.php'; ?>
     var stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
     stylesheets.forEach(function(sheet) {
       if (sheet.getAttribute('href') === '../styles/header.css') {
-        sheet.disabled = true; // or sheet.parentNode.removeChild(sheet);
+        sheet.disabled = true;
       }
     });
   });
 </script>
 
+<?php $pageTitle = 'Site Login';
+include 'shared_element_detection.php'; ?>
 
 <p id="errMsg"></p>
 
