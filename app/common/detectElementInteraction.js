@@ -1,10 +1,12 @@
 function detectAndLogDoubleClicks(elements, gaLogger) {
   //detect and log double clicks on elements
   elements.forEach(function (element) {
-    //detect and log double clicks
-    element.addEventListener("dblclick", function () {
-      gaLogger(element);
-    });
+    if (element) {
+      //detect and log double clicks
+      element.addEventListener("dblclick", function () {
+        gaLogger(element);
+      });
+    }
   });
 }
 
@@ -31,7 +33,9 @@ function detectAndLogMultipleClicks(elements, gaLogger) {
   };
 
   elements.forEach(function (element) {
-    element.addEventListener("click", () => handleClick(element));
+    if (element) {
+      element.addEventListener("click", () => handleClick(element));
+    }
   });
 }
 
@@ -41,20 +45,22 @@ function detectAndLogHover(elements, gaLogger) {
   let hoverTimeout;
 
   elements.forEach(function (element) {
-    element.addEventListener("mouseover", function () {
-      hoverStartTime = Date.now();
-      hoverTimeout = setTimeout(function () {}, HOVER_TIME * 1000);
-    });
+    if (element) {
+      element.addEventListener("mouseover", function () {
+        hoverStartTime = Date.now();
+        hoverTimeout = setTimeout(function () {}, HOVER_TIME * 1000);
+      });
 
-    element.addEventListener("mouseleave", function () {
-      clearTimeout(hoverTimeout);
+      element.addEventListener("mouseleave", function () {
+        clearTimeout(hoverTimeout);
 
-      const hoverEndTime = Date.now();
-      const hoverTime = (hoverEndTime - hoverStartTime) / 1000; // in seconds
+        const hoverEndTime = Date.now();
+        const hoverTime = (hoverEndTime - hoverStartTime) / 1000; // in seconds
 
-      if (hoverTime > HOVER_TIME) {
-        gaLogger(hoverTime, element);
-      }
-    });
+        if (hoverTime > HOVER_TIME) {
+          gaLogger(hoverTime, element);
+        }
+      });
+    }
   });
 }

@@ -31,9 +31,8 @@ $track_ga = isset($_SESSION['track_ga']) ? $_SESSION['track_ga'] : (isset($_COOK
             gtag('config', 'G-08TXFVE94F', {
                 'user_id': '<?php echo $subid; ?>'
             });
+            console.log('Saving GA events to reports (NOT Debug mode)');
         }
-
-        console.log('window.focusBlurListenersAdded', window.focusBlurListenersAdded);
 
         if (!window.focusBlurListenersAdded) {
             window.focusBlurListenersAdded = true;

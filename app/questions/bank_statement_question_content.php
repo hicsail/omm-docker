@@ -4,6 +4,8 @@
             document.body.style.zoom = "130%";
         }
     </script>
+    <script src="../common/detectElementInteraction.js"></script>
+
     <div class="container-fluid">
         <br>
         <br><br>
