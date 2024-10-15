@@ -361,7 +361,7 @@ include 'shared_element_detection.php'; ?>
           if (b != "1000" && b != "bt1") {
             if (track_ga != 0) {
               gtag('event', 'incorrect_click', {
-                'elementClicked': a,
+                'element_clicked': a,
                 'subid': '<?php echo $subid; ?>',
                 'page': 'Login',
                 timestamp: Date.now(),

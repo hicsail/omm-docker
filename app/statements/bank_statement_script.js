@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gtag("event", eventName, {
         subid: subid,
         page: PAGE_TITLE,
-        elementHovered: element.textContent,
+        element_hovered: element.textContent,
         hover_time: hoverTime,
         timestamp: Date.now(),
         event_callback: function () {
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
         gtag("event", "double_click", {
           subid: subid,
           page: PAGE_TITLE,
-          elementClicked: element.textContent,
+          element_clicked: element.textContent,
           timestamp: Date.now(),
           event_callback: function () {
             console.log("double_click event sent to Google Analytics");
@@ -185,8 +185,8 @@ document.addEventListener("DOMContentLoaded", function () {
       gtag("event", "multiple_clicks", {
         subid: subid,
         page: PAGE_TITLE,
-        elementClicked: element.textContent,
-        clickCount: clickCount,
+        element_clicked: element.textContent,
+        click_count: clickCount,
         timestamp: Date.now(),
         event_callback: function () {
           console.log(
@@ -272,7 +272,7 @@ function setColor(e) {
         page: PAGE_TITLE,
         subid: subid,
         isCorrect: isCorrectAnswer,
-        elementClicked: e.innerText,
+        element_clicked: e.innerText,
         timestamp: Date.now(),
         event_callback: function () {
           console.log(
@@ -323,7 +323,7 @@ function stopTimer(e) {
         gtag("event", "correct_click", {
           page: PAGE_TITLE,
           subid: subid,
-          elementClicked: e.innerText,
+          element_clicked: e.innerText,
           timestamp: Date.now(),
           event_callback: function () {
             console.log("correct_click event sent to Google Analytics");
@@ -344,7 +344,7 @@ function stopTimer(e) {
           gtag("event", "incorrect_click", {
             page: PAGE_TITLE,
             subid: subid,
-            elementClicked: e.innerText,
+            element_clicked: e.innerText,
             timestamp: Date.now(),
             event_callback: function () {
               console.log("incorrect_click event sent to Google Analytics");
