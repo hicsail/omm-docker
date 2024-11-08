@@ -2,6 +2,40 @@
     var subid = "<?php echo $subid; ?>";
 </script>
 
+<!-- The following scripts serve to log "hover_on_element" GA events for the confidence radio buttons only. -->
+<script src="../common/detectElementInteraction.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const selectedElements = document.querySelectorAll('input[type="radio"]');
+
+    const isPostTask = formData[getConfidenceId()].type == "post-task";
+
+    var subid = "<?php echo $subid; ?>";
+    var pageTitle = "<?php echo $pageTitle; ?>";
+    console.log('subid:', subid, 'pageTitle:', pageTitle);
+
+    detectAndLogHover(selectedElements, function(hoverTime, element) {
+      if (track_ga != 0) {
+        gtag("event", "hover_on_element", {
+          subid: subid,
+          page: pageTitle,
+          elementHovered: element.value,
+          stage: isPostTask ? "post-task" : "pre-task",
+          hover_time: hoverTime,
+          timestamp: Date.now(),
+          event_callback: function() {
+            console.log(
+              `hover_on_element for confidence value ${element.value} sent to Google Analytics with hover_time: ${hoverTime} seconds`
+            );
+          },
+        });
+      }
+    });
+  });
+</script>
+<!-- end of "hover_on_element"-for-confidence-radio-buttons scripts. -->
+
+
 <body onload="setInstructions()">
 
     <br>
