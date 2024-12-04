@@ -311,6 +311,7 @@ function stopTimer(e) {
     );
     console.log("questionId: ", questionId);
 
+    // GA: correct_click or incorrect_click
     if (
       elementId == bankStatementQuestionAnswers[questionId].answerTag ||
       // in PatMillerErr,  correct answers are tagged with unique ids
@@ -330,14 +331,6 @@ function stopTimer(e) {
           },
         });
       }
-
-      user_answer = bankStatementQuestionAnswers[questionId].answer;
-
-      if (questionId == "question4" && formId == "B") {
-        user_answer = bankStatementQuestionAnswers[questionId].answerB;
-      }
-
-      //user clicked on something else
     } else {
       if (e.value != "next" && e.value != "help") {
         if (track_ga != 0) {
@@ -352,7 +345,16 @@ function stopTimer(e) {
           });
         }
       }
+    }
 
+    // Extract user_answer
+    if (elementId == bankStatementQuestionAnswers[questionId].answerTag) {
+      user_answer = bankStatementQuestionAnswers[questionId].answer;
+
+      if (questionId == "question4" && formId == "B") {
+        user_answer = bankStatementQuestionAnswers[questionId].answerB;
+      }
+    } else {
       var a = e.innerHTML;
       a = a.trim();
       a = a.replace(/(<([^>]+)>)/gi, "");
