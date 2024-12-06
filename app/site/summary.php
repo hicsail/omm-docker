@@ -21,7 +21,7 @@ include 'shared_element_detection.php'; ?>
         if (track_ga != 0) {
           gtag('event', 'help_click', {
             'subid': '<?php echo $subid; ?>',
-            'page': 'Summary',
+            'page': '<?php echo $pageTitle; ?>',
             timestamp: Date.now(),
             'event_callback': function() {
               console.log('help_click event sent to Google Analytics');
@@ -80,9 +80,9 @@ include 'shared_element_detection.php'; ?>
         if (b != "al1") {
           if (track_ga != 0) {
             gtag('event', 'incorrect_click', {
-              'elementClicked': a,
+              'element_clicked': a,
               'subid': '<?php echo $subid; ?>',
-              'page': 'Summary',
+              'page': '<?php echo $pageTitle; ?>',
               timestamp: Date.now(),
               'event_callback': function() {
                 console.log('incorrect_click event sent to Google Analytics');
