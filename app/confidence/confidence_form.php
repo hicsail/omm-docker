@@ -19,7 +19,7 @@
         gtag("event", "hover_on_element", {
           subid: subid,
           page: pageTitle,
-          elementHovered: element.value,
+          element_hovered: element.value,
           stage: isPostTask ? "post-task" : "pre-task",
           hover_time: hoverTime,
           timestamp: Date.now(),

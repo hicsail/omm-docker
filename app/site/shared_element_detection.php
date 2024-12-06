@@ -18,7 +18,7 @@
         gtag("event", "hover_on_element", {
           subid: subid,
           page: pageTitle,
-          elementHovered: element.textContent,
+          element_hovered: element.textContent,
           hover_time: hoverTime,
           timestamp: Date.now(),
           event_callback: function() {

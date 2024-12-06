@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(
       "element.id: ",
       element.id,
-      "elementHovered:",
+      "element.textContent (used as element_hovered):",
       element.textContent
     );
     const eventName =
