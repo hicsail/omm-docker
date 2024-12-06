@@ -271,12 +271,12 @@ function setColor(e) {
       gtag("event", "unselect_choice", {
         page: PAGE_TITLE,
         subid: subid,
-        isCorrect: isCorrectAnswer,
-        element_clicked: e.innerText,
+        is_correct: isCorrectAnswer,
+        element_clicked: e.target.innerText,
         timestamp: Date.now(),
         event_callback: function () {
           console.log(
-            "unselect_answer event sent to Google Analytics. isCorrectAnswer: ",
+            "unselect_choice event sent to Google Analytics. isCorrectAnswer: ",
             isCorrectAnswer
           );
         },
