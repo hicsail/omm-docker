@@ -1,6 +1,7 @@
 <html>
 
-<?php include '../../common/gtag_setup.php'; ?>
+<?php $pageTitle = 'Bank Statement Pat 4';
+include '../../common/gtag_setup.php'; ?>
 <title>Bank Statement Pat 4</title>
 
 
