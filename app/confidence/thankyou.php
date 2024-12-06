@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php include '../common/gtag_setup.php';
+<?php $pageTitle = 'Thank you';
+include '../common/gtag_setup.php';
 //study finished, reset subid
 // if current subid ends in 'debug', add it to the placeholder subid
 $_old_subid = isset($_SESSION['subid']) ? $_SESSION['subid'] : (isset($_COOKIE['subid']) ? $_COOKIE['subid'] : '');
@@ -33,7 +34,7 @@ if (isset($_POST['submit'])) {
 <html>
 
 <head>
-  <title>Bank statement</title>
+  <title>Thank you</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
