@@ -6,13 +6,13 @@ include 'connect.php';
 <html>
 
 <head>
-  <title>Site (Statement Download)</title>
+  <title>Statement Download</title>
   <link rel="stylesheet" type="text/css" href="statement_download.css">
 </head>
 
-<?php
+<?php $pageTitle = 'Statement Download';
 include '../common/head_content.php'; ?>
-<?php $pageTitle = 'Site Statement Download';
+<?php $pageTitle = 'Statement Download';
 include 'shared_element_detection.php'; ?>
 
 <body onload="startTimer(this)">
@@ -30,7 +30,7 @@ include 'shared_element_detection.php'; ?>
         if (track_ga != 0) {
           gtag('event', 'help_click', {
             'subid': '<?php echo $subid; ?>',
-            'page': 'Statement Download',
+            'page': '<?php echo $pageTitle; ?>',
             timestamp: Date.now(),
             'event_callback': function() {
               console.log('help_click event sent to Google Analytics');
