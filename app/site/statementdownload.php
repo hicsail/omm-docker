@@ -188,7 +188,9 @@ include 'shared_element_detection.php'; ?>
           console.log('Incorrect click', '<?php echo $subid; ?>');
           if (track_ga != 0) {
             gtag('event', 'incorrect_click', {
-              'value': a,
+              page: '<?php echo $pageTitle; ?>',
+              subid: '<?php echo $subid; ?>',
+              element_clicked: a,
               timestamp: Date.now(),
               'event_callback': function() {
                 console.log('incorrect_click event sent to Google Analytics');
