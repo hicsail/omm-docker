@@ -26,6 +26,25 @@ include 'shared_element_detection.php'; ?>
       var i;
       var clicks = 0;
 
+	  document.addEventListener("DOMContentLoaded", function () {
+          const helpElement = document.querySelector("button.help");
+          detectAndLogHover([helpElement], function (hoverTime) {
+            if (track_ga != 0) {
+              gtag("event", "hover_on_help", {
+                subid: '<?php echo $subid; ?>',
+                page: '<?php echo $pageTitle; ?>',
+                hover_time: hoverTime,
+                timestamp: Date.now(),
+                event_callback: function () {
+                  console.log(
+                    `hover_on_help event sent to Google Analytics with hover_time: ${hoverTime} seconds`
+                  );
+                },
+              });
+            }
+          });
+	  })
+
       function HelpAlert(e) {
         if (track_ga != 0) {
           gtag('event', 'help_click', {
@@ -304,7 +323,7 @@ include 'shared_element_detection.php'; ?>
             <a class="nav-link" href="#" onclick="saveResponse(this) ; return false;" style="color: white">Logout</a>
           </li>
           <li class="nav_item">
-            <button value="help" id="al1" style="background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black; border: 2px solid black; position:absolute; right:30px;" onclick="HelpAlert(this),saveResponse(this) ; ">Help</button>
+            <button class="help" value="help" id="al1" style="background-color:#33CEFF; font-family: georgia; font-weight: bold; color: black; border: 2px solid black; position:absolute; right:30px;" onclick="HelpAlert(this),saveResponse(this) ; ">Help</button>
           </li>
         </ul>
 
