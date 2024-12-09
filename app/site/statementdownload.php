@@ -29,16 +29,31 @@ include 'shared_element_detection.php'; ?>
       function HelpAlert(e) {
         if (track_ga != 0) {
           gtag('event', 'help_click', {
-            'subid': '<?php echo $subid; ?>',
-            'page': '<?php echo $pageTitle; ?>',
+            subid: '<?php echo $subid; ?>',
+            page: '<?php echo $pageTitle; ?>',
             timestamp: Date.now(),
-            'event_callback': function() {
+            event_callback: function() {
               console.log('help_click event sent to Google Analytics');
             }
 
           });
         }
-        showAlert("Please download the statement for August 2018");
+        //start timer to record time spent on help
+        const helpStartTime = Date.now();
+		showAlert("Please download the statement for August 2018", () => {
+            if (track_ga != 0) {
+              const helpTime = (Date.now() - helpStartTime) / 1000; // in seconds
+              gtag("event", "exited_help", {
+                subid: '<?php echo $subid; ?>',
+                page: '<?php echo $pageTitle; ?>',
+                time_spent_on_help: helpTime,
+                timestamp: Date.now(),
+                event_callback: function () {
+                  console.log("exited_help event sent to Google Analytics");
+                },
+              });
+            }
+		});
       }
 
       async function saveResponse(e) {
