@@ -20,7 +20,7 @@ function handleFormSubmission(confidence_table) {
           if (track_ga != 0) {
             gtag("event", "confidence_rating", {
               subid: subid,
-              page: "Confidence",
+              page: "Confidence " + getConfidenceId(),
               rating: confidence.value,
               stage: isPostTask ? "post-task" : "pre-task",
               timestamp: Date.now(),
