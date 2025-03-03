@@ -84,7 +84,7 @@
                 <div style="position:absolute;left:26.00px;top:448.65px" class="cls_013"><span class="cls_013">Total Credit Line</span></div>
                 <div style="position:absolute;left:258.85px;top:449.15px" class="cls_002"><span class="cls_002">$4,500.00</span></div>
             </div>
-            <div style="position:absolute;left:329.63px;top:451.90px" class="cls_006"><span class="possible_answer" id="6" class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">maximum Penalty APR of 29.99%.</span></div>
+            <div style="position:absolute;left:329.63px;top:451.90px" class="cls_006 possible_answer"><span id="6" class="cls_006" onclick="stopTimer(this),setColor(event)" ; data-count="1">maximum Penalty APR of 29.99%.</span></div>
 
             <div onclick="stopTimer(this),setColor(event)" ; data-count="0">
                 <div style="position:absolute;left:26.00px;top:472.65px" class="cls_013"><span class="cls_013">Available Credit</span></div>
