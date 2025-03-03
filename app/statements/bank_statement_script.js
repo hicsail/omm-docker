@@ -130,24 +130,11 @@ document.addEventListener("DOMContentLoaded", function () {
     "span.cls_002, span.cls_003, span.cls_006, span.cls_007, span.cls_008, span.cls_009, span.cls_011, span.cls_012, span.cls_013,span.cls_014, span.cls_016, span.cls_020, span.cls_021, span.cls_022, span.cls_024";
   const clickableElements = document.querySelectorAll(selectorString);
 
-  // 20250228: Making this commit solely for documentation purposes.
-  // Notes on why hover_on_correct_answer cannot currently be fixed.
-
-  // Adding the hover event listener on these answerElements divs
-  // is causing two events to fire for every hover: one from the div container,
-  // another from the span inside the div (i.e. the clickableElements above).
-  // The intention was evidently for the div events to result in
-  // hover_on_correct_answer, and the span events to result in hover_on_element.
-  // (Divs are being used to mark groups of span elements as being all valid
-  // parts of the "correct answer".)
-  // However, any time the div.possible_answer is not actually the
-  // correct answer for the _current_ question,
-  // OR the answerTag is not even set for the current question as with question 8,
-  // what ends up happening is the 'element.id == answerTag' check
-  // below fails, and a duplicate hover_on_element is triggered.
-  // See below...
-  const answerElements = document.querySelectorAll("div.possible_answer");
-  const allElements = [...clickableElements, ...answerElements];
+  // see commit 3f5ce02 (2025 Mar 03) for discussion on these answerElements
+  // & hover_on_correct_answer.
+  //const answerElements = document.querySelectorAll("div.possible_answer");
+  //const allElements = [...clickableElements, ...answerElements];
+  const allElements = clickableElements
 
   //log hover on elements
   const questionId = getQuestionId();
@@ -158,23 +145,11 @@ document.addEventListener("DOMContentLoaded", function () {
       "element.textContent (used as element_hovered):",
       element.textContent
     );
-    const eventName =
-      element.id == bankStatementQuestionAnswers[questionId].answerTag
-        ? "hover_on_correct_answer"
-        : "hover_on_element";
-	//  ^^^
-    //  - the 'span' element has no id, so fails the answerTag comparison, so always
-    //    results in a hover_on_element, whether it's inside the correct answer or not;
-    //  - the 'div' element......
-    //      - IF it's the correct answer AND the answerTag exists (so, not q8),
-    //        will fire a hover_on_correct_answer;
-    //            (this is fine)
-    //      - ELSE IF it's the correct answer BUT no answerTag exists (so, q8 cases),
-    //        will fire a duplicate hover_on_element;
-    //            (this is degenerate; it should fire a hover_on_correct_answer)
-    //      - ELSE it's not the correct answer, so
-    //        will fire a duplicate hover_on_element.
-    //            (this is obviously wrong; no extra event should fire.)
+    const eventName = "hover_on_element";
+    //const eventName =
+    //  element.id == bankStatementQuestionAnswers[questionId].answerTag
+    //    ? "hover_on_correct_answer"
+    //    : "hover_on_element";
     if (track_ga != 0) {
       gtag("event", eventName, {
         subid: subid,
@@ -190,50 +165,6 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       });
     }
-
-	// If we do away with the divs altogether, we'd need to id/tag each span individually
-	// with something that can be checked against answerTag, not to mention this would be
-	// very likely to break other parts of the code.
-	// Instead, the following would have fixed the problems:
-	if (element.tagName === "DIV"
-		&& element.classList.contains("possible_answer")
-	    && !!element.id //avoid matching falsy element.id with falsy answerTag
-		&& (element.id == bankStatementQuestionAnswers[questionId].answerTag
-			// question 8, aka suspicious transactions, aka "PatMillerErr",
-			// potentially in the future also aka "EliWinterErr",
-			// has no answerTag entry in bankStatementQuestionAnswers,
-			// but instead has the following 7 correct answer ids,
-			// hardcoded in various spots.
-			// and btw yes, id 100 does not exist, and id 200 exists but has nothing to do with question 8.
-		    || ((getQuestionId() == "PatMillerErr"
-			     || getQuestionId() == "EliWinterErr")
-			    && ["300", "400", "500", "600", "700", "800", "900"].includes(element.id))
-		)) {
-		// This element is a div.possible_answer, and it's actually the correct answer;
-		// fire hover_on_correct_answer
-		console.log("Fire a HOVER ON CORRECT ANSWER, elem ", element.textContent);
-	} else if (
-		element.tagName === "SPAN" // filter out any intermediate divs/other elements
-	) {
-		// This element is a span; maybe it's a part of a correct answer, in which case
-		// the parent div will fire hover_on_correct_answer; this span's job is just
-		// to fire hover_on_element.
-		console.log("Fire a HOVER ON ELEMENT, elem ", element.textContent);
-    }
-
-  //  ...except that it turns out almost every div in bank_statement_content.php is using
-  //  absolute positioning, and so right now if you mouse over a span, it cannot reliably
-  //  be determined whether the event will bubble, which parent element it will bubble
-  //  to, and when the mouse is even over the span versus the div.
-  //  - https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Event_bubbling
-  //  - https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning#positioning_contexts
-  //  For example, checkout this commit and load Bank Statement Pat 5.
-  //  The correct answer is Total Credit Line ------ $4,500.00.
-  //  Try hovering over $4,500 sliding the pointer in "from below" - only hover_on_element fires.
-  //  Try the same thing but sliding the pointer in "from the left" - hover_on_correct_answer also fires.
-  //  All to say: I give up; we are just going to not add div.possible_answers to
-  //  the hover list and not implement hover_on_correct_answer.
-
   });
 
   //detect and log double clicks on elements
