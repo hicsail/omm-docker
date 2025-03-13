@@ -1,0 +1,31 @@
+# run from ~/omm-docker: docker-compose up -d
+
+services:
+  lamp:
+    image: mattrayner/lamp:0.8.0-1804-php8
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - /home/ubuntu/omm-docker/app:/app
+      - web-omm-docker:/var/lib/mysql
+
+  backup:
+    image: offen/docker-volume-backup:v2.43.0
+    restart: always
+    volumes:
+      - web-omm-docker:/backup/web-omm-docker:ro
+    environment:
+      # Back up every day at 4:33am EDT/5:33am EST
+      BACKUP_CRON_EXPRESSION: "33 9 * * *"
+      BACKUP_RETENTION_DAYS: 365
+      AWS_S3_BUCKET_NAME: sail-data-backups
+      AWS_S3_PATH: web-omm-docker
+      #AWS_ACCESS_KEY_ID: from env_file
+      #AWS_SECRET_ACCESS_KEY: from env_file
+    env_file: .aws-backup-secret-env
+
+
+volumes:
+  web-omm-docker:
+    external: true

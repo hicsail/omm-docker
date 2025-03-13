@@ -1,20 +1,13 @@
-# Manual run
+# Deployment notes
 
-## Start app within a LAMP based image
+**Use the compose file in this repository to run the app.** From `~/omm-docker` run `docker-compose up -d`.
 
-- Start Docker LAMP
+As of March 2025, the production server is on OpenStack, and it runs the code **on the `add-google-analytics` branch**, not `main`.
 
-```
-docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql --restart=unless-stopped mattrayner/lamp:latest
-```
+The code in `/app` is **bind-mounted** to the container. Do not switch branches, edit code etc unless intentionally updating the production deployment.
 
-The command leverages mattrayner/lamp image to start a container running the LAMP stack. It expects a folder "app" at the directory where the command was run, where php code is stored.
+## Create database
 
-The container will start a mysql database server, create a mysql folder at the directory where the command is run and mount that folder to var/lib/mysql inside the runnign container.
-
---restart=unless-stopped flag will automatically restart the container if it crashes, is stopped, or if the host machine reboots, ensuring that the application is always running unless it is explicitly stopped.
-
-- Create database
 The app requires the database CreditCard to be created in order to function properly. Create it with 
 ```
 docker exec CONTAINER_ID  mysql -uroot -e "create database CreditCard"
