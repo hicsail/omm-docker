@@ -15,10 +15,11 @@
 
     detectAndLogHover(selectedElements, function(hoverTime, element) {
       if (track_ga != 0) {
+	const elementHovered = element.tagName === "IMG" ? element.src : element.textContent;
         gtag("event", "hover_on_element", {
           subid: subid,
           page: pageTitle,
-          element_hovered: element.textContent,
+          element_hovered: elementHovered,
           hover_time: hoverTime,
           timestamp: Date.now(),
           event_callback: function() {
