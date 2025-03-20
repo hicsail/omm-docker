@@ -1,8 +1,8 @@
 <html>
 
-<?php $pageTitle = 'Bank Statement Pat 8';
+<?php $pageTitle = 'Transaction Statement';
 include '../../common/gtag_setup.php'; ?>
-<title>Bank Statement Pat 8</title>
+<title>Transaction Statement</title>
 
 <?php
 include '../bank_statement_style.php'; ?>
