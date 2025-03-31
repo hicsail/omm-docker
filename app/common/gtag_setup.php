@@ -34,6 +34,15 @@ $track_ga = isset($_SESSION['track_ga']) ? $_SESSION['track_ga'] : (isset($_COOK
             console.log('Saving GA events to reports (NOT Debug mode)');
         }
 
+        gtag("event", "page_viewed", {
+            subid: "<?php echo $subid; ?>",
+            page: pageTitleStr,
+            timestamp: Date.now(),
+            event_callback: function() {
+                console.log("page_viewed event sent to Google Analytics");
+            },
+        });
+
         if (!window.focusBlurListenersAdded) {
             window.focusBlurListenersAdded = true;
 
